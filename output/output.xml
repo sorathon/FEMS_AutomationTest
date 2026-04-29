@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.9 on win32)" generated="20260429 11:17:02.868" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.12.9 on win32)" generated="20260429 16:13:40.552" rpa="false" schemaversion="4">
 <suite id="s1" name="Testsuite" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite">
 <suite id="s1-s1" name="Shipping" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping">
 <suite id="s1-s1-s1" name="SHIPPING01 LOGINLOGOUT" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING01_LOGINLOGOUT">
-<suite id="s1-s1-s1-s1" name="Login" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING01_LOGINLOGOUT\login.robot">
-<test id="s1-s1-s1-s1-t1" name="TC_03: Login Fail when Password is Empty" line="9">
-<kw name="Open Shipping Web Application" library="config" type="SETUP">
+<suite id="s1-s1-s1-s1" name="01-Loginsuccess" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING01_LOGINLOGOUT\01-loginsuccess.robot">
+<test id="s1-s1-s1-s1-t1" name="TC_01: Login Success with Valid Credentials" line="11">
+<kw name="Open Login Shipping Web Application" library="config" type="SETUP">
 <kw name="New Browser" library="Browser">
 <arg>browser=chromium</arg>
 <arg>headless=False</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20260429 11:17:03.093" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\befa0bc2-46a5-4826-bb0d-88f549b4306e"}</msg>
-<msg timestamp="20260429 11:17:03.116" level="INFO">Starting Browser process C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:9870</msg>
-<msg timestamp="20260429 11:17:03.842" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\befa0bc2-46a5-4826-bb0d-88f549b4306e"}</msg>
-<status status="PASS" starttime="20260429 11:17:03.093" endtime="20260429 11:17:03.842"/>
+<msg timestamp="20260429 16:13:40.838" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\84e37b3b-8996-4543-9f00-e123b709520a"}</msg>
+<msg timestamp="20260429 16:13:40.864" level="INFO">Starting Browser process C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:55262</msg>
+<msg timestamp="20260429 16:13:41.616" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\84e37b3b-8996-4543-9f00-e123b709520a"}</msg>
+<status status="PASS" starttime="20260429 16:13:40.838" endtime="20260429 16:13:41.616"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${URL_LOGIN}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20260429 11:17:05.777" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/shipping/login</msg>
-<msg timestamp="20260429 11:17:05.777" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20260429 11:17:03.842" endtime="20260429 11:17:05.777"/>
+<msg timestamp="20260429 16:13:45.312" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/shipping/login</msg>
+<msg timestamp="20260429 16:13:45.313" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20260429 16:13:41.616" endtime="20260429 16:13:45.313"/>
 </kw>
 <kw name="Set Browser Timeout" library="Browser">
 <arg>20 seconds</arg>
 <tag>Config</tag>
 <tag>Setter</tag>
 <doc>Sets the timeout used by most input and getter keywords.</doc>
-<status status="PASS" starttime="20260429 11:17:05.777" endtime="20260429 11:17:05.780"/>
+<status status="PASS" starttime="20260429 16:13:45.313" endtime="20260429 16:13:45.315"/>
 </kw>
-<status status="PASS" starttime="20260429 11:17:03.092" endtime="20260429 11:17:05.780"/>
+<status status="PASS" starttime="20260429 16:13:40.837" endtime="20260429 16:13:45.315"/>
 </kw>
 <kw name="Input Login Credentials" library="shipping_login_page">
-<arg>tester_shipping</arg>
-<arg>${EMPTY}</arg>
+<arg>trainingship</arg>
+<arg>Netbay@123</arg>
 <kw name="Fill Text" library="Browser">
 <arg>${TXT_USERNAME}</arg>
 <arg>${username}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 11:17:05.781" level="INFO">Fills the text 'tester_shipping' in the given field.</msg>
-<status status="PASS" starttime="20260429 11:17:05.781" endtime="20260429 11:17:05.816"/>
+<msg timestamp="20260429 16:13:45.316" level="INFO">Fills the text 'trainingship' in the given field.</msg>
+<status status="PASS" starttime="20260429 16:13:45.316" endtime="20260429 16:13:45.350"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>${TXT_PASSWORD}</arg>
@@ -53,10 +53,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 11:17:05.817" level="INFO">Fills the text '' in the given field.</msg>
-<status status="PASS" starttime="20260429 11:17:05.816" endtime="20260429 11:17:05.828"/>
+<msg timestamp="20260429 16:13:45.351" level="INFO">Fills the text 'Netbay@123' in the given field.</msg>
+<status status="PASS" starttime="20260429 16:13:45.350" endtime="20260429 16:13:45.361"/>
 </kw>
-<status status="PASS" starttime="20260429 11:17:05.780" endtime="20260429 11:17:05.828"/>
+<status status="PASS" starttime="20260429 16:13:45.315" endtime="20260429 16:13:45.361"/>
 </kw>
 <kw name="Click Login Button" library="shipping_login_page">
 <kw name="Click" library="Browser">
@@ -64,13 +64,121 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260429 11:17:05.829" level="INFO">Clicks the element 'xpath=//*[@title="Login"]'.</msg>
-<status status="PASS" starttime="20260429 11:17:05.828" endtime="20260429 11:17:05.887"/>
+<msg timestamp="20260429 16:13:45.362" level="INFO">Clicks the element 'xpath=//*[@title="Login"]'.</msg>
+<status status="PASS" starttime="20260429 16:13:45.361" endtime="20260429 16:13:45.434"/>
 </kw>
-<status status="PASS" starttime="20260429 11:17:05.828" endtime="20260429 11:17:05.888"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>3 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20260429 16:13:48.434" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20260429 16:13:45.434" endtime="20260429 16:13:48.434"/>
+</kw>
+<status status="PASS" starttime="20260429 16:13:45.361" endtime="20260429 16:13:48.434"/>
+</kw>
+<kw name="Verify Login Success" library="shipping_login_page">
+<kw name="Get Url" library="Browser">
+<arg>contains</arg>
+<arg>${url_home}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" starttime="20260429 16:13:48.434" endtime="20260429 16:13:48.438"/>
+</kw>
+<status status="PASS" starttime="20260429 16:13:48.434" endtime="20260429 16:13:48.439"/>
+</kw>
+<kw name="Close Web Application" library="config" type="TEARDOWN">
+<kw name="Close Browser" library="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<msg timestamp="20260429 16:13:48.729" level="INFO">Closed browser</msg>
+<status status="PASS" starttime="20260429 16:13:48.441" endtime="20260429 16:13:48.729"/>
+</kw>
+<status status="PASS" starttime="20260429 16:13:48.441" endtime="20260429 16:13:48.729"/>
+</kw>
+<doc>ทดสอบกรณีกรอกรหัสผ่านและ Username ถูกต้อง ระบบต้องเข้าสู่ระบบสำเร็จ</doc>
+<status status="PASS" starttime="20260429 16:13:40.834" endtime="20260429 16:13:48.729"/>
+</test>
+<status status="PASS" starttime="20260429 16:13:40.584" endtime="20260429 16:13:48.733"/>
+</suite>
+<suite id="s1-s1-s1-s2" name="02-loginFail Emtpy" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING01_LOGINLOGOUT\02-loginFail_Emtpy.robot">
+<test id="s1-s1-s1-s2-t1" name="TC_02: Login Fail when Password is Empty" line="10">
+<kw name="Open Login Shipping Web Application" library="config" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20260429 16:13:48.760" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\7257fe4a-8ddd-40ed-9c17-d1cdeb705cec"}</msg>
+<msg timestamp="20260429 16:13:48.960" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\7257fe4a-8ddd-40ed-9c17-d1cdeb705cec"}</msg>
+<status status="PASS" starttime="20260429 16:13:48.760" endtime="20260429 16:13:48.961"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>${URL_LOGIN}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20260429 16:13:52.826" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/shipping/login</msg>
+<msg timestamp="20260429 16:13:52.826" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20260429 16:13:48.961" endtime="20260429 16:13:52.826"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>20 seconds</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" starttime="20260429 16:13:52.826" endtime="20260429 16:13:52.829"/>
+</kw>
+<status status="PASS" starttime="20260429 16:13:48.759" endtime="20260429 16:13:52.829"/>
+</kw>
+<kw name="Verify Login Empty" library="shipping_login_page">
+<arg>tester_shipping</arg>
+<arg>${EMPTY}</arg>
+<arg>กรุณาระบุรหัสผ่าน</arg>
+<kw name="Input Login Credentials" library="shipping_login_page">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<kw name="Fill Text" library="Browser">
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260429 16:13:52.830" level="INFO">Fills the text 'tester_shipping' in the given field.</msg>
+<status status="PASS" starttime="20260429 16:13:52.830" endtime="20260429 16:13:52.860"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260429 16:13:52.861" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20260429 16:13:52.860" endtime="20260429 16:13:52.873"/>
+</kw>
+<status status="PASS" starttime="20260429 16:13:52.830" endtime="20260429 16:13:52.873"/>
+</kw>
+<kw name="Click Login Button" library="shipping_login_page">
+<kw name="Click" library="Browser">
+<arg>${BTN_LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20260429 16:13:52.874" level="INFO">Clicks the element 'xpath=//*[@title="Login"]'.</msg>
+<status status="PASS" starttime="20260429 16:13:52.873" endtime="20260429 16:13:53.101"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20260429 16:13:56.102" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20260429 16:13:53.101" endtime="20260429 16:13:56.102"/>
+</kw>
+<status status="PASS" starttime="20260429 16:13:52.873" endtime="20260429 16:13:56.102"/>
 </kw>
 <kw name="Verify Validation Tooltip" library="shipping_login_page">
-<arg>กรุณาระบุรหัสผ่าน</arg>
+<arg>${expected_tooltip}</arg>
 <kw name="Get Text" library="Browser">
 <arg>${MSG_TOOLTIP}</arg>
 <arg>contains</arg>
@@ -79,43 +187,411 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<msg timestamp="20260429 11:17:05.925" level="INFO">Text: 'กรุณาระบุรหัสผ่าน'</msg>
-<status status="PASS" starttime="20260429 11:17:05.889" endtime="20260429 11:17:05.925"/>
+<msg timestamp="20260429 16:13:56.126" level="INFO">Text: 'กรุณาระบุรหัสผ่าน'</msg>
+<status status="PASS" starttime="20260429 16:13:56.102" endtime="20260429 16:13:56.126"/>
 </kw>
-<status status="PASS" starttime="20260429 11:17:05.888" endtime="20260429 11:17:05.925"/>
+<status status="PASS" starttime="20260429 16:13:56.102" endtime="20260429 16:13:56.126"/>
+</kw>
+<status status="PASS" starttime="20260429 16:13:52.829" endtime="20260429 16:13:56.126"/>
 </kw>
 <kw name="Close Web Application" library="config" type="TEARDOWN">
 <kw name="Close Browser" library="Browser">
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<msg timestamp="20260429 11:17:06.211" level="INFO">Closed browser</msg>
-<status status="PASS" starttime="20260429 11:17:05.926" endtime="20260429 11:17:06.211"/>
+<msg timestamp="20260429 16:13:56.365" level="INFO">Closed browser</msg>
+<status status="PASS" starttime="20260429 16:13:56.126" endtime="20260429 16:13:56.365"/>
 </kw>
-<status status="PASS" starttime="20260429 11:17:05.925" endtime="20260429 11:17:06.211"/>
+<status status="PASS" starttime="20260429 16:13:56.126" endtime="20260429 16:13:56.365"/>
 </kw>
 <doc>ทดสอบกรณีไม่กรอกรหัสผ่าน ระบบต้องแสดง Tooltip แจ้งเตือนสีแดง</doc>
-<status status="PASS" starttime="20260429 11:17:03.091" endtime="20260429 11:17:06.211"/>
+<status status="PASS" starttime="20260429 16:13:48.754" endtime="20260429 16:13:56.366"/>
 </test>
-<status status="PASS" starttime="20260429 11:17:02.897" endtime="20260429 11:17:06.215"/>
+<test id="s1-s1-s1-s2-t2" name="TC_03: Login Fail when Username is Empty" line="14">
+<kw name="Open Login Shipping Web Application" library="config" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20260429 16:13:56.371" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\8bce3e98-adf6-4cfe-adca-2372ee0dc5ae"}</msg>
+<msg timestamp="20260429 16:13:56.570" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\8bce3e98-adf6-4cfe-adca-2372ee0dc5ae"}</msg>
+<status status="PASS" starttime="20260429 16:13:56.370" endtime="20260429 16:13:56.570"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>${URL_LOGIN}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20260429 16:14:00.349" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/shipping/login</msg>
+<msg timestamp="20260429 16:14:00.349" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20260429 16:13:56.570" endtime="20260429 16:14:00.350"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>20 seconds</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" starttime="20260429 16:14:00.350" endtime="20260429 16:14:00.350"/>
+</kw>
+<status status="PASS" starttime="20260429 16:13:56.370" endtime="20260429 16:14:00.350"/>
+</kw>
+<kw name="Verify Login Empty" library="shipping_login_page">
+<arg>${EMPTY}</arg>
+<arg>tester_shipping</arg>
+<arg>กรุณาระบุชื่อผู้ใช้งาน</arg>
+<kw name="Input Login Credentials" library="shipping_login_page">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<kw name="Fill Text" library="Browser">
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:00.352" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20260429 16:14:00.352" endtime="20260429 16:14:00.383"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:00.383" level="INFO">Fills the text 'tester_shipping' in the given field.</msg>
+<status status="PASS" starttime="20260429 16:14:00.383" endtime="20260429 16:14:00.393"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:00.351" endtime="20260429 16:14:00.394"/>
+</kw>
+<kw name="Click Login Button" library="shipping_login_page">
+<kw name="Click" library="Browser">
+<arg>${BTN_LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:00.394" level="INFO">Clicks the element 'xpath=//*[@title="Login"]'.</msg>
+<status status="PASS" starttime="20260429 16:14:00.394" endtime="20260429 16:14:00.462"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20260429 16:14:03.462" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20260429 16:14:00.462" endtime="20260429 16:14:03.462"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:00.394" endtime="20260429 16:14:03.462"/>
+</kw>
+<kw name="Verify Validation Tooltip" library="shipping_login_page">
+<arg>${expected_tooltip}</arg>
+<kw name="Get Text" library="Browser">
+<arg>${MSG_TOOLTIP}</arg>
+<arg>contains</arg>
+<arg>${expected_text}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:03.482" level="INFO">Text: 'กรุณาระบุชื่อผู้ใช้งาน'</msg>
+<status status="PASS" starttime="20260429 16:14:03.462" endtime="20260429 16:14:03.482"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:03.462" endtime="20260429 16:14:03.482"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:00.351" endtime="20260429 16:14:03.482"/>
+</kw>
+<kw name="Close Web Application" library="config" type="TEARDOWN">
+<kw name="Close Browser" library="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<msg timestamp="20260429 16:14:03.730" level="INFO">Closed browser</msg>
+<status status="PASS" starttime="20260429 16:14:03.483" endtime="20260429 16:14:03.730"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:03.483" endtime="20260429 16:14:03.731"/>
+</kw>
+<doc>ทดสอบกรณีไม่กรอกรหัสผ่าน ระบบต้องแสดง Tooltip แจ้งเตือนสีแดง</doc>
+<status status="PASS" starttime="20260429 16:13:56.368" endtime="20260429 16:14:03.731"/>
+</test>
+<status status="PASS" starttime="20260429 16:13:48.740" endtime="20260429 16:14:03.733"/>
 </suite>
-<status status="PASS" starttime="20260429 11:17:02.895" endtime="20260429 11:17:06.220"/>
+<suite id="s1-s1-s1-s3" name="03-Loginfail Incorrect" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING01_LOGINLOGOUT\03-loginfail_incorrect.robot">
+<test id="s1-s1-s1-s3-t1" name="TC_04: Login Fail when Username and Password are Incorrect" line="9">
+<kw name="Open Login Shipping Web Application" library="config" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20260429 16:14:03.749" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\faee6bf3-43f6-4ad1-8f7a-8e299476cf68"}</msg>
+<msg timestamp="20260429 16:14:03.968" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\faee6bf3-43f6-4ad1-8f7a-8e299476cf68"}</msg>
+<status status="PASS" starttime="20260429 16:14:03.748" endtime="20260429 16:14:03.968"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>${URL_LOGIN}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20260429 16:14:07.297" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/shipping/login</msg>
+<msg timestamp="20260429 16:14:07.297" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20260429 16:14:03.969" endtime="20260429 16:14:07.297"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>20 seconds</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" starttime="20260429 16:14:07.297" endtime="20260429 16:14:07.299"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:03.748" endtime="20260429 16:14:07.299"/>
+</kw>
+<kw name="Input Login Credentials" library="shipping_login_page">
+<arg>tester_shipping</arg>
+<arg>dfdfdfd</arg>
+<kw name="Fill Text" library="Browser">
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:07.300" level="INFO">Fills the text 'tester_shipping' in the given field.</msg>
+<status status="PASS" starttime="20260429 16:14:07.300" endtime="20260429 16:14:07.348"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:07.349" level="INFO">Fills the text 'dfdfdfd' in the given field.</msg>
+<status status="PASS" starttime="20260429 16:14:07.349" endtime="20260429 16:14:07.361"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:07.299" endtime="20260429 16:14:07.361"/>
+</kw>
+<kw name="Click Login Button" library="shipping_login_page">
+<kw name="Click" library="Browser">
+<arg>${BTN_LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:07.362" level="INFO">Clicks the element 'xpath=//*[@title="Login"]'.</msg>
+<status status="PASS" starttime="20260429 16:14:07.362" endtime="20260429 16:14:07.700"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20260429 16:14:10.701" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20260429 16:14:07.701" endtime="20260429 16:14:10.701"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:07.362" endtime="20260429 16:14:10.701"/>
+</kw>
+<kw name="Verify Login Failed" library="shipping_login_page">
+<kw name="Get Url" library="Browser">
+<arg>contains</arg>
+<arg>${url_login}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" starttime="20260429 16:14:10.701" endtime="20260429 16:14:10.704"/>
+</kw>
+<kw name="Get Text" library="Browser">
+<arg>xpath=//*[@id="swal2-title"]</arg>
+<arg>contains</arg>
+<arg>${expected_text}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:10.725" level="INFO">Text: 'Login Failed'</msg>
+<status status="PASS" starttime="20260429 16:14:10.704" endtime="20260429 16:14:10.725"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:10.701" endtime="20260429 16:14:10.725"/>
+</kw>
+<kw name="Close Web Application" library="config" type="TEARDOWN">
+<kw name="Close Browser" library="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<msg timestamp="20260429 16:14:10.964" level="INFO">Closed browser</msg>
+<status status="PASS" starttime="20260429 16:14:10.725" endtime="20260429 16:14:10.964"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:10.725" endtime="20260429 16:14:10.964"/>
+</kw>
+<doc>ทดสอบกรณีกรอกรหัสผ่านและ Username ผิด</doc>
+<status status="PASS" starttime="20260429 16:14:03.745" endtime="20260429 16:14:10.964"/>
+</test>
+<status status="PASS" starttime="20260429 16:14:03.737" endtime="20260429 16:14:10.966"/>
 </suite>
-<status status="PASS" starttime="20260429 11:17:02.894" endtime="20260429 11:17:06.220"/>
+<status status="PASS" starttime="20260429 16:13:40.583" endtime="20260429 16:14:10.970"/>
 </suite>
-<status status="PASS" starttime="20260429 11:17:02.869" endtime="20260429 11:17:06.221"/>
+<suite id="s1-s1-s2" name="SHIPPING02 CreateBooking" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING02_CreateBooking">
+<suite id="s1-s1-s2-s1" name="01-BookingSuccess" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING02_CreateBooking\01-BookingSuccess.robot">
+<test id="s1-s1-s2-s1-t1" name="TC_05: create booking success" line="11">
+<kw name="Login As shipping User" library="config" type="SETUP">
+<kw name="Open Login Shipping Web Application" library="config">
+<kw name="New Browser" library="Browser">
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20260429 16:14:10.983" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\4d4c5c2e-87a4-4f18-8158-13bd8182e3f0"}</msg>
+<msg timestamp="20260429 16:14:11.168" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\output\\browser\\traces\\temp\\4d4c5c2e-87a4-4f18-8158-13bd8182e3f0"}</msg>
+<status status="PASS" starttime="20260429 16:14:10.982" endtime="20260429 16:14:11.172"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>${URL_LOGIN}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20260429 16:14:12.595" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/shipping/login</msg>
+<msg timestamp="20260429 16:14:12.595" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20260429 16:14:11.172" endtime="20260429 16:14:12.595"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>20 seconds</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" starttime="20260429 16:14:12.596" endtime="20260429 16:14:12.598"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:10.982" endtime="20260429 16:14:12.598"/>
+</kw>
+<kw name="Input Login Credentials" library="shipping_login_page">
+<arg>trainingship</arg>
+<arg>Netbay@123</arg>
+<kw name="Fill Text" library="Browser">
+<arg>${TXT_USERNAME}</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:12.599" level="INFO">Fills the text 'trainingship' in the given field.</msg>
+<status status="PASS" starttime="20260429 16:14:12.598" endtime="20260429 16:14:12.625"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>${TXT_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:12.626" level="INFO">Fills the text 'Netbay@123' in the given field.</msg>
+<status status="PASS" starttime="20260429 16:14:12.626" endtime="20260429 16:14:12.635"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:12.598" endtime="20260429 16:14:12.635"/>
+</kw>
+<kw name="Click Login Button" library="shipping_login_page">
+<kw name="Click" library="Browser">
+<arg>${BTN_LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:12.635" level="INFO">Clicks the element 'xpath=//*[@title="Login"]'.</msg>
+<status status="PASS" starttime="20260429 16:14:12.635" endtime="20260429 16:14:12.719"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20260429 16:14:15.720" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20260429 16:14:12.719" endtime="20260429 16:14:15.720"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:12.635" endtime="20260429 16:14:15.720"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:10.982" endtime="20260429 16:14:15.720"/>
+</kw>
+<kw name="Open Queue Booking Menu" library="shipping_login_page">
+<kw name="Click" library="Browser">
+<arg>${MENU_QUEUE_BOOKING}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:15.721" level="INFO">Clicks the element 'xpath=//*[@id="sidebar-menu-17"]'.</msg>
+<status status="PASS" starttime="20260429 16:14:15.720" endtime="20260429 16:14:17.293"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:15.720" endtime="20260429 16:14:17.294"/>
+</kw>
+<kw name="Open Create Booking Page" library="shipping_login_page">
+<kw name="Click" library="Browser">
+<arg>${MENU_CREATE_BOOKING}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:17.294" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-create"]'.</msg>
+<status status="PASS" starttime="20260429 16:14:17.294" endtime="20260429 16:14:17.802"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:17.294" endtime="20260429 16:14:17.802"/>
+</kw>
+<kw name="Select Driver By id" library="shipping_login_page">
+<arg>7-7777-77777-77-7</arg>
+<kw name="Click" library="Browser">
+<arg>xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/div[2]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:17.803" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/div[2]'.</msg>
+<status status="PASS" starttime="20260429 16:14:17.803" endtime="20260429 16:14:18.863"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/ngx-select-choices/ul/li[1]/a</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:18.864" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/ngx-select-choices/ul/li[1]/a'.</msg>
+<status status="PASS" starttime="20260429 16:14:18.863" endtime="20260429 16:14:18.901"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>xpath=//*[@id="queue-booking-tracking-search-driverTaxId"]</arg>
+<arg>${driver_id}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260429 16:14:18.902" level="INFO">Fills the text '7-7777-77777-77-7' in the given field.</msg>
+<status status="PASS" starttime="20260429 16:14:18.901" endtime="20260429 16:14:18.913"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:17.802" endtime="20260429 16:14:18.913"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>8 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20260429 16:14:26.914" level="INFO">Slept 8 seconds</msg>
+<status status="PASS" starttime="20260429 16:14:18.913" endtime="20260429 16:14:26.914"/>
+</kw>
+<kw name="Close Web Application" library="config" type="TEARDOWN">
+<kw name="Close Browser" library="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<msg timestamp="20260429 16:14:27.146" level="INFO">Closed browser</msg>
+<status status="PASS" starttime="20260429 16:14:26.914" endtime="20260429 16:14:27.146"/>
+</kw>
+<status status="PASS" starttime="20260429 16:14:26.914" endtime="20260429 16:14:27.146"/>
+</kw>
+<doc>ทดสอบกรณีสร้าง booking สำเร็จ</doc>
+<status status="PASS" starttime="20260429 16:14:10.979" endtime="20260429 16:14:27.147"/>
+</test>
+<status status="PASS" starttime="20260429 16:14:10.973" endtime="20260429 16:14:27.149"/>
+</suite>
+<status status="PASS" starttime="20260429 16:14:10.971" endtime="20260429 16:14:27.154"/>
+</suite>
+<status status="PASS" starttime="20260429 16:13:40.580" endtime="20260429 16:14:27.155"/>
+</suite>
+<status status="PASS" starttime="20260429 16:13:40.553" endtime="20260429 16:14:27.156"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Testsuite">Testsuite</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Shipping">Testsuite.Shipping</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="SHIPPING01 LOGINLOGOUT">Testsuite.Shipping.SHIPPING01 LOGINLOGOUT</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="Login">Testsuite.Shipping.SHIPPING01 LOGINLOGOUT.Login</stat>
+<stat pass="5" fail="0" skip="0" id="s1" name="Testsuite">Testsuite</stat>
+<stat pass="5" fail="0" skip="0" id="s1-s1" name="Shipping">Testsuite.Shipping</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s1-s1" name="SHIPPING01 LOGINLOGOUT">Testsuite.Shipping.SHIPPING01 LOGINLOGOUT</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="01-Loginsuccess">Testsuite.Shipping.SHIPPING01 LOGINLOGOUT.01-Loginsuccess</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s1-s2" name="02-loginFail Emtpy">Testsuite.Shipping.SHIPPING01 LOGINLOGOUT.02-loginFail Emtpy</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s3" name="03-Loginfail Incorrect">Testsuite.Shipping.SHIPPING01 LOGINLOGOUT.03-Loginfail Incorrect</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s2" name="SHIPPING02 CreateBooking">Testsuite.Shipping.SHIPPING02 CreateBooking</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s2-s1" name="01-BookingSuccess">Testsuite.Shipping.SHIPPING02 CreateBooking.01-BookingSuccess</stat>
 </suite>
 </statistics>
 <errors>
