@@ -1,5 +1,6 @@
 *** Settings ***
 Library    Browser
+Library    String
 
 *** Variables ***
 #Login Page
@@ -87,7 +88,32 @@ Fill Vehicle infomation
 
 Fill Date to TMO
     [Arguments]    ${date_to_tmo}
-    Fill Text    xpath=//*[@id="queue-booking-tracking-search-reserveDate"]      ${date_to_tmo}
+
+    # แยกค่า
+    ${year}    ${month}    ${day}    Split String    ${date_to_tmo}    -
+
+    # แปลงเดือนเป็นชื่อ
+    
+
+    Click    //*[@id="queue-booking-tracking-search-reserveDate"]
+    Wait For Elements State    .bs-datepicker-container    visible
+
+    # กดเลือกปี (ปุ่ม current ตัวที่เป็นปี)
+    Click    (//div[contains(@class,"bs-datepicker-head")]//button[contains(@class,"current")])[2]
+
+    # เลือกปี
+    Click    //span[normalize-space()="${year}"]
+
+    # เลือกเดือน
+    Click    //span[normalize-space()="${month}"]
+
+    Wait For Elements State    .bs-datepicker-body    visible
+
+    # ตัด 01 → 1
+    ${day_int}    Convert To Integer    ${day}
+
+    # เลือกวัน
+    Click    (//div[contains(@class,"bs-datepicker-body")]//span[normalize-space()="${day_int}"])[1]
 
 
 #####################################################################################################
