@@ -21,8 +21,14 @@ TC_05: create booking success
 
     Fill Vehicle infomation  กข888   กระบี่   รถยนต์ 4 ที่นั่ง
 
+    Fill infomation request Booking
 
-    Sleep    3  seconds
+    Fill Product list     GH587333777777          VG778777777
+    
+    check booking success
+
+    Sleep    30  seconds
+
 
 
 

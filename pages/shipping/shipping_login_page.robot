@@ -92,29 +92,61 @@ Fill Date to TMO
     # แยกค่า
     ${year}    ${month}    ${day}    Split String    ${date_to_tmo}    -
 
-    # แปลงเดือนเป็นชื่อ
+   
     
 
     Click    //*[@id="queue-booking-tracking-search-reserveDate"]
     Wait For Elements State    .bs-datepicker-container    visible
 
-    # กดเลือกปี (ปุ่ม current ตัวที่เป็นปี)
+    
     Click    (//div[contains(@class,"bs-datepicker-head")]//button[contains(@class,"current")])[2]
 
-    # เลือกปี
+ 
     Click    //span[normalize-space()="${year}"]
 
-    # เลือกเดือน
+
     Click    //span[normalize-space()="${month}"]
 
     Wait For Elements State    .bs-datepicker-body    visible
-
-    # ตัด 01 → 1
     ${day_int}    Convert To Integer    ${day}
-
-    # เลือกวัน
     Click    (//div[contains(@class,"bs-datepicker-body")]//span[normalize-space()="${day_int}"])[1]
 
+
+Fill infomation request Booking
+    Select Options By    xpath=//select[@id='queue-booking-detail-bookingTypeId']    text   รับสินค้าขาเข้าปกติ
+    Select Options By    xpath=//select[@id="queue-booking-detail-origin"]      text   TG
+    Select Options By     xpath=//select[@id="queue-booking-detail-destination"]     text    ภายในประเทศ/ท่าอื่น
+    Fill Text    css=input[placeholder="HH"]    10
+    Fill Text    css=input[placeholder="MM"]    30
+    Press Keys    css=input[placeholder="MM"]    Tab
+    Select Options By    xpath=//select[@id="queue-booking-detail-goodsType"]   text   ของมีค่า(TG)
+
+Fill Product list
+    [Arguments]    ${declaration_number}   ${HAWB}
+    Fill Text        xpath=//*[@id="queue-booking-detail-declarationNumber"]    ${declaration_number}
+    Click      xpath=//*[@id="queue-booking-detail-search-declarationNumber"]
+    Fill Text      xpath=//input[@id="queue-booking-detail-hawb"]      ${HAWB}}
+    Click    xpath=//*[@id="queue-booking-detail-add-declarationNumber"]    
+    Click    xpath=//*[@id="queue-booking-tracking-btn-search"]
+    click    xpath=//*[@id="queue-booking-tracking-btn-submit"]  
+    Click    xpath=//*[@id="queue-booking-tracking-btn-save"]
+    Sleep    5 seconds
+    Click    xpath=//*[@id="queue-booking-tracking-btn-save"]
+
+check booking success
+    Wait For Elements State    xpath=//div[contains(@class, 'text-dark') and contains(., '20')]    visible    30s
+
+    # 2. ดึงค่าออกมาเก็บในตัวแปร
+    # ใช้ XPath ที่กระชับขึ้น: หา div ที่มีคลาส text-dark และอยู่ภายใต้โซนที่แสดงข้อมูลการจอง
+    ${booking_id}=    Get Text    xpath=//div[contains(@class, 'text-dark') and contains(., '20')]
+    Log To Console    \nSuccessfully Created Booking ID: ${booking_id}
+
+    Click   xpath=//*[@id="queue-booking-tracking-btn-back"]
+    
+    
+    
+    
+    
 
 #####################################################################################################
 
