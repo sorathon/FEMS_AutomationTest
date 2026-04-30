@@ -1,10 +1,10 @@
 *** Settings ***
 Resource    ../../../resoures/config.robot
-Resource    ../../../pages/shipping/shipping_login_page.robot
+Resource    ../../../pages/shipping/shipping_createBooking_page.robot
 
 Test Setup       Login As shipping User
 Test Teardown    Close Web Application
-Test Template   Verify Booking Failed
+Test Template    Verify Booking Failed
 
 *** Test Cases ***
 TC_06: create booking fail when driver is unavailable
