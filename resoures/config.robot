@@ -18,5 +18,8 @@ Login As shipping User
     Input Login Credentials     trainingship          Netbay@123
     Click Login Button
 
+
+    
+
 Close Web Application
     Close Browser

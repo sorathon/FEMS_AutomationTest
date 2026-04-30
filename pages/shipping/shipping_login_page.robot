@@ -55,6 +55,18 @@ Open Create Booking Page
 
 
 #####################################################################################################
+Select Driver By id
+    [Arguments]    ${driver_id}
+    
+    # สเต็ปที่ 1: พิมพ์ชื่อคนขับลงไปในช่องเลย เพื่อให้ระบบ Filter รายชื่อให้สั้นลง
+    # (คำสั่ง Fill Text ใน Browser Library จะคลิกให้ก่อนพิมพ์อัตโนมัติ)
+    Click    xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/div[2] 
+
+    Click  xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/ngx-select-choices/ul/li[1]/a    
+    
+    Fill Text  xpath=//*[@id="queue-booking-tracking-search-driverTaxId"]   ${driver_id}
+
+
 Fill Vehicle infomation
     [Arguments]    ${driver_license}    ${vehicle_province}  ${driver_cartype}
     # --- 1. เลือกประเภทรถ ---
@@ -113,25 +125,32 @@ Fill Date to TMO
 
 
 Fill infomation request Booking
-    Select Options By    xpath=//select[@id='queue-booking-detail-bookingTypeId']    text   รับสินค้าขาเข้าปกติ
-    Select Options By    xpath=//select[@id="queue-booking-detail-origin"]      text   TG
-    Select Options By     xpath=//select[@id="queue-booking-detail-destination"]     text    ภายในประเทศ/ท่าอื่น
-    Fill Text    css=input[placeholder="HH"]    10
-    Fill Text    css=input[placeholder="MM"]    30
+    [Arguments]    ${bookingType}   ${bokingOrigin}   ${bookingDestination}    ${reserveHour}    ${reserveMinute}    ${goodsType}
+    Select Options By    xpath=//select[@id='queue-booking-detail-bookingTypeId']    text   ${bookingType}
+    Select Options By    xpath=//select[@id="queue-booking-detail-origin"]      text   ${bokingOrigin}
+    Select Options By     xpath=//select[@id="queue-booking-detail-destination"]     text        ${bookingDestination}
+    Fill Text    css=input[placeholder="HH"]    ${reserveHour}
+    Fill Text    css=input[placeholder="MM"]    ${reserveMinute}
     Press Keys    css=input[placeholder="MM"]    Tab
-    Select Options By    xpath=//select[@id="queue-booking-detail-goodsType"]   text   ของมีค่า(TG)
+    Select Options By    xpath=//select[@id="queue-booking-detail-goodsType"]   text   ${goodsType}
 
 Fill Product list
     [Arguments]    ${declaration_number}   ${HAWB}
     Fill Text        xpath=//*[@id="queue-booking-detail-declarationNumber"]    ${declaration_number}
     Click      xpath=//*[@id="queue-booking-detail-search-declarationNumber"]
     Fill Text      xpath=//input[@id="queue-booking-detail-hawb"]      ${HAWB}}
-    Click    xpath=//*[@id="queue-booking-detail-add-declarationNumber"]    
-    Click    xpath=//*[@id="queue-booking-tracking-btn-search"]
+    Click    xpath=//*[@id="queue-booking-detail-add-declarationNumber"] 
+    Click    xpath=//*[@id="queue-booking-tracking-btn-search"]   
+
+Submit Booking
     click    xpath=//*[@id="queue-booking-tracking-btn-submit"]  
     Click    xpath=//*[@id="queue-booking-tracking-btn-save"]
     Sleep    5 seconds
     Click    xpath=//*[@id="queue-booking-tracking-btn-save"]
+
+Submit Booking failed
+    click    xpath=//*[@id="queue-booking-tracking-btn-submit"]  
+    
 
 check booking success
     Wait For Elements State    xpath=//div[contains(@class, 'text-dark') and contains(., '20')]    visible    30s
@@ -140,9 +159,95 @@ check booking success
     # ใช้ XPath ที่กระชับขึ้น: หา div ที่มีคลาส text-dark และอยู่ภายใต้โซนที่แสดงข้อมูลการจอง
     ${booking_id}=    Get Text    xpath=//div[contains(@class, 'text-dark') and contains(., '20')]
     Log To Console    \nSuccessfully Created Booking ID: ${booking_id}
+    ${Queue_status}=    Get Text    xpath=//div[contains(@class, 'text-dark') and contains(., 'Queue')]
+    Log To Console    Queue Status: ${Queue_status}
 
     Click   xpath=//*[@id="queue-booking-tracking-btn-back"]
+
+
+check booking failed
+    # แทนที่จะรอเลขจอง ให้รอข้อความแจ้งเตือนสีแดงแทน
+    Wait For Elements State    text="กรุณาระบุข้อมูลคิวให้ครบทุกคิวก่อนทำการบันทึก"    visible    10s
     
+    
+Verify Booking Success
+    [Arguments]   
+    ...    ${date_to_tmo}  
+    ...    ${driver_license}   
+    ...    ${vehicle_province}  
+    ...    ${driver_cartype}     
+    ...    ${driver_id}  
+    ...    ${bookingType}   
+    ...    ${bokingOrigin}   
+    ...    ${bookingDestination}    
+    ...    ${reserveHour}    
+    ...    ${reserveMinute}    
+    ...    ${goodsType}  
+    ...    ${declaration_number}   
+    ...    ${HAWB} 
+    Open Queue Booking Menu
+    Open Create Booking Page
+    Fill Date to TMO    ${date_to_tmo}
+    IF   '${driver_id}' != '${EMPTY}'
+        Select Driver By id       ${driver_id}
+    END
+    IF  '${driver_license}' != '${EMPTY}' and '${vehicle_province}' != '${EMPTY}' and '${driver_cartype}' != '${EMPTY}'
+        Fill Vehicle infomation    ${driver_license}    ${vehicle_province}      ${driver_cartype}
+    END
+    IF  '${bookingType}' != '${EMPTY}' and '${bokingOrigin}' != '${EMPTY}' and '${bookingDestination}' != '${EMPTY}' and '${reserveHour}' != '${EMPTY}' and '${reserveMinute}' != '${EMPTY}' and '${goodsType}' != '${EMPTY}'
+        Fill infomation request Booking     
+        ...    ${bookingType}   
+        ...    ${bokingOrigin}   
+        ...    ${bookingDestination}    
+        ...    ${reserveHour}    
+        ...    ${reserveMinute}    
+        ...    ${goodsType} 
+    END
+    IF     '${declaration_number}' != '${EMPTY}' and '${HAWB}' != '${EMPTY}'
+        Fill Product list    ${declaration_number}   ${HAWB} 
+    END
+    Submit Booking
+    check booking success
+
+Verify Booking Failed
+    [Arguments]   
+    ...    ${date_to_tmo}  
+    ...    ${driver_license}   
+    ...    ${vehicle_province}  
+    ...    ${driver_cartype}     
+    ...    ${driver_id}  
+    ...    ${bookingType}   
+    ...    ${bokingOrigin}   
+    ...    ${bookingDestination}    
+    ...    ${reserveHour}    
+    ...    ${reserveMinute}    
+    ...    ${goodsType}  
+    ...    ${declaration_number}   
+    ...    ${HAWB} 
+    Open Queue Booking Menu
+    Open Create Booking Page
+    Fill Date to TMO    ${date_to_tmo}
+    IF   '${driver_id}' != '${EMPTY}'
+        Select Driver By id       ${driver_id}
+    END
+    IF  '${driver_license}' != '${EMPTY}' or '${vehicle_province}' != '${EMPTY}' or '${driver_cartype}' != '${EMPTY}'
+        Fill Vehicle infomation    ${driver_license}    ${vehicle_province}      ${driver_cartype}
+    END
+    IF  '${bookingType}' != '${EMPTY}' or '${bokingOrigin}' != '${EMPTY}' or '${bookingDestination}' != '${EMPTY}' or '${reserveHour}' != '${EMPTY}' or '${reserveMinute}' != '${EMPTY}' or '${goodsType}' != '${EMPTY}'
+        Fill infomation request Booking     
+        ...    ${bookingType}   
+        ...    ${bokingOrigin}   
+        ...    ${bookingDestination}    
+        ...    ${reserveHour}    
+        ...    ${reserveMinute}    
+        ...    ${goodsType} 
+    END
+    IF     '${declaration_number}' != '${EMPTY}' or '${HAWB}' != '${EMPTY}'
+        Fill Product list    ${declaration_number}   ${HAWB} 
+    END 
+    Submit Booking failed
+    check booking failed
+             
     
     
     
@@ -159,14 +264,5 @@ check booking success
 
 
 
-Select Driver By id
-    [Arguments]    ${driver_id}
-    
-    # สเต็ปที่ 1: พิมพ์ชื่อคนขับลงไปในช่องเลย เพื่อให้ระบบ Filter รายชื่อให้สั้นลง
-    # (คำสั่ง Fill Text ใน Browser Library จะคลิกให้ก่อนพิมพ์อัตโนมัติ)
-    Click    xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/div[2] 
 
-    Click  xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/ngx-select-choices/ul/li[1]/a    
-    
-    Fill Text  xpath=//*[@id="queue-booking-tracking-search-driverTaxId"]   ${driver_id}
 
