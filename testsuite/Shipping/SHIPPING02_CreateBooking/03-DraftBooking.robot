@@ -11,7 +11,7 @@ Test Template   Verify Draft Booking
 TC_07: create draft booking 
     [Documentation]    ทดสอบกรณีสร้าง Draft
            # [วันที่]             [ทะเบียน]          [จังหวัด]              [ประเภทรถ]          [ID คนขับ]
-           ${RAND_DATE}        ${RAND_LICENSE}            กระบี่                  รถยนต์ 4 ที่นั่ง        ${RAND_DRIVER_ID} 
+           ${RAND_DATE_FULL}        ${RAND_LICENSE}            กระบี่                  รถยนต์ 4 ที่นั่ง        ${RAND_DRIVER_ID} 
     #     [ประเภทหรือกรณี]       [รับสินค้าจากคลัง]    [ไปส่งสินค้าที่]         [เวลาเข้าพื้นที่]        [ประเภทสินค้า]
     ...    ${EMPTY}            TG                ภายในประเทศ/ท่าอื่น     10    30            ของมีค่า(TG)    
     #     [Declaration No.]    [HAWB]   
