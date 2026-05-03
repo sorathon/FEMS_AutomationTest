@@ -21,43 +21,42 @@ ${MENU_CREATE_BOOKING}    xpath=//*[@id="queue-booking-tracking-btn-create"]
 
 *** Keywords ***
 Tracking Booking
-    [Arguments]     ${BOOKING_ID}         ${Declaration_No}          ${Date_To_TMO}
-   
+    [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}    ${Date_To_TMO}=${EMPTY}
+    
+    # เข้าสู่หน้า Tracking
     Click    xpath=//*[@id="sidebar-menu-19"]
-
-    # --- 1. กรอก Booking ID ---
-    IF    '${BOOKING_ID}' != '${EMPTY}'
-        Fill Text    xpath=//*[@id="tracking-search-search-bookingReferenceNumber"]    ${BOOKING_ID}
-    ELSE
-        Clear Text    xpath=//*[@id="tracking-search-search-bookingReferenceNumber"]
+    
+    # --- STEP 1: กรอกข้อมูล (กรอกเฉพาะที่มีค่า) ---
+    Run Keyword If    '${BOOKING_ID}' != '${EMPTY}'         Fill Text    xpath=//*[@id="tracking-search-search-bookingReferenceNumber"]    ${BOOKING_ID}
+    Run Keyword If    '${Declaration_No}' != '${EMPTY}'    Fill Text    xpath=//*[@id="tracking-search-search-declarationNumber"]       ${Declaration_No}
+    
+    IF    '${Date_To_TMO}' != '${EMPTY}'
+        Fill Date to TMO Tracking    ${Date_To_TMO}
     END
 
-    # --- 2. กรอก Declaration No ---
-    IF    '${Declaration_No}' != '${EMPTY}'
-        Fill Text    xpath=//*[@id="tracking-search-search-declarationNumber"]    ${Declaration_No}
-        Log To Console    \n[INFO] Searching with Declaration No: ${Declaration_No}
-    ELSE
-        Clear Text    xpath=//*[@id="tracking-search-search-declarationNumber"]
-        Log To Console    \n[INFO] Searching with Declaration No is EMPTY
-    END
-
-    
-    Fill Date to TMO Tracking    ${Date_To_TMO}
-    
-
+    # --- STEP 2: กดค้นหาและรอ Spinner ---
     Click    xpath=//button[@id="tracking-search-btn-search"]
+    # แนะนำให้เพิ่มการรอ Loading Spinner หายไปตรงนี้ (ถ้าหน้าเว็บมี)
+    Sleep    2s    # ให้เวลาระบบ Render ผลลัพธ์ใหม่
 
-    # --- 4. ตรวจสอบผลการค้นหา (Verification) ---
+    # --- STEP 3: ตรวจสอบผลการค้นหา (Smart Verification) ---
+    # 1. ตรวจสอบ Booking ID (ถ้ามีการระบุ)
     IF    '${BOOKING_ID}' != '${EMPTY}'
         Count Search Result By Booking ID    ${BOOKING_ID}
-    END    
+    END
+
+    # 2. ตรวจสอบ Declaration No (ถ้ามีการระบุ)
     IF    '${Declaration_No}' != '${EMPTY}'
         Count Search Result By Declaration No    ${Declaration_No}
     END
 
+    # 3. ตรวจสอบ Date to TMO (ถ้ามีการระบุ) 
+    # พิเศษ: ถ้ามี Booking ID ด้วย เราจะเช็คว่า "ID นี้ มีวันที่ตรงไหม" ในใบเดียวกัน
     IF    '${Date_To_TMO}' != '${EMPTY}'
-        ${date_for_verify} =    Convert Date    ${RAND_DATE_NUM}     result_format=%d/%m/%y
-        Verify Date in Search Result    ${date_for_verify}   
+        # แปลงวันที่สำหรับการ Verify (เช่น 2026-05-03 -> 03/05/26)
+        # หมายเหตุ: ควรใช้ ${RAND_DATE_NUM} ที่เป็น format YYYY-MM-DD เพื่อความแม่นยำของ Convert Date
+        ${date_for_verify}=    Convert Date    ${RAND_DATE_NUM}    result_format=%d/%m/%y
+        Verify Date in Search Result    ${date_for_verify}    ${BOOKING_ID}
     END
 
     # รอให้เห็นผลลัพธ์ด้วยตา (ลดเวลาลงจาก 20s เป็น 5s เพื่อความรวดเร็ว)
@@ -91,7 +90,7 @@ Fill Date to TMO Tracking
 
     # 6. เลือกวัน (แปลงจาก 03 เป็น 3 เพื่อความแม่นยำ)
     ${day_int}=    Convert To Integer    ${day}
-    # ใช้ XPath ที่กันไม่ให้ไปคลิกโดนวันที่ของเดือนอื่น (is-other-month)
+    
     ${target_day_xpath}=    Set Variable    xpath=//div[@class="bs-datepicker-body"]//span[text()="${day_int}" and not(contains(@class, "is-other-month"))]
     
     Wait For Elements State    ${target_day_xpath}    visible
@@ -148,28 +147,25 @@ Count Search Result By Declaration No
 
 
 
+
 Verify Date in Search Result
-    [Arguments]    ${expected_date}
+    [Arguments]    ${expected_date}    ${target_booking_id}=${EMPTY}
     
-    # 1. เช็คถ้าไม่ได้ส่งวันที่มาเทส ก็ให้ข้ามไป
-    IF    '${expected_date}' == '${EMPTY}'
-        Log    [SKIP] Expected date is empty.
-        [Return]    ${0}
+    IF    '${expected_date}' == '${EMPTY}'    [Return]    ${0}
+
+    # --- กลยุทธ์ XPath ระดับสูง ---
+    IF    '${target_booking_id}' != '${EMPTY}'
+        # หาการ์ดที่มี Booking ID นี้ แล้วมุดไปหาวันที่ใน Card Body เดียวกัน
+        ${locator}=    Set Variable    xpath=//a[text()="${target_booking_id}"]/ancestor::div[contains(@class, "card")]//span[text()="Date to TMO"]/following-sibling::text()[contains(., "${expected_date}")]/..
+    ELSE
+        # ถ้าค้นหาด้วยวันที่อย่างเดียว ให้เอาตัวแรกที่พบ
+        ${locator}=    Set Variable    xpath=(//div[contains(@class, "card-content") and ./span[text()="Date to TMO"] and contains(., "${expected_date}")])[1]
     END
 
-    # 2. สร้าง XPath เพื่อหา <span> ที่มีคำว่า Date to TMO 
-    # แล้วใช้ /following-sibling::text() หรือเช็ค text รวมใน div
-    # วิธีที่เสถียรที่สุดคือหา div ที่มี card-title นี้อยู่ แล้วเช็คว่ามีวันที่ที่เราต้องการไหม
-    ${locator}=    Set Variable    xpath=//div[contains(@class, "card-content") and ./span[text()="Date to TMO"] and contains(., "${expected_date}")]
-
-    # 3. รอให้ข้อมูลปรากฏ
+    # รอให้ Element ปรากฏและเช็คจำนวน
     Wait For Elements State    ${locator}    visible    timeout=10s
-    
-    # 4. นับจำนวนการ์ดที่เจอวันที่นี้
     ${count}=    Get Element Count    ${locator}
     
-    Log To Console    \n[INFO] Found Cards with Date ${expected_date}: ${count} record(s)
-    
-    # ถ้าคาดหวังว่าต้องเจออย่างน้อย 1 รายการ
-    Should Be True    ${count} > 0    msg=Expected to find at least 1 card with Date to TMO ${expected_date}, but found ${count}.  
+    Log To Console    \n[INFO] Verified Date ${expected_date} for Booking ${target_booking_id}: Found ${count} record(s)
+    Should Be True    ${count} > 0    msg=❌ ข้อมูลวันที่ไม่ถูกต้อง หรือไม่พบข้อมูลที่ตรงตามเงื่อนไข
     [Return]    ${count}

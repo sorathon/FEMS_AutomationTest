@@ -75,7 +75,6 @@ Fill Date to TMO
     # แยกค่า
     ${year}    ${month}    ${day}    Split String    ${date_to_tmo}    -
 
-
     Click    //*[@id="queue-booking-tracking-search-reserveDate"]
     Wait For Elements State    .bs-datepicker-container    visible
 

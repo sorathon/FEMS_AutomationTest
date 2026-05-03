@@ -17,5 +17,6 @@ TC_07: create draft booking
     ...     ${RAND_DRIVER_ID}      รับสินค้าขาเข้าปกติ            TG               
     ...     ภายในประเทศ/ท่าอื่น     10    30            ของมีค่า(TG)    
     ...      ${RAND_DEC_NO}    ${RAND_HAWB}
-    Tracking Booking      ${GLOBAL_BOOKING_ID}    ${RAND_DEC_NO}    ${RAND_DATE_FULL}
+    Tracking Booking        ${GLOBAL_BOOKING_ID}    ${EMPTY}    ${RAND_DATE_FULL}
+    Sleep   30 seconds
       
