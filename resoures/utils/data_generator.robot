@@ -8,7 +8,7 @@ Prepare All Random Variables
 
     ${license}=    Get Random License Plate
 
-    ${dec_no}            ${hawb_no}=    Generate Random DecNo And HAWB
+    ${dec_no}           ${hawb_no}=    Generate Random DecNo And HAWB
 
     ${driver_id_fmt}=    Get Random Driver ID
 

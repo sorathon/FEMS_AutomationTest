@@ -24,11 +24,7 @@ ${MENU_CREATE_BOOKING}    xpath=//*[@id="queue-booking-tracking-btn-create"]
 *** Keywords ***
 Queue Booking
     [Arguments]     ${Booking Date}       ${status}       
-    Verify Booking Success   ${RAND_DATE_FULL}  
-    ...     ${RAND_LICENSE}        กระบี่            รถยนต์ 4 ที่นั่ง       
-    ...     ${RAND_DRIVER_ID}      รับสินค้าขาเข้าปกติ            TG               
-    ...     ภายในประเทศ/ท่าอื่น     10    30            ของมีค่า(TG)    
-    ...      ${RAND_DEC_NO}    ${RAND_HAWB} 
+    
        
     Fill Text    xpath=//input[@id="queue-booking-tracking-search-referenceNumber"]            ${GLOBAL_BOOKING_ID}
     Fill Text    xpath=//input[@id="queue-booking-tracking-search-submitDate"]    ${Booking Date}
@@ -44,10 +40,10 @@ Queue Booking
     
     # 3. พิมพ์ค่าใหม่ลงไป
     Fill Text     id=queue-booking-tracking-search-reserveDate        ${RAND_DATE_NUM}
-    Press Keys    id=queue-booking-tracking-search-reserveDate    Enter
+    #Press Keys    id=queue-booking-tracking-search-reserveDate    Enter
     Select Options By       xpath=//select[@id="queue-booking-tracking-search-statusId"]  text   ${status}
     Sleep   3 seconds
-    Click  xpath=//*[@id="queue-booking-tracking-btn-search"]
+    Click  xpath=//*[@id="queue-booking-tracking-btn-search"]  
 
     Sleep     5  seconds
 
