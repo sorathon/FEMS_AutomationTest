@@ -21,20 +21,31 @@ ${MENU_CREATE_BOOKING}    xpath=//*[@id="queue-booking-tracking-btn-create"]
 
 *** Keywords ***
 Tracking Booking
-    [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}    ${Date_To_TMO}=${EMPTY}
+    [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}    ${Date_To_TMO}=${EMPTY}    ${HAWD_NO}=${EMPTY}       ${Licens_id}=${EMPTY}
     
     # เข้าสู่หน้า Tracking
     Click    xpath=//*[@id="sidebar-menu-19"]
     
-    # --- STEP 1: กรอกข้อมูล (กรอกเฉพาะที่มีค่า) ---
     Run Keyword If    '${BOOKING_ID}' != '${EMPTY}'         Fill Text    xpath=//*[@id="tracking-search-search-bookingReferenceNumber"]    ${BOOKING_ID}
     Run Keyword If    '${Declaration_No}' != '${EMPTY}'    Fill Text    xpath=//*[@id="tracking-search-search-declarationNumber"]       ${Declaration_No}
+    Run Keyword If    '${HAWD_NO}' != '${EMPTY}'    Fill Text    xpath=//*[@id="tracking-search-search-hawb"]    ${HAWD_NO}
     
+
+    Select Origin Agency        origin_value=${EMPTY}
+
+    Select Destination Agency    destination_value=${EMPTY}
+
+    Select Goods Type    goods_type_value=${EMPTY}
+
+    Select Status           status_value=Queue
+
+    Fill Text   xpath=//*[@id="tracking-search-search-vehicleNumber"]    ${Licens_id}
+
+
     IF    '${Date_To_TMO}' != '${EMPTY}'
         Fill Date to TMO Tracking    ${Date_To_TMO}
     END
 
-    # --- STEP 2: กดค้นหาและรอ Spinner ---
     Click    xpath=//button[@id="tracking-search-btn-search"]
     # แนะนำให้เพิ่มการรอ Loading Spinner หายไปตรงนี้ (ถ้าหน้าเว็บมี)
     Sleep    2s    # ให้เวลาระบบ Render ผลลัพธ์ใหม่
@@ -49,7 +60,7 @@ Tracking Booking
     IF    '${Declaration_No}' != '${EMPTY}'
         Count Search Result By Declaration No    ${Declaration_No}
     END
-
+    
     # 3. ตรวจสอบ Date to TMO (ถ้ามีการระบุ) 
     # พิเศษ: ถ้ามี Booking ID ด้วย เราจะเช็คว่า "ID นี้ มีวันที่ตรงไหม" ในใบเดียวกัน
     IF    '${Date_To_TMO}' != '${EMPTY}'
@@ -58,7 +69,15 @@ Tracking Booking
         ${date_for_verify}=    Convert Date    ${RAND_DATE_NUM}    result_format=%d/%m/%y
         Verify Date in Search Result    ${date_for_verify}    ${BOOKING_ID}
     END
-
+    IF   '${HAWD_NO}' != '${EMPTY}'
+        Count Search Result By HAWB    ${HAWD_NO}        
+    END
+    IF     '${Licens_id}' != '${EMPTY}'
+        Count Search Result By Vehicle Plate   ${Licens_id}
+    END
+    
+    
+    
     # รอให้เห็นผลลัพธ์ด้วยตา (ลดเวลาลงจาก 20s เป็น 5s เพื่อความรวดเร็ว)
     Sleep    5 seconds  
 
@@ -98,6 +117,67 @@ Fill Date to TMO Tracking
 
     # 7. รอจนปฏิทินปิดตัวลง
     Wait For Elements State    .bs-datepicker-container    hidden    timeout=3s
+
+
+
+Select Origin Agency
+    [Arguments]    ${origin_value}
+    Click    xpath=//select[@id="tracking-search-search-origin"]
+    Wait For Elements State    xpath=//select[@id="tracking-search-search-origin"]    visible    timeout=10s
+    # ตรวจสอบก่อนว่าถ้าค่าเป็นว่าง (EMPTY) หรือ "All" ก็ไม่ต้องเลือกอะไร
+    IF    '${origin_value}' == '${EMPTY}' or '${origin_value}' == 'All'
+        Select Options By    xpath=//select[@id="tracking-search-search-origin"]    value    ${EMPTY}
+    ELSE
+
+        Select Options By    xpath=//select[@id="tracking-search-search-origin"]    value    ${origin_value}
+    END
+    Sleep  3 seconds  # รอให้ระบบประมวลผลหลังเลือกค่า
+
+
+Select Destination Agency
+    [Arguments]    ${destination_value}
+    Click    xpath=//select[@id="tracking-search-search-destination"]
+    Wait For Elements State    xpath=//select[@id="tracking-search-search-destination"]   visible    timeout=10s
+    # ตรวจสอบก่อนว่าถ้าค่าเป็นว่าง (EMPTY) หรือ "All" ก็ไม่ต้องเลือกอะไร
+    IF    '${destination_value}' == '${EMPTY}' or '${destination_value}' == 'All'
+        Select Options By    xpath=//select[@id="tracking-search-search-destination"]   value    ${EMPTY}
+    ELSE
+
+        Select Options By    xpath=//select[@id="tracking-search-search-destination"]   value    ${destination_value}        
+    END
+    Sleep  3 seconds  # รอให้ระบบประมวลผลหลังเลือกค่า
+
+Select Goods Type
+    [Arguments]    ${goods_type_value}
+    Click    xpath=//select[@id="tracking-search-search-goodsType"]
+    Wait For Elements State    xpath=//select[@id="tracking-search-search-goodsType"]   visible    timeout=10s
+    # ตรวจสอบก่อนว่าถ้าค่าเป็นว่าง (EMPTY) หรือ "All" ก็ไม่ต้องเลือกอะไร
+    IF    '${goods_type_value}' == '${EMPTY}' or '${goods_type_value}' == 'All'
+        Select Options By    xpath=//select[@id="tracking-search-search-goodsType"]   label    ${EMPTY}
+    ELSE
+
+        Select Options By    xpath=//select[@id="tracking-search-search-goodsType"]   label    ${goods_type_value}        
+    END
+    Sleep  3 seconds  # รอให้ระบบประมวลผลหลังเลือกค่า
+
+
+
+Select Status
+    [Arguments]    ${status_value}
+    
+    Click    xpath=//select[@id="tracking-search-search-statusId"]
+    Wait For Elements State    xpath=//select[@id="tracking-search-search-statusId"]    visible    timeout=10s
+    
+    IF    '${status_value}' == '${EMPTY}' or '${status_value}' == 'All'
+      
+        Select Options By    xpath=//select[@id="tracking-search-search-statusId"]    label    All
+    ELSE
+       
+        Select Options By    xpath=//select[@id="tracking-search-search-statusId"]    label    ${status_value}
+    END
+    Sleep    3 seconds
+
+
 
 
 Count Search Result By Booking ID
@@ -146,6 +226,33 @@ Count Search Result By Declaration No
     [Return]    ${count}
 
 
+Count Search Result By HAWB
+    [Arguments]    ${target_hawb}
+    
+    # 1. เช็คความว่างเปล่าตามมาตรฐาน Smart Keyword
+    IF    '${target_hawb}' == '${EMPTY}'
+        Log    [SKIP] HAWB is empty, skipping count.
+        [Return]    ${0}
+    END
+
+    # 2. สร้าง XPath ที่เจาะจง
+    # หา div ที่มีคลาส card-content และมีหัวข้อ (span) เป็น HAWB 
+    # จากนั้นตรวจสอบว่าใน div นั้นมีข้อความ HAWB ที่เราต้องการหรือไม่
+    ${locator}=    Set Variable    xpath=//div[contains(@class, "card-content") and ./span[text()="HAWB"] and contains(., "${target_hawb}}")]
+
+    # 3. รอให้ข้อมูลปรากฏบน UI
+    Wait For Elements State    ${locator}    visible    timeout=10s
+    
+    # 4. นับจำนวน
+    ${count}=    Get Element Count    ${locator}
+    
+    Log To Console    \n[INFO] Found HAWB ${target_hawb}: ${count} record(s)
+    
+    # 5. ตรวจสอบเบื้องต้นว่าต้องเจออย่างน้อย 1 (หรือตาม Logic ที่คุณต้องการ)
+    Should Be True    ${count} > 0    msg=❌ ไม่พบรายการที่ตรงกับ HAWB: ${target_hawb}
+    
+    [Return]    ${count}
+
 
 
 Verify Date in Search Result
@@ -168,4 +275,32 @@ Verify Date in Search Result
     
     Log To Console    \n[INFO] Verified Date ${expected_date} for Booking ${target_booking_id}: Found ${count} record(s)
     Should Be True    ${count} > 0    msg=❌ ข้อมูลวันที่ไม่ถูกต้อง หรือไม่พบข้อมูลที่ตรงตามเงื่อนไข
+    [Return]    ${count}
+
+
+Count Search Result By Vehicle Plate
+    [Arguments]    ${target_plate}
+    
+    # 1. เช็คความว่างเปล่า
+    IF    '${target_plate}' == '${EMPTY}'
+        Log    [SKIP] Vehicle Plate is empty.
+        [Return]    ${0}
+    END
+
+    # 2. สร้าง XPath ที่เจาะจง
+    # หา div ที่มีหัวข้อ (span) เป็น Vehicle Plate 
+    # และมี span คลาส card-sub-title ที่มีข้อความตรงกับทะเบียนรถที่ต้องการ
+    ${locator}=    Set Variable    xpath=//div[contains(@class, "item") and ./span[text()="Vehicle Plate"]]//span[@class="card-sub-title" and contains(., "${target_plate}")]
+
+    # 3. รอให้ข้อมูลปรากฏ
+    Wait For Elements State    ${locator}    visible    timeout=10s
+    
+    # 4. นับจำนวนที่พบ
+    ${count}=    Get Element Count    ${locator}
+    
+    Log To Console    \n[INFO] Found Vehicle Plate ${target_plate}: ${count} record(s)
+    
+    # 5. ตรวจสอบว่าต้องเจออย่างน้อย 1 รายการ
+    Should Be True    ${count} > 0    msg=❌ ไม่พบป้ายทะเบียนรถ: ${target_plate} ในผลการค้นหา
+    
     [Return]    ${count}
