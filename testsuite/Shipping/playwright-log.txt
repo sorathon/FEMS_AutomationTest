@@ -1,0 +1,46 @@
+{"level":30,"time":"2026-05-05T03:20:09.835Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Listening on 127.0.0.1:24460"}
+{"level":30,"time":"2026-05-05T03:20:09.905Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-05-05T03:20:10.109Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
+{"level":30,"time":"2026-05-05T03:20:10.110Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-05-05T03:20:10.110Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-05-05T03:20:10.118Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-05T03:20:10.118Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@cf3325b69e7f9bb805c363a29d306bea\"},\"name\":\"chromium\",\"id\":\"browser=b6b39897-0db1-4d7b-9ef3-934c751350bf\",\"headless\":false}"}
+{"level":30,"time":"2026-05-05T03:20:10.137Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Setting default timeout for context context=b013b998-03a9-42e7-b010-65500d580d6c to 10000"}
+{"level":30,"time":"2026-05-05T03:20:10.137Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Changed active context: context=b013b998-03a9-42e7-b010-65500d580d6c"}
+{"level":30,"time":"2026-05-05T03:20:10.295Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-05T03:20:10.295Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Changed active page"}
+{"level":30,"time":"2026-05-05T03:20:15.807Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-05T03:20:15.814Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-05T03:20:15.814Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-username\"] in page."}
+{"level":30,"time":"2026-05-05T03:20:15.845Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-05T03:20:15.847Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-05T03:20:15.847Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-password\"] in page."}
+{"level":30,"time":"2026-05-05T03:20:15.854Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-05T03:20:15.857Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-05T03:20:15.857Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@title=\"Login\"] in page."}
+{"level":30,"time":"2026-05-05T03:20:16.689Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-05T03:20:19.692Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-05-05T03:20:19.701Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Removed page=424cacd5-0604-40e3-b2c9-7ffbd5a2e358 from context=b013b998-03a9-42e7-b010-65500d580d6c page stack"}
+{"level":30,"time":"2026-05-05T03:20:19.944Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-05-05T03:20:19.947Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-05T03:20:19.948Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:8777:13)
+    at PlaywrightServer.getActiveBrowser (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:9689:52)
+    at PlaywrightServer.setTimeout (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:9887:56)
+    at Object.onReceiveHalfClose (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:521:24)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2026-05-05T03:20:19.953Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-05T03:20:19.953Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-05T03:20:19.963Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-05T03:20:19.963Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-05T03:20:19.967Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-05T03:20:19.967Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-05T03:20:19.971Z","pid":32992,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newBrowser"}
