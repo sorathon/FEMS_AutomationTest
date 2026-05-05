@@ -4,7 +4,7 @@ Library    DateTime
 
 *** Keywords ***
 Prepare All Random Variables
-    ${date_full}                     ${date_num}=       Get Random Date to TMO
+    ${date_full}                ${date_num}=       Get Random Date to TMO
 
     ${license}=    Get Random License Plate
 
@@ -47,7 +47,7 @@ Get Random Date to TMO
     ${date_num}=     Convert Date    ${date_full}    date_format=%Y-%B-%d    result_format=%Y-%m-%d
     
     # ส่งกลับไป 2 ค่าพร้อมกัน
-    [Return]    ${date_full}    ${date_num}
+    [Return]    ${date_full}        ${date_num}
 
 Generate Random DecNo And HAWB
     ${dec_no}=         Generate Random String    14    [NUMBERS]

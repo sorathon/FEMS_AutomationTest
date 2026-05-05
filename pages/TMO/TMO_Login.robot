@@ -22,6 +22,7 @@ TMOLoginsuccess
     Input LoginTMO Credentials        ${username}    ${password}
     Click LoginTMO Button
     Click    css=button.swal2-confirm
+    Sleep    3s
     Verify LoginTMO Success
 
 
@@ -40,11 +41,11 @@ Verify Validation Tooltip
     Get Text    ${MSG_TOOLTIP}    contains    ${expected_text}
 
 Verify LoginTMO Success
-    Get Url  contains  ${url_home} 
+    Get Url  contains  ${url_homeTMO} 
 
 Verify LoginTMO Failed
     [Arguments]    ${expected_text}=Login Failed
-    Get Url  contains  ${url_login}
+    Get Url  contains  ${url_loginTMO}
     Get Text    xpath=//*[@id="swal2-title"]    contains    ${expected_text}
 Verify LoginTMO Empty
     [Arguments]   ${username}    ${password}    ${expected_tooltip}

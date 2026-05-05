@@ -28,7 +28,7 @@ Login As TMO User
     Open Login TMO Web Application
     Input LoginTMO Credentials         username=trainingtg      password=Netbay@123
     Click LoginTMO Button
-    Click    css=button.swal2-confirm
+    #Click    css=button.swal2-confirm
 
 
     

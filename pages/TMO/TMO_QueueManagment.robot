@@ -23,6 +23,7 @@ QueueMultiAccept
     ...    ${HAWD_NO}=${EMPTY}       ${Licens_id}=${EMPTY}        ${status_expeted}=${EMPTY}
 
     Login As TMO User
+    Click    css=button.swal2-confirm
     Open QUEUEMANAGMENT Menu
     Open IMPORT Page
     Sleep     1     seconds    
@@ -90,7 +91,7 @@ QueueMultiAccept
 QueueAcceptFailed
     [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}    ${Date_To_TMO}=${EMPTY}    
     ...    ${HAWD_NO}=${EMPTY}       ${Licens_id}=${EMPTY}        ${status_expeted}=${EMPTY}
-
+    Click    css=button.swal2-confirm
     Open QUEUEMANAGMENT Menu
     Open IMPORT Page
     Sleep     1     seconds
