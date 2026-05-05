@@ -25,7 +25,7 @@ Check Logout
      Click    css=button.swal2-confirm 
 
 Vertify Logout success
-    Get Url    ${url_login}
+    Get Url  ==  https://uataotfems.netbay.co.th/fems/#/auth/login
 
 
 

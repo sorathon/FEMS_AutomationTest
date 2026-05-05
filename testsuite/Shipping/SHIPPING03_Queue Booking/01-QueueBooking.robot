@@ -11,9 +11,8 @@ Test Teardown    Close Web Application
 *** Test Cases ***
 TC_07: create draft booking 
     [Documentation]    ทดสอบ Queue Booking
-    Queue Booking       2026-05-03       Queue       
+    Queue Booking       2026-05-05       Queue       
     Search Auto By Booking ID             ${GLOBAL_BOOKING_ID}
-    Search Auto By Date To TMO           ${RAND_DATE_NUM}     
       
 
                

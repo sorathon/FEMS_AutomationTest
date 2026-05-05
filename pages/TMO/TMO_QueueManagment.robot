@@ -8,7 +8,7 @@ Resource   ../../resoures/config.robot
 
 
 *** Keywords ***
-QUEUEMANAGMENT   
+QueueAcceptSuccess   
     [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}    ${Date_To_TMO}=${EMPTY}    
     ...    ${HAWD_NO}=${EMPTY}       ${Licens_id}=${EMPTY}        ${status_expeted}=${EMPTY}    
     Login As TMO User
@@ -17,6 +17,42 @@ QUEUEMANAGMENT
     Sleep     1     seconds
     Tracking Booking    ${BOOKING_ID}    ${Declaration_No}    ${Date_To_TMO}    
     ...    ${HAWD_NO}       ${Licens_id}        ${status_expeted}
+
+QueueAcceptFailed
+    [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}    ${Date_To_TMO}=${EMPTY}    
+    ...    ${HAWD_NO}=${EMPTY}       ${Licens_id}=${EMPTY}        ${status_expeted}=${EMPTY}
+
+    Open QUEUEMANAGMENT Menu
+    Open IMPORT Page
+    Sleep     1     seconds
+    Click    xpath=//button[@id="sidebar-toggle-btn"]
+    
+    Run Keyword If    '${BOOKING_ID}' != '${EMPTY}'         Fill Text    xpath=//*[@id="tracking-search-search-bookingReferenceNumber"]    ${BOOKING_ID}
+    Run Keyword If    '${Declaration_No}' != '${EMPTY}'    Fill Text    xpath=//*[@id="tracking-search-search-declarationNumber"]       ${Declaration_No}
+    Run Keyword If    '${HAWD_NO}' != '${EMPTY}'    Fill Text    xpath=//*[@id="tracking-search-search-hawb"]    ${HAWD_NO}
+    
+
+    Select Status           status_value=${status_expeted}
+
+    Fill Text   xpath=//*[@id="tracking-search-search-vehicleNumber"]    ${Licens_id}
+
+
+    IF    '${Date_To_TMO}' != '${EMPTY}'
+        Fill Date to TMO Tracking    ${Date_To_TMO}
+    END
+
+    Click    xpath=//button[@id="tracking-search-btn-search"]
+    # แนะนำให้เพิ่มการรอ Loading Spinner หายไปตรงนี้ (ถ้าหน้าเว็บมี)
+    Sleep    2s    # ให้เวลาระบบ Render ผลลัพธ์ใหม่
+        Wait For Elements State    id=queue-management-tracking-check-0    visible    timeout=10s
+    Check Checkbox             id=queue-management-tracking-check-0
+
+    Click    xpath=//*[@id="tracking-management-btn-multiple-accept"]
+
+    Verify Eligibility Error Appears 
+    # รอให้เห็นผลลัพธ์ด้วยตา (ลดเวลาลงจาก 20s เป็น 5s เพื่อความรวดเร็ว)
+    Sleep    5 seconds  
+
 
 
 Open QUEUEMANAGMENT Menu
@@ -304,3 +340,14 @@ Verify Status in Search Result
     Should Be True    ${count} > 0    msg=❌ สถานะที่แสดงบนหน้าจอไม่ตรงกับที่ค้นหา (Expected: ${expected_status})
     RETURN    ${count}
 
+Verify Eligibility Error Appears 
+    [Documentation]    ยืนยันว่าต้องพบข้อความ Error เมื่อเลือกรายการที่ผิดเงื่อนไข
+    
+    ${error_locator}=    Set Variable    xpath=//td[contains(text(), "ไม่อยู่ในเงื่อนไขที่สามารถดำเนินการได้")]
+    
+    # รอให้ Element แสดงขึ้นมา (ถ้าไม่แสดงภายใน 10s จะ Fail ทันที)
+    Wait For Elements State    ${error_locator}    visible    timeout=10s
+    
+    # ดึงข้อความมา Log เก็บไว้เป็นหลักฐาน
+    ${actual_message}=    Get Text    ${error_locator}
+    Log    Found expected error message: ${actual_message}

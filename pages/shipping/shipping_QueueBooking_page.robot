@@ -25,7 +25,13 @@ ${MENU_CREATE_BOOKING}    xpath=//*[@id="queue-booking-tracking-btn-create"]
 Queue Booking
     [Arguments]     ${Booking Date}       ${status}       
     
-       
+    Verify Booking Success   ${RAND_DATE_FULL}  
+    ...     ${RAND_LICENSE}        กระบี่            รถยนต์ 4 ที่นั่ง       
+    ...     ${RAND_DRIVER_ID}      รับสินค้าขาเข้าปกติ            TG               
+    ...     ภายในประเทศ/ท่าอื่น     10    30            ของมีค่า(TG)    
+    ...      ${RAND_DEC_NO}    ${RAND_HAWB}   
+    
+
     Fill Text    xpath=//input[@id="queue-booking-tracking-search-referenceNumber"]            ${GLOBAL_BOOKING_ID}
     Fill Text    xpath=//input[@id="queue-booking-tracking-search-submitDate"]    ${Booking Date}
     
@@ -44,6 +50,9 @@ Queue Booking
     Select Options By       xpath=//select[@id="queue-booking-tracking-search-statusId"]  text   ${status}
     Sleep   3 seconds
     Click  xpath=//*[@id="queue-booking-tracking-btn-search"]  
+    
+    Verify Date in Search Result         ${RAND_DATE_NUM}        ${GLOBAL_BOOKING_ID}
+    Search Auto By Booking ID             ${GLOBAL_BOOKING_ID}
 
     Sleep     5  seconds
 
@@ -63,25 +72,31 @@ Search Auto By Booking ID
     [Return]    ${count}
 
 
-Search Auto By Date To TMO
-    [Arguments]    ${target_date_num}    # รับค่าแบบ 2026-06-14
     
-    # 1. แปลงวันที่ให้เป็น Format หน้าจอ (14/06/2026)
-    ${ui_date}=    Convert Date    ${target_date_num}    
+    
+
+Verify Date in Search Result
+    [Arguments]    ${expected_date}    ${target_booking_id}
+    
+    IF    '${expected_date}' == '${EMPTY}'    [Return]    ${0}
+
+    # 1. แปลงวันที่ให้ตรงกับหน้าจอ (09/06/2026)
+    ${ui_date}=    Convert Date    ${expected_date}    
     ...    date_format=%Y-%m-%d    
     ...    result_format=%d/%m/%Y
 
-    # 2. รอให้ Element ปรากฏ
-    Wait For Elements State    xpath=//span[text()="Date To TMO"]    visible    timeout=7s
+    # 2. ปรับ XPath เพื่อแก้ปัญหา Strict Mode (เลือกเฉพาะอันที่อยู่ในการ์ดเรา)
+    IF    '${target_booking_id}' != '${EMPTY}'
+        # XPath นี้จะหา Card ที่มีเลข Booking ของเราก่อน แล้วค่อยมุดไปหาคำว่า Date To TMO ข้างในนั้น
+        ${locator}=    Set Variable    xpath=//div[contains(@class, 'card-body') and .//span[text()="${target_booking_id}"]]//div[contains(@class, 'card-content') and ./span[text()='Date To TMO'] and contains(., "${ui_date}")]
 
-    # 3. นับจำนวน
-    ${count}=    Get Element Count    xpath=//div[contains(@class, "card-content") and span[text()="Date To TMO"] and contains(normalize-space(.), "${ui_date}")]
+    END
+
+    # 3. รอและตรวจสอบ
+    Wait For Elements State    ${locator}    visible    timeout=10s
+    ${count}=    Get Element Count    ${locator}
     
-    Log To Console    \n[DEBUG] UI Date: ${ui_date} | Found: ${count}
+    Log To Console    \n[INFO] Verified Date To TMO: ${ui_date} for Booking: ${target_booking_id} | Found: ${count}
+    
     [Return]    ${count}
-    
-
-
-    
-
 

@@ -17,6 +17,14 @@ ${MENU_QUEUEMANAGMENT}    xpath=//*[@id="sidebar-menu-25"]
 ${MENU_INPORT}    xpath=//*[@id="sidebar-sub-menu-33"]
 
 *** Keywords ***
+TMOLoginsuccess
+    [Arguments]        ${username}        ${password}
+    Input LoginTMO Credentials        ${username}    ${password}
+    Click LoginTMO Button
+    Click    css=button.swal2-confirm
+    Verify LoginTMO Success
+
+
 Input LoginTMO Credentials
     [Arguments]    ${username}    ${password}
     Fill Text    ${TXT_USERNAME}    ${username}
