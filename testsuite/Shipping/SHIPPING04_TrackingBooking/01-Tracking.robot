@@ -11,7 +11,7 @@ Test Teardown    Close Web Application
 
 *** Test Cases ***
 TC_07: create draft booking 
-    [Documentation]    ทดสอบกรณีสร้าง Draft
+    [Documentation]    ทดสอบการ Tracking Booking
     Verify Booking Success   ${RAND_DATE_FULL}  
     ...     ${RAND_LICENSE}        กระบี่            รถยนต์ 4 ที่นั่ง       
     ...     ${RAND_DRIVER_ID}      รับสินค้าขาเข้าปกติ            TG               

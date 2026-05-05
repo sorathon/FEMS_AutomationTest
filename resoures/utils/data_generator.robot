@@ -4,7 +4,7 @@ Library    DateTime
 
 *** Keywords ***
 Prepare All Random Variables
-    ${date_full}               ${date_num}=       Get Random Date to TMO
+    ${date_full}                     ${date_num}=       Get Random Date to TMO
 
     ${license}=    Get Random License Plate
 

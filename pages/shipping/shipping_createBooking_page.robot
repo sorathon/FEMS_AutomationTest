@@ -267,4 +267,3 @@ Verify Draft Booking
     Submit Draft Booking 
     check Draft booking 
 
-             

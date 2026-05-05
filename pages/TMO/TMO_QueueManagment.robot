@@ -2,10 +2,23 @@
 Library    Browser
 Library    String
 Resource   ../../pages/TMO/TMO_Login.robot
+Resource   ../../resoures/config.robot
+
 
 
 
 *** Keywords ***
+QUEUEMANAGMENT   
+    [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}    ${Date_To_TMO}=${EMPTY}    
+    ...    ${HAWD_NO}=${EMPTY}       ${Licens_id}=${EMPTY}        ${status_expeted}=${EMPTY}    
+    Login As TMO User
+    Open QUEUEMANAGMENT Menu
+    Open IMPORT Page
+    Sleep     1     seconds
+    Tracking Booking    ${BOOKING_ID}    ${Declaration_No}    ${Date_To_TMO}    
+    ...    ${HAWD_NO}       ${Licens_id}        ${status_expeted}
+
+
 Open QUEUEMANAGMENT Menu
     Click      ${MENU_QUEUEMANAGMENT}
 
@@ -59,17 +72,23 @@ Tracking Booking
     IF     '${Licens_id}' != '${EMPTY}'
         Count Search Result By Vehicle Plate   ${Licens_id}
     END
-    Verify Status in Search Result    ${status_expeted}
-  
-    
+    Verify Status in Search Result    expected_status=Queue
 
-    Click    xpath=//*[@id="card-content"]/div[1]
+    # --- ส่วนการคลิกเลือกรายการ (Action) ---
 
-    Click    xpath=//button[@id="tracking-management-btn-multiple-accept"]
+    # 1. รอให้ Checkbox ปรากฏและทำการเลือก (Check)
+    # ใช้ ID เจาะจงที่ตัวแรก (Index 0)
+    Wait For Elements State    id=queue-management-tracking-check-0    visible    timeout=10s
+    Check Checkbox             id=queue-management-tracking-check-0
+
+    Click    xpath=//*[@id="tracking-management-btn-multiple-accept"]
+    # 2. ตรวจสอบว่าปุ่ม Accept พร้อมให้กดหรือยัง (หลังติ๊กแล้วปุ่มควรจะกดได้)
+    Click    xpath=//div[@class="modal-content"]//button[@id="tracking-management-btn-multiple-accept"]
+
+    Verify Status in Search Result    expected_status=Accept
     
     
-    
-    
+   
     # รอให้เห็นผลลัพธ์ด้วยตา (ลดเวลาลงจาก 20s เป็น 5s เพื่อความรวดเร็ว)
     Sleep    5 seconds  
 
@@ -275,6 +294,7 @@ Verify Status in Search Result
     END
     ${locator}=    Set Variable    xpath=(//div[./span[text()="Status"]]//app-status-fems-badge//span[text()="${expected_status}"])[1]
     
+
     Wait For Elements State    ${locator}    visible    timeout=10s
     ${count}=    Get Element Count    ${locator}
     
@@ -283,3 +303,4 @@ Verify Status in Search Result
     # 4. ตรวจสอบผลลัพธ์
     Should Be True    ${count} > 0    msg=❌ สถานะที่แสดงบนหน้าจอไม่ตรงกับที่ค้นหา (Expected: ${expected_status})
     RETURN    ${count}
+

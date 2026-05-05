@@ -1,160 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.9 on win32)" generated="20260504 18:20:39.593" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.12.9 on win32)" generated="20260505 10:00:13.148" rpa="false" schemaversion="4">
 <suite id="s1" name="01 TMOacceptQueue Succes" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\TMO\TMO02_ACCEPTQUEUE\01_TMOacceptQueue_Succes.robot">
 <test id="s1-t1" name="TC_07: create draft booking" line="13">
 <kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Login As shipping User</arg>
+<arg>AND</arg>
 <arg>Prepare All Random Variables</arg>
 <doc>Executes all the given keywords in a sequence.</doc>
-<kw name="Prepare All Random Variables" library="data_generator">
-<kw name="Get Random Date to TMO" library="data_generator">
-<var>${date_full}</var>
-<var>${date_num}</var>
-<kw name="Evaluate" library="BuiltIn">
-<var>${random_days}</var>
-<arg>random.randint(1, 60)</arg>
-<arg>modules=random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20260504 18:20:39.925" level="INFO">${random_days} = 30</msg>
-<status status="PASS" starttime="20260504 18:20:39.925" endtime="20260504 18:20:39.925"/>
-</kw>
-<kw name="Get Current Date" library="DateTime">
-<var>${date_full}</var>
-<arg>increment=${random_days} days</arg>
-<arg>result_format=%Y-%B-%d</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<msg timestamp="20260504 18:20:39.925" level="INFO">${date_full} = 2026-June-03</msg>
-<status status="PASS" starttime="20260504 18:20:39.925" endtime="20260504 18:20:39.925"/>
-</kw>
-<kw name="Convert Date" library="DateTime">
-<var>${date_num}</var>
-<arg>${date_full}</arg>
-<arg>date_format=%Y-%B-%d</arg>
-<arg>result_format=%Y-%m-%d</arg>
-<doc>Converts between supported `date formats`.</doc>
-<msg timestamp="20260504 18:20:39.932" level="INFO">${date_num} = 2026-06-03</msg>
-<status status="PASS" starttime="20260504 18:20:39.925" endtime="20260504 18:20:39.932"/>
-</kw>
-<msg timestamp="20260504 18:20:39.932" level="INFO">${date_full} = 2026-June-03</msg>
-<msg timestamp="20260504 18:20:39.932" level="INFO">${date_num} = 2026-06-03</msg>
-<status status="PASS" starttime="20260504 18:20:39.925" endtime="20260504 18:20:39.932"/>
-</kw>
-<kw name="Get Random License Plate" library="data_generator">
-<var>${license}</var>
-<kw name="Generate Random String" library="String">
-<var>${rand_char}</var>
-<arg>2</arg>
-<arg>กขคพยรล</arg>
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<msg timestamp="20260504 18:20:39.933" level="INFO">${rand_char} = ลพ</msg>
-<status status="PASS" starttime="20260504 18:20:39.933" endtime="20260504 18:20:39.933"/>
-</kw>
-<kw name="Generate Random String" library="String">
-<var>${rand_num}</var>
-<arg>3</arg>
-<arg>[NUMBERS]</arg>
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<msg timestamp="20260504 18:20:39.933" level="INFO">${rand_num} = 772</msg>
-<status status="PASS" starttime="20260504 18:20:39.933" endtime="20260504 18:20:39.934"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${license}</var>
-<arg>${rand_char}${rand_num}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20260504 18:20:39.934" level="INFO">${license} = ลพ772</msg>
-<status status="PASS" starttime="20260504 18:20:39.934" endtime="20260504 18:20:39.934"/>
-</kw>
-<msg timestamp="20260504 18:20:39.934" level="INFO">${license} = ลพ772</msg>
-<status status="PASS" starttime="20260504 18:20:39.932" endtime="20260504 18:20:39.934"/>
-</kw>
-<kw name="Generate Random DecNo And HAWB" library="data_generator">
-<var>${dec_no}</var>
-<var>${hawb_no}</var>
-<kw name="Generate Random String" library="String">
-<var>${dec_no}</var>
-<arg>14</arg>
-<arg>[NUMBERS]</arg>
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<msg timestamp="20260504 18:20:39.934" level="INFO">${dec_no} = 82919329720877</msg>
-<status status="PASS" starttime="20260504 18:20:39.934" endtime="20260504 18:20:39.934"/>
-</kw>
-<kw name="Generate Random String" library="String">
-<var>${hawb_no}</var>
-<arg>10</arg>
-<arg>[UPPER][NUMBERS]</arg>
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<msg timestamp="20260504 18:20:39.935" level="INFO">${hawb_no} = GUKQKZJVLG</msg>
-<status status="PASS" starttime="20260504 18:20:39.935" endtime="20260504 18:20:39.935"/>
-</kw>
-<msg timestamp="20260504 18:20:39.935" level="INFO">${dec_no} = 82919329720877</msg>
-<msg timestamp="20260504 18:20:39.935" level="INFO">${hawb_no} = GUKQKZJVLG</msg>
-<status status="PASS" starttime="20260504 18:20:39.934" endtime="20260504 18:20:39.935"/>
-</kw>
-<kw name="Get Random Driver ID" library="data_generator">
-<var>${driver_id_fmt}</var>
-<kw name="Generate Random String" library="String">
-<var>${driver_id}</var>
-<arg>13</arg>
-<arg>[NUMBERS]</arg>
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<msg timestamp="20260504 18:20:39.935" level="INFO">${driver_id} = 5938904078651</msg>
-<status status="PASS" starttime="20260504 18:20:39.935" endtime="20260504 18:20:39.935"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${driver_id_fmt}</var>
-<arg>1-${driver_id[1:5]}-${driver_id[5:10]}-${driver_id[10:12]}-${driver_id[12]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20260504 18:20:39.937" level="INFO">${driver_id_fmt} = 1-9389-04078-65-1</msg>
-<status status="PASS" starttime="20260504 18:20:39.935" endtime="20260504 18:20:39.937"/>
-</kw>
-<msg timestamp="20260504 18:20:39.938" level="INFO">${driver_id_fmt} = 1-9389-04078-65-1</msg>
-<status status="PASS" starttime="20260504 18:20:39.935" endtime="20260504 18:20:39.938"/>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${RAND_DATE_FULL}</arg>
-<arg>${date_full}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20260504 18:20:39.939" level="INFO">${RAND_DATE_FULL} = 2026-June-03</msg>
-<status status="PASS" starttime="20260504 18:20:39.938" endtime="20260504 18:20:39.939"/>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${RAND_DATE_NUM}</arg>
-<arg>${date_num}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20260504 18:20:39.940" level="INFO">${RAND_DATE_NUM} = 2026-06-03</msg>
-<status status="PASS" starttime="20260504 18:20:39.939" endtime="20260504 18:20:39.940"/>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${RAND_LICENSE}</arg>
-<arg>${license}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20260504 18:20:39.940" level="INFO">${RAND_LICENSE} = ลพ772</msg>
-<status status="PASS" starttime="20260504 18:20:39.940" endtime="20260504 18:20:39.940"/>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${RAND_DEC_NO}</arg>
-<arg>${dec_no}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20260504 18:20:39.940" level="INFO">${RAND_DEC_NO} = 82919329720877</msg>
-<status status="PASS" starttime="20260504 18:20:39.940" endtime="20260504 18:20:39.940"/>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${RAND_HAWB}</arg>
-<arg>${hawb_no}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20260504 18:20:39.940" level="INFO">${RAND_HAWB} = GUKQKZJVLG</msg>
-<status status="PASS" starttime="20260504 18:20:39.940" endtime="20260504 18:20:39.940"/>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${RAND_DRIVER_ID}</arg>
-<arg>${driver_id_fmt}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20260504 18:20:39.943" level="INFO">${RAND_DRIVER_ID} = 1-9389-04078-65-1</msg>
-<status status="PASS" starttime="20260504 18:20:39.940" endtime="20260504 18:20:39.943"/>
-</kw>
-<status status="PASS" starttime="20260504 18:20:39.925" endtime="20260504 18:20:39.943"/>
-</kw>
-<status status="PASS" starttime="20260504 18:20:39.925" endtime="20260504 18:20:39.943"/>
-</kw>
 <kw name="Login As shipping User" library="config">
 <kw name="Open Login Shipping Web Application" library="config">
 <kw name="New Browser" library="Browser">
@@ -163,28 +15,28 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20260504 18:20:39.943" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\TMO\\TMO02_ACCEPTQUEUE\\output\\browser\\traces\\temp\\33204263-2f0e-41ae-823b-a2db4ec3dcb5"}</msg>
-<msg timestamp="20260504 18:20:39.967" level="INFO">Starting Browser process C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:44626</msg>
-<msg timestamp="20260504 18:20:41.208" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\TMO\\TMO02_ACCEPTQUEUE\\output\\browser\\traces\\temp\\33204263-2f0e-41ae-823b-a2db4ec3dcb5"}</msg>
-<status status="PASS" starttime="20260504 18:20:39.943" endtime="20260504 18:20:41.208"/>
+<msg timestamp="20260505 10:00:13.432" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\TMO\\TMO02_ACCEPTQUEUE\\output\\browser\\traces\\temp\\95b50fa9-22bc-4e41-8568-4fc4edc9baf9"}</msg>
+<msg timestamp="20260505 10:00:13.460" level="INFO">Starting Browser process C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:50851</msg>
+<msg timestamp="20260505 10:00:14.212" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\TMO\\TMO02_ACCEPTQUEUE\\output\\browser\\traces\\temp\\95b50fa9-22bc-4e41-8568-4fc4edc9baf9"}</msg>
+<status status="PASS" starttime="20260505 10:00:13.432" endtime="20260505 10:00:14.212"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${url_login}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20260504 18:20:43.723" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/shipping/login</msg>
-<msg timestamp="20260504 18:20:43.723" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20260504 18:20:41.208" endtime="20260504 18:20:43.723"/>
+<msg timestamp="20260505 10:00:15.761" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/shipping/login</msg>
+<msg timestamp="20260505 10:00:15.761" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20260505 10:00:14.215" endtime="20260505 10:00:15.761"/>
 </kw>
 <kw name="Set Browser Timeout" library="Browser">
 <arg>20 seconds</arg>
 <tag>Config</tag>
 <tag>Setter</tag>
 <doc>Sets the timeout used by most input and getter keywords.</doc>
-<status status="PASS" starttime="20260504 18:20:43.725" endtime="20260504 18:20:43.727"/>
+<status status="PASS" starttime="20260505 10:00:15.761" endtime="20260505 10:00:15.764"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:39.943" endtime="20260504 18:20:43.727"/>
+<status status="PASS" starttime="20260505 10:00:13.432" endtime="20260505 10:00:15.764"/>
 </kw>
 <kw name="Input Login Credentials" library="shipping_login_page">
 <arg>trainingship</arg>
@@ -195,8 +47,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:43.727" level="INFO">Fills the text 'trainingship' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:43.727" endtime="20260504 18:20:43.759"/>
+<msg timestamp="20260505 10:00:15.764" level="INFO">Fills the text 'trainingship' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:15.764" endtime="20260505 10:00:15.795"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>${TXT_PASSWORD}</arg>
@@ -204,10 +56,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:43.767" level="INFO">Fills the text 'Netbay@123' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:43.759" endtime="20260504 18:20:43.777"/>
+<msg timestamp="20260505 10:00:15.795" level="INFO">Fills the text 'Netbay@123' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:15.795" endtime="20260505 10:00:15.805"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:43.727" endtime="20260504 18:20:43.777"/>
+<status status="PASS" starttime="20260505 10:00:15.764" endtime="20260505 10:00:15.805"/>
 </kw>
 <kw name="Click Login Button" library="shipping_login_page">
 <kw name="Click" library="Browser">
@@ -215,18 +67,168 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:43.777" level="INFO">Clicks the element 'xpath=//*[@title="Login"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:43.777" endtime="20260504 18:20:43.842"/>
+<msg timestamp="20260505 10:00:15.805" level="INFO">Clicks the element 'xpath=//*[@title="Login"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:15.805" endtime="20260505 10:00:15.888"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>3 seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260504 18:20:46.844" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20260504 18:20:43.842" endtime="20260504 18:20:46.844"/>
+<msg timestamp="20260505 10:00:18.888" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20260505 10:00:15.888" endtime="20260505 10:00:18.888"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:43.777" endtime="20260504 18:20:46.844"/>
+<status status="PASS" starttime="20260505 10:00:15.805" endtime="20260505 10:00:18.888"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:39.943" endtime="20260504 18:20:46.844"/>
+<status status="PASS" starttime="20260505 10:00:13.432" endtime="20260505 10:00:18.888"/>
+</kw>
+<kw name="Prepare All Random Variables" library="data_generator">
+<kw name="Get Random Date to TMO" library="data_generator">
+<var>${date_full}</var>
+<var>${date_num}</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${random_days}</var>
+<arg>random.randint(1, 60)</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20260505 10:00:18.888" level="INFO">${random_days} = 26</msg>
+<status status="PASS" starttime="20260505 10:00:18.888" endtime="20260505 10:00:18.888"/>
+</kw>
+<kw name="Get Current Date" library="DateTime">
+<var>${date_full}</var>
+<arg>increment=${random_days} days</arg>
+<arg>result_format=%Y-%B-%d</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20260505 10:00:18.890" level="INFO">${date_full} = 2026-May-31</msg>
+<status status="PASS" starttime="20260505 10:00:18.888" endtime="20260505 10:00:18.890"/>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<var>${date_num}</var>
+<arg>${date_full}</arg>
+<arg>date_format=%Y-%B-%d</arg>
+<arg>result_format=%Y-%m-%d</arg>
+<doc>Converts between supported `date formats`.</doc>
+<msg timestamp="20260505 10:00:18.892" level="INFO">${date_num} = 2026-05-31</msg>
+<status status="PASS" starttime="20260505 10:00:18.890" endtime="20260505 10:00:18.892"/>
+</kw>
+<msg timestamp="20260505 10:00:18.892" level="INFO">${date_full} = 2026-May-31</msg>
+<msg timestamp="20260505 10:00:18.892" level="INFO">${date_num} = 2026-05-31</msg>
+<status status="PASS" starttime="20260505 10:00:18.888" endtime="20260505 10:00:18.892"/>
+</kw>
+<kw name="Get Random License Plate" library="data_generator">
+<var>${license}</var>
+<kw name="Generate Random String" library="String">
+<var>${rand_char}</var>
+<arg>2</arg>
+<arg>กขคพยรล</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20260505 10:00:18.892" level="INFO">${rand_char} = รร</msg>
+<status status="PASS" starttime="20260505 10:00:18.892" endtime="20260505 10:00:18.892"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${rand_num}</var>
+<arg>3</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20260505 10:00:18.892" level="INFO">${rand_num} = 752</msg>
+<status status="PASS" starttime="20260505 10:00:18.892" endtime="20260505 10:00:18.892"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${license}</var>
+<arg>${rand_char}${rand_num}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20260505 10:00:18.892" level="INFO">${license} = รร752</msg>
+<status status="PASS" starttime="20260505 10:00:18.892" endtime="20260505 10:00:18.892"/>
+</kw>
+<msg timestamp="20260505 10:00:18.892" level="INFO">${license} = รร752</msg>
+<status status="PASS" starttime="20260505 10:00:18.892" endtime="20260505 10:00:18.892"/>
+</kw>
+<kw name="Generate Random DecNo And HAWB" library="data_generator">
+<var>${dec_no}</var>
+<var>${hawb_no}</var>
+<kw name="Generate Random String" library="String">
+<var>${dec_no}</var>
+<arg>14</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20260505 10:00:18.892" level="INFO">${dec_no} = 76145804265199</msg>
+<status status="PASS" starttime="20260505 10:00:18.892" endtime="20260505 10:00:18.892"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${hawb_no}</var>
+<arg>10</arg>
+<arg>[UPPER][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20260505 10:00:18.892" level="INFO">${hawb_no} = TBEKVG30FY</msg>
+<status status="PASS" starttime="20260505 10:00:18.892" endtime="20260505 10:00:18.892"/>
+</kw>
+<msg timestamp="20260505 10:00:18.892" level="INFO">${dec_no} = 76145804265199</msg>
+<msg timestamp="20260505 10:00:18.892" level="INFO">${hawb_no} = TBEKVG30FY</msg>
+<status status="PASS" starttime="20260505 10:00:18.892" endtime="20260505 10:00:18.892"/>
+</kw>
+<kw name="Get Random Driver ID" library="data_generator">
+<var>${driver_id_fmt}</var>
+<kw name="Generate Random String" library="String">
+<var>${driver_id}</var>
+<arg>13</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20260505 10:00:18.898" level="INFO">${driver_id} = 8953973497224</msg>
+<status status="PASS" starttime="20260505 10:00:18.898" endtime="20260505 10:00:18.898"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${driver_id_fmt}</var>
+<arg>1-${driver_id[1:5]}-${driver_id[5:10]}-${driver_id[10:12]}-${driver_id[12]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20260505 10:00:18.899" level="INFO">${driver_id_fmt} = 1-9539-73497-22-4</msg>
+<status status="PASS" starttime="20260505 10:00:18.898" endtime="20260505 10:00:18.899"/>
+</kw>
+<msg timestamp="20260505 10:00:18.899" level="INFO">${driver_id_fmt} = 1-9539-73497-22-4</msg>
+<status status="PASS" starttime="20260505 10:00:18.892" endtime="20260505 10:00:18.899"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RAND_DATE_FULL}</arg>
+<arg>${date_full}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20260505 10:00:18.900" level="INFO">${RAND_DATE_FULL} = 2026-May-31</msg>
+<status status="PASS" starttime="20260505 10:00:18.899" endtime="20260505 10:00:18.900"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RAND_DATE_NUM}</arg>
+<arg>${date_num}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20260505 10:00:18.900" level="INFO">${RAND_DATE_NUM} = 2026-05-31</msg>
+<status status="PASS" starttime="20260505 10:00:18.900" endtime="20260505 10:00:18.900"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RAND_LICENSE}</arg>
+<arg>${license}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20260505 10:00:18.900" level="INFO">${RAND_LICENSE} = รร752</msg>
+<status status="PASS" starttime="20260505 10:00:18.900" endtime="20260505 10:00:18.900"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RAND_DEC_NO}</arg>
+<arg>${dec_no}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20260505 10:00:18.900" level="INFO">${RAND_DEC_NO} = 76145804265199</msg>
+<status status="PASS" starttime="20260505 10:00:18.900" endtime="20260505 10:00:18.900"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RAND_HAWB}</arg>
+<arg>${hawb_no}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20260505 10:00:18.900" level="INFO">${RAND_HAWB} = TBEKVG30FY</msg>
+<status status="PASS" starttime="20260505 10:00:18.900" endtime="20260505 10:00:18.900"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RAND_DRIVER_ID}</arg>
+<arg>${driver_id_fmt}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20260505 10:00:18.900" level="INFO">${RAND_DRIVER_ID} = 1-9539-73497-22-4</msg>
+<status status="PASS" starttime="20260505 10:00:18.900" endtime="20260505 10:00:18.900"/>
+</kw>
+<status status="PASS" starttime="20260505 10:00:18.888" endtime="20260505 10:00:18.900"/>
+</kw>
+<status status="PASS" starttime="20260505 10:00:13.432" endtime="20260505 10:00:18.900"/>
 </kw>
 <kw name="Verify Booking Success" library="shipping_createBooking_page">
 <arg>${RAND_DATE_FULL}</arg>
@@ -248,10 +250,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:46.844" level="INFO">Clicks the element 'xpath=//*[@id="sidebar-menu-17"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:46.844" endtime="20260504 18:20:46.882"/>
+<msg timestamp="20260505 10:00:18.900" level="INFO">Clicks the element 'xpath=//*[@id="sidebar-menu-17"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:18.900" endtime="20260505 10:00:18.939"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:46.844" endtime="20260504 18:20:46.883"/>
+<status status="PASS" starttime="20260505 10:00:18.900" endtime="20260505 10:00:18.940"/>
 </kw>
 <kw name="Open Create Booking Page" library="shipping_createBooking_page">
 <kw name="Click" library="Browser">
@@ -259,10 +261,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:46.883" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-create"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:46.883" endtime="20260504 18:20:46.985"/>
+<msg timestamp="20260505 10:00:18.941" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-create"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:18.940" endtime="20260505 10:00:20.082"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:46.883" endtime="20260504 18:20:46.985"/>
+<status status="PASS" starttime="20260505 10:00:18.940" endtime="20260505 10:00:20.082"/>
 </kw>
 <kw name="Fill Date to TMO" library="shipping_createBooking_page">
 <arg>${date_to_tmo}</arg>
@@ -273,18 +275,18 @@
 <arg>${date_to_tmo}</arg>
 <arg>-</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20260504 18:20:46.986" level="INFO">${year} = 2026</msg>
-<msg timestamp="20260504 18:20:46.986" level="INFO">${month} = June</msg>
-<msg timestamp="20260504 18:20:46.986" level="INFO">${day} = 03</msg>
-<status status="PASS" starttime="20260504 18:20:46.985" endtime="20260504 18:20:46.986"/>
+<msg timestamp="20260505 10:00:20.082" level="INFO">${year} = 2026</msg>
+<msg timestamp="20260505 10:00:20.082" level="INFO">${month} = May</msg>
+<msg timestamp="20260505 10:00:20.082" level="INFO">${day} = 31</msg>
+<status status="PASS" starttime="20260505 10:00:20.082" endtime="20260505 10:00:20.082"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>//*[@id="queue-booking-tracking-search-reserveDate"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:46.986" level="INFO">Clicks the element '//*[@id="queue-booking-tracking-search-reserveDate"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:46.986" endtime="20260504 18:20:48.037"/>
+<msg timestamp="20260505 10:00:20.082" level="INFO">Clicks the element '//*[@id="queue-booking-tracking-search-reserveDate"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:20.082" endtime="20260505 10:00:20.990"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>.bs-datepicker-container</arg>
@@ -292,32 +294,32 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260504 18:20:48.055" level="INFO">Waited for Element with selector .bs-datepicker-container at state visible</msg>
-<status status="PASS" starttime="20260504 18:20:48.037" endtime="20260504 18:20:48.055"/>
+<msg timestamp="20260505 10:00:21.015" level="INFO">Waited for Element with selector .bs-datepicker-container at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:20.990" endtime="20260505 10:00:21.015"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>(//div[contains(@class,"bs-datepicker-head")]//button[contains(@class,"current")])[2]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:48.055" level="INFO">Clicks the element '(//div[contains(@class,"bs-datepicker-head")]//button[contains(@class,"current")])[2]'.</msg>
-<status status="PASS" starttime="20260504 18:20:48.055" endtime="20260504 18:20:48.090"/>
+<msg timestamp="20260505 10:00:21.015" level="INFO">Clicks the element '(//div[contains(@class,"bs-datepicker-head")]//button[contains(@class,"current")])[2]'.</msg>
+<status status="PASS" starttime="20260505 10:00:21.015" endtime="20260505 10:00:21.044"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>//span[normalize-space()="${year}"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:48.090" level="INFO">Clicks the element '//span[normalize-space()="2026"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:48.090" endtime="20260504 18:20:48.114"/>
+<msg timestamp="20260505 10:00:21.044" level="INFO">Clicks the element '//span[normalize-space()="2026"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:21.044" endtime="20260505 10:00:21.078"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>//span[normalize-space()="${month}"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:48.114" level="INFO">Clicks the element '//span[normalize-space()="June"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:48.114" endtime="20260504 18:20:48.146"/>
+<msg timestamp="20260505 10:00:21.078" level="INFO">Clicks the element '//span[normalize-space()="May"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:21.078" endtime="20260505 10:00:21.119"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>.bs-datepicker-body</arg>
@@ -325,25 +327,25 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260504 18:20:48.160" level="INFO">Waited for Element with selector .bs-datepicker-body at state visible</msg>
-<status status="PASS" starttime="20260504 18:20:48.146" endtime="20260504 18:20:48.160"/>
+<msg timestamp="20260505 10:00:21.126" level="INFO">Waited for Element with selector .bs-datepicker-body at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:21.119" endtime="20260505 10:00:21.126"/>
 </kw>
 <kw name="Convert To Integer" library="BuiltIn">
 <var>${day_int}</var>
 <arg>${day}</arg>
 <doc>Converts the given item to an integer number.</doc>
-<msg timestamp="20260504 18:20:48.160" level="INFO">${day_int} = 3</msg>
-<status status="PASS" starttime="20260504 18:20:48.160" endtime="20260504 18:20:48.160"/>
+<msg timestamp="20260505 10:00:21.126" level="INFO">${day_int} = 31</msg>
+<status status="PASS" starttime="20260505 10:00:21.126" endtime="20260505 10:00:21.126"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>(//div[contains(@class,"bs-datepicker-body")]//span[normalize-space()="${day_int}"])[1]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:48.160" level="INFO">Clicks the element '(//div[contains(@class,"bs-datepicker-body")]//span[normalize-space()="3"])[1]'.</msg>
-<status status="PASS" starttime="20260504 18:20:48.160" endtime="20260504 18:20:48.222"/>
+<msg timestamp="20260505 10:00:21.126" level="INFO">Clicks the element '(//div[contains(@class,"bs-datepicker-body")]//span[normalize-space()="31"])[1]'.</msg>
+<status status="PASS" starttime="20260505 10:00:21.126" endtime="20260505 10:00:21.188"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:46.985" endtime="20260504 18:20:48.222"/>
+<status status="PASS" starttime="20260505 10:00:20.082" endtime="20260505 10:00:21.188"/>
 </kw>
 <if>
 <branch type="IF" condition="'${driver_id}' != '${EMPTY}'">
@@ -354,16 +356,16 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:48.222" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/div[2]'.</msg>
-<status status="PASS" starttime="20260504 18:20:48.222" endtime="20260504 18:20:48.258"/>
+<msg timestamp="20260505 10:00:21.195" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/div[2]'.</msg>
+<status status="PASS" starttime="20260505 10:00:21.195" endtime="20260505 10:00:21.226"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/ngx-select-choices/ul/li[1]/a</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:48.258" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/ngx-select-choices/ul/li[1]/a'.</msg>
-<status status="PASS" starttime="20260504 18:20:48.258" endtime="20260504 18:20:48.296"/>
+<msg timestamp="20260505 10:00:21.226" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/ngx-select-choices/ul/li[1]/a'.</msg>
+<status status="PASS" starttime="20260505 10:00:21.226" endtime="20260505 10:00:21.262"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>xpath=//*[@id="queue-booking-tracking-search-driverTaxId"]</arg>
@@ -371,14 +373,14 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:48.297" level="INFO">Fills the text '1-9389-04078-65-1' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:48.296" endtime="20260504 18:20:48.306"/>
+<msg timestamp="20260505 10:00:21.263" level="INFO">Fills the text '1-9539-73497-22-4' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:21.262" endtime="20260505 10:00:21.274"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:48.222" endtime="20260504 18:20:48.307"/>
+<status status="PASS" starttime="20260505 10:00:21.195" endtime="20260505 10:00:21.274"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:48.222" endtime="20260504 18:20:48.307"/>
+<status status="PASS" starttime="20260505 10:00:21.195" endtime="20260505 10:00:21.274"/>
 </branch>
-<status status="PASS" starttime="20260504 18:20:48.222" endtime="20260504 18:20:48.307"/>
+<status status="PASS" starttime="20260505 10:00:21.188" endtime="20260505 10:00:21.274"/>
 </if>
 <if>
 <branch type="IF" condition="'${driver_license}' != '${EMPTY}' and '${vehicle_province}' != '${EMPTY}' and '${driver_cartype}' != '${EMPTY}'">
@@ -391,16 +393,16 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:48.307" level="INFO">Clicks the element 'id=queue-booking-view-vehicle &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true'.</msg>
-<status status="PASS" starttime="20260504 18:20:48.307" endtime="20260504 18:20:48.340"/>
+<msg timestamp="20260505 10:00:21.274" level="INFO">Clicks the element 'id=queue-booking-view-vehicle &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true'.</msg>
+<status status="PASS" starttime="20260505 10:00:21.274" endtime="20260505 10:00:21.307"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//*[@id="queue-booking-view-vehicle"]//ngx-select-choices//li[1]/a</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:48.340" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-view-vehicle"]//ngx-select-choices//li[1]/a'.</msg>
-<status status="PASS" starttime="20260504 18:20:48.340" endtime="20260504 18:20:48.387"/>
+<msg timestamp="20260505 10:00:21.307" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-view-vehicle"]//ngx-select-choices//li[1]/a'.</msg>
+<status status="PASS" starttime="20260505 10:00:21.307" endtime="20260505 10:00:21.362"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>xpath=//input[@placeholder="ป้ายทะเบียน"] &gt;&gt; visible=true</arg>
@@ -408,30 +410,30 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:48.387" level="INFO">Fills the text 'ลพ772' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:48.387" endtime="20260504 18:20:48.395"/>
+<msg timestamp="20260505 10:00:21.362" level="INFO">Fills the text 'รร752' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:21.362" endtime="20260505 10:00:21.381"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>id=sidebar-toggle-btn</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:48.402" level="INFO">Clicks the element 'id=sidebar-toggle-btn'.</msg>
-<status status="PASS" starttime="20260504 18:20:48.402" endtime="20260504 18:20:48.431"/>
+<msg timestamp="20260505 10:00:21.382" level="INFO">Clicks the element 'id=sidebar-toggle-btn'.</msg>
+<status status="PASS" starttime="20260505 10:00:21.381" endtime="20260505 10:00:21.413"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2 seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260504 18:20:50.432" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20260504 18:20:48.431" endtime="20260504 18:20:50.432"/>
+<msg timestamp="20260505 10:00:23.413" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20260505 10:00:21.413" endtime="20260505 10:00:23.413"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>id=queue-booking-tracking-search-vehicleProvince &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.432" level="INFO">Clicks the element 'id=queue-booking-tracking-search-vehicleProvince &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true'.</msg>
-<status status="PASS" starttime="20260504 18:20:50.432" endtime="20260504 18:20:50.467"/>
+<msg timestamp="20260505 10:00:23.413" level="INFO">Clicks the element 'id=queue-booking-tracking-search-vehicleProvince &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true'.</msg>
+<status status="PASS" starttime="20260505 10:00:23.413" endtime="20260505 10:00:23.446"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=queue-booking-tracking-search-vehicleProvince &gt;&gt; css=.ngx-select__search</arg>
@@ -439,24 +441,24 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.469" level="INFO">Fills the text 'กระบี่' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:50.467" endtime="20260504 18:20:50.476"/>
+<msg timestamp="20260505 10:00:23.446" level="INFO">Fills the text 'กระบี่' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:23.446" endtime="20260505 10:00:23.450"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//*[@id="queue-booking-tracking-search-vehicleProvince"]//ngx-select-choices//a[contains(normalize-space(.), '${vehicle_province}')]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.476" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-search-vehicleProvince"]//ngx-select-choices//a[contains(normalize-space(.), 'กระบี่')]'.</msg>
-<status status="PASS" starttime="20260504 18:20:50.476" endtime="20260504 18:20:50.508"/>
+<msg timestamp="20260505 10:00:23.457" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-search-vehicleProvince"]//ngx-select-choices//a[contains(normalize-space(.), 'กระบี่')]'.</msg>
+<status status="PASS" starttime="20260505 10:00:23.450" endtime="20260505 10:00:23.489"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>id=vehicle-management-vehicle-type-id &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.509" level="INFO">Clicks the element 'id=vehicle-management-vehicle-type-id &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true'.</msg>
-<status status="PASS" starttime="20260504 18:20:50.508" endtime="20260504 18:20:50.542"/>
+<msg timestamp="20260505 10:00:23.489" level="INFO">Clicks the element 'id=vehicle-management-vehicle-type-id &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true'.</msg>
+<status status="PASS" starttime="20260505 10:00:23.489" endtime="20260505 10:00:23.522"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>xpath=//*[@id="vehicle-management-vehicle-type-id"]/ngx-select/div/input</arg>
@@ -464,22 +466,22 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.542" level="INFO">Fills the text 'รถยนต์ 4 ที่นั่ง' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:50.542" endtime="20260504 18:20:50.545"/>
+<msg timestamp="20260505 10:00:23.522" level="INFO">Fills the text 'รถยนต์ 4 ที่นั่ง' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:23.522" endtime="20260505 10:00:23.526"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//*[@id="vehicle-management-vehicle-type-id"]//ngx-select-choices//a[contains(normalize-space(.), '${driver_cartype}')]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.545" level="INFO">Clicks the element 'xpath=//*[@id="vehicle-management-vehicle-type-id"]//ngx-select-choices//a[contains(normalize-space(.), 'รถยนต์ 4 ที่นั่ง')]'.</msg>
-<status status="PASS" starttime="20260504 18:20:50.545" endtime="20260504 18:20:50.582"/>
+<msg timestamp="20260505 10:00:23.526" level="INFO">Clicks the element 'xpath=//*[@id="vehicle-management-vehicle-type-id"]//ngx-select-choices//a[contains(normalize-space(.), 'รถยนต์ 4 ที่นั่ง')]'.</msg>
+<status status="PASS" starttime="20260505 10:00:23.526" endtime="20260505 10:00:23.562"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:48.307" endtime="20260504 18:20:50.582"/>
+<status status="PASS" starttime="20260505 10:00:21.274" endtime="20260505 10:00:23.562"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:48.307" endtime="20260504 18:20:50.582"/>
+<status status="PASS" starttime="20260505 10:00:21.274" endtime="20260505 10:00:23.562"/>
 </branch>
-<status status="PASS" starttime="20260504 18:20:48.307" endtime="20260504 18:20:50.583"/>
+<status status="PASS" starttime="20260505 10:00:21.274" endtime="20260505 10:00:23.562"/>
 </if>
 <if>
 <branch type="IF" condition="'${bookingType}' != '${EMPTY}' and '${bokingOrigin}' != '${EMPTY}' and '${bookingDestination}' != '${EMPTY}' and '${reserveHour}' != '${EMPTY}' and '${reserveMinute}' != '${EMPTY}' and '${goodsType}' != '${EMPTY}'">
@@ -497,8 +499,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Selects options from select element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.585" level="INFO">Selects the option(s) รับสินค้าขาเข้าปกติ by attribute SelectAttribute.label from element xpath=//select[@id='queue-booking-detail-bookingTypeId'].</msg>
-<status status="PASS" starttime="20260504 18:20:50.585" endtime="20260504 18:20:50.608"/>
+<msg timestamp="20260505 10:00:23.565" level="INFO">Selects the option(s) รับสินค้าขาเข้าปกติ by attribute SelectAttribute.label from element xpath=//select[@id='queue-booking-detail-bookingTypeId'].</msg>
+<status status="PASS" starttime="20260505 10:00:23.565" endtime="20260505 10:00:23.588"/>
 </kw>
 <kw name="Select Options By" library="Browser">
 <arg>xpath=//select[@id="queue-booking-detail-origin"]</arg>
@@ -507,8 +509,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Selects options from select element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.608" level="INFO">Selects the option(s) TG by attribute SelectAttribute.label from element xpath=//select[@id="queue-booking-detail-origin"].</msg>
-<status status="PASS" starttime="20260504 18:20:50.608" endtime="20260504 18:20:50.617"/>
+<msg timestamp="20260505 10:00:23.588" level="INFO">Selects the option(s) TG by attribute SelectAttribute.label from element xpath=//select[@id="queue-booking-detail-origin"].</msg>
+<status status="PASS" starttime="20260505 10:00:23.588" endtime="20260505 10:00:23.602"/>
 </kw>
 <kw name="Select Options By" library="Browser">
 <arg>xpath=//select[@id="queue-booking-detail-destination"]</arg>
@@ -517,8 +519,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Selects options from select element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.622" level="INFO">Selects the option(s) ภายในประเทศ/ท่าอื่น by attribute SelectAttribute.label from element xpath=//select[@id="queue-booking-detail-destination"].</msg>
-<status status="PASS" starttime="20260504 18:20:50.622" endtime="20260504 18:20:50.632"/>
+<msg timestamp="20260505 10:00:23.602" level="INFO">Selects the option(s) ภายในประเทศ/ท่าอื่น by attribute SelectAttribute.label from element xpath=//select[@id="queue-booking-detail-destination"].</msg>
+<status status="PASS" starttime="20260505 10:00:23.602" endtime="20260505 10:00:23.611"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>css=input[placeholder="HH"]</arg>
@@ -526,8 +528,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.632" level="INFO">Fills the text '10' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:50.632" endtime="20260504 18:20:50.636"/>
+<msg timestamp="20260505 10:00:23.611" level="INFO">Fills the text '10' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:23.611" endtime="20260505 10:00:23.622"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>css=input[placeholder="MM"]</arg>
@@ -535,8 +537,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.643" level="INFO">Fills the text '30' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:50.643" endtime="20260504 18:20:50.656"/>
+<msg timestamp="20260505 10:00:23.622" level="INFO">Fills the text '30' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:23.622" endtime="20260505 10:00:23.638"/>
 </kw>
 <kw name="Press Keys" library="Browser">
 <arg>css=input[placeholder="MM"]</arg>
@@ -544,7 +546,7 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given key combination into element found by ``selector``.</doc>
-<status status="PASS" starttime="20260504 18:20:50.656" endtime="20260504 18:20:50.671"/>
+<status status="PASS" starttime="20260505 10:00:23.638" endtime="20260505 10:00:23.653"/>
 </kw>
 <kw name="Select Options By" library="Browser">
 <arg>xpath=//select[@id="queue-booking-detail-goodsType"]</arg>
@@ -553,14 +555,14 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Selects options from select element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.671" level="INFO">Selects the option(s) ของมีค่า(TG) by attribute SelectAttribute.label from element xpath=//select[@id="queue-booking-detail-goodsType"].</msg>
-<status status="PASS" starttime="20260504 18:20:50.671" endtime="20260504 18:20:50.705"/>
+<msg timestamp="20260505 10:00:23.653" level="INFO">Selects the option(s) ของมีค่า(TG) by attribute SelectAttribute.label from element xpath=//select[@id="queue-booking-detail-goodsType"].</msg>
+<status status="PASS" starttime="20260505 10:00:23.653" endtime="20260505 10:00:23.672"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:50.584" endtime="20260504 18:20:50.705"/>
+<status status="PASS" starttime="20260505 10:00:23.564" endtime="20260505 10:00:23.672"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:50.583" endtime="20260504 18:20:50.705"/>
+<status status="PASS" starttime="20260505 10:00:23.562" endtime="20260505 10:00:23.673"/>
 </branch>
-<status status="PASS" starttime="20260504 18:20:50.583" endtime="20260504 18:20:50.705"/>
+<status status="PASS" starttime="20260505 10:00:23.562" endtime="20260505 10:00:23.673"/>
 </if>
 <if>
 <branch type="IF" condition="'${declaration_number}' != '${EMPTY}' and '${HAWB}' != '${EMPTY}'">
@@ -573,16 +575,16 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.710" level="INFO">Fills the text '82919329720877' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:50.710" endtime="20260504 18:20:50.719"/>
+<msg timestamp="20260505 10:00:23.674" level="INFO">Fills the text '76145804265199' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:23.674" endtime="20260505 10:00:23.689"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//*[@id="queue-booking-detail-search-declarationNumber"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.719" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-detail-search-declarationNumber"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:50.719" endtime="20260504 18:20:50.754"/>
+<msg timestamp="20260505 10:00:23.690" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-detail-search-declarationNumber"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:23.690" endtime="20260505 10:00:23.726"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>xpath=//input[@id="queue-booking-detail-hawb"]</arg>
@@ -590,30 +592,30 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.754" level="INFO">Fills the text 'GUKQKZJVLG}' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:50.754" endtime="20260504 18:20:50.848"/>
+<msg timestamp="20260505 10:00:23.728" level="INFO">Fills the text 'TBEKVG30FY}' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:23.727" endtime="20260505 10:00:23.828"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//*[@id="queue-booking-detail-add-declarationNumber"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.849" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-detail-add-declarationNumber"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:50.848" endtime="20260504 18:20:50.884"/>
+<msg timestamp="20260505 10:00:23.829" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-detail-add-declarationNumber"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:23.828" endtime="20260505 10:00:23.866"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//*[@id="queue-booking-tracking-btn-search"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.885" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-search"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:50.884" endtime="20260504 18:20:50.919"/>
+<msg timestamp="20260505 10:00:23.866" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-search"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:23.866" endtime="20260505 10:00:23.901"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:50.705" endtime="20260504 18:20:50.919"/>
+<status status="PASS" starttime="20260505 10:00:23.674" endtime="20260505 10:00:23.901"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:50.705" endtime="20260504 18:20:50.919"/>
+<status status="PASS" starttime="20260505 10:00:23.673" endtime="20260505 10:00:23.901"/>
 </branch>
-<status status="PASS" starttime="20260504 18:20:50.705" endtime="20260504 18:20:50.919"/>
+<status status="PASS" starttime="20260505 10:00:23.673" endtime="20260505 10:00:23.901"/>
 </if>
 <kw name="Submit Booking" library="shipping_createBooking_page">
 <kw name="Click" library="Browser">
@@ -621,32 +623,32 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.920" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-submit"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:50.920" endtime="20260504 18:20:50.953"/>
+<msg timestamp="20260505 10:00:23.902" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-submit"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:23.901" endtime="20260505 10:00:23.945"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//*[@id="queue-booking-tracking-btn-save"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:50.955" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-save"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:50.953" endtime="20260504 18:20:51.378"/>
+<msg timestamp="20260505 10:00:23.946" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-save"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:23.945" endtime="20260505 10:00:24.336"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5 seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260504 18:20:56.379" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20260504 18:20:51.379" endtime="20260504 18:20:56.379"/>
+<msg timestamp="20260505 10:00:29.338" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20260505 10:00:24.336" endtime="20260505 10:00:29.338"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//*[@id="queue-booking-tracking-btn-save"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:56.379" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-save"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:56.379" endtime="20260504 18:20:56.409"/>
+<msg timestamp="20260505 10:00:29.338" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-save"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:29.338" endtime="20260505 10:00:29.367"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:50.920" endtime="20260504 18:20:56.409"/>
+<status status="PASS" starttime="20260505 10:00:23.901" endtime="20260505 10:00:29.367"/>
 </kw>
 <kw name="check booking success" library="shipping_createBooking_page">
 <kw name="Wait For Elements State" library="Browser">
@@ -656,8 +658,8 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260504 18:20:56.418" level="INFO">Waited for Element with selector xpath=//div[contains(@class, 'text-dark') and contains(., '20')] at state visible</msg>
-<status status="PASS" starttime="20260504 18:20:56.409" endtime="20260504 18:20:56.419"/>
+<msg timestamp="20260505 10:00:29.565" level="INFO">Waited for Element with selector xpath=//div[contains(@class, 'text-dark') and contains(., '20')] at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:29.368" endtime="20260505 10:00:29.565"/>
 </kw>
 <kw name="Get Text" library="Browser">
 <var>${booking_id}</var>
@@ -666,21 +668,21 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:56.431" level="INFO">Text: '202605040003'</msg>
-<msg timestamp="20260504 18:20:56.431" level="INFO">${booking_id} = 202605040003</msg>
-<status status="PASS" starttime="20260504 18:20:56.419" endtime="20260504 18:20:56.431"/>
+<msg timestamp="20260505 10:00:29.580" level="INFO">Text: '202605050025'</msg>
+<msg timestamp="20260505 10:00:29.580" level="INFO">${booking_id} = 202605050025</msg>
+<status status="PASS" starttime="20260505 10:00:29.565" endtime="20260505 10:00:29.580"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>\nSuccessfully Created Booking ID: ${booking_id}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20260504 18:20:56.432" endtime="20260504 18:20:56.432"/>
+<status status="PASS" starttime="20260505 10:00:29.580" endtime="20260505 10:00:29.581"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${GLOBAL_BOOKING_ID}</arg>
 <arg>${booking_id}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20260504 18:20:56.432" level="INFO">${GLOBAL_BOOKING_ID} = 202605040003</msg>
-<status status="PASS" starttime="20260504 18:20:56.432" endtime="20260504 18:20:56.432"/>
+<msg timestamp="20260505 10:00:29.581" level="INFO">${GLOBAL_BOOKING_ID} = 202605050025</msg>
+<status status="PASS" starttime="20260505 10:00:29.581" endtime="20260505 10:00:29.581"/>
 </kw>
 <kw name="Get Text" library="Browser">
 <var>${Queue_status}</var>
@@ -689,27 +691,34 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:56.444" level="INFO">Text: 'Queue'</msg>
-<msg timestamp="20260504 18:20:56.444" level="INFO">${Queue_status} = Queue</msg>
-<status status="PASS" starttime="20260504 18:20:56.433" endtime="20260504 18:20:56.444"/>
+<msg timestamp="20260505 10:00:29.592" level="INFO">Text: 'Queue'</msg>
+<msg timestamp="20260505 10:00:29.592" level="INFO">${Queue_status} = Queue</msg>
+<status status="PASS" starttime="20260505 10:00:29.581" endtime="20260505 10:00:29.592"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Queue Status: ${Queue_status}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20260504 18:20:56.444" endtime="20260504 18:20:56.446"/>
+<status status="PASS" starttime="20260505 10:00:29.592" endtime="20260505 10:00:29.592"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//*[@id="queue-booking-tracking-btn-back"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:56.446" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-back"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:56.446" endtime="20260504 18:20:56.809"/>
+<msg timestamp="20260505 10:00:29.593" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-back"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:29.593" endtime="20260505 10:00:29.818"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:56.409" endtime="20260504 18:20:56.809"/>
+<status status="PASS" starttime="20260505 10:00:29.367" endtime="20260505 10:00:29.818"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:46.844" endtime="20260504 18:20:56.809"/>
+<status status="PASS" starttime="20260505 10:00:18.900" endtime="20260505 10:00:29.818"/>
 </kw>
+<kw name="QUEUEMANAGMENT" library="TMO_QueueManagment">
+<arg>${GLOBAL_BOOKING_ID}</arg>
+<arg>${EMPTY}</arg>
+<arg>${RAND_DATE_FULL}</arg>
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<arg>status_expeted=All</arg>
 <kw name="Login As TMO User" library="config">
 <kw name="Open Login TMO Web Application" library="config">
 <kw name="New Browser" library="Browser">
@@ -718,27 +727,27 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20260504 18:20:56.810" level="INFO">Switching browser to browser=aec6f698-5d92-4f21-b148-c526cc679c0c</msg>
-<msg timestamp="20260504 18:20:56.813" level="INFO">Successfully changed active browser: browser=aec6f698-5d92-4f21-b148-c526cc679c0c</msg>
-<msg timestamp="20260504 18:20:56.813" level="INFO">Reusing existing browser with id: browser=aec6f698-5d92-4f21-b148-c526cc679c0c</msg>
-<status status="PASS" starttime="20260504 18:20:56.810" endtime="20260504 18:20:56.813"/>
+<msg timestamp="20260505 10:00:29.820" level="INFO">Switching browser to browser=4c3f6349-6a21-4a63-93c7-74cb83caebca</msg>
+<msg timestamp="20260505 10:00:29.823" level="INFO">Successfully changed active browser: browser=4c3f6349-6a21-4a63-93c7-74cb83caebca</msg>
+<msg timestamp="20260505 10:00:29.823" level="INFO">Reusing existing browser with id: browser=4c3f6349-6a21-4a63-93c7-74cb83caebca</msg>
+<status status="PASS" starttime="20260505 10:00:29.820" endtime="20260505 10:00:29.823"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${url_loginTMO}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20260504 18:20:58.006" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/tmo/login</msg>
-<status status="PASS" starttime="20260504 18:20:56.814" endtime="20260504 18:20:58.006"/>
+<msg timestamp="20260505 10:00:32.307" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/tmo/login</msg>
+<status status="PASS" starttime="20260505 10:00:29.823" endtime="20260505 10:00:32.308"/>
 </kw>
 <kw name="Set Browser Timeout" library="Browser">
 <arg>20 seconds</arg>
 <tag>Config</tag>
 <tag>Setter</tag>
 <doc>Sets the timeout used by most input and getter keywords.</doc>
-<status status="PASS" starttime="20260504 18:20:58.006" endtime="20260504 18:20:58.006"/>
+<status status="PASS" starttime="20260505 10:00:32.308" endtime="20260505 10:00:32.308"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:56.810" endtime="20260504 18:20:58.006"/>
+<status status="PASS" starttime="20260505 10:00:29.820" endtime="20260505 10:00:32.309"/>
 </kw>
 <kw name="Input LoginTMO Credentials" library="TMO_Login">
 <arg>username=trainingtg</arg>
@@ -749,8 +758,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:58.007" level="INFO">Fills the text 'trainingtg' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:58.007" endtime="20260504 18:20:58.036"/>
+<msg timestamp="20260505 10:00:32.310" level="INFO">Fills the text 'trainingtg' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:32.310" endtime="20260505 10:00:32.339"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>${TXT_PASSWORD}</arg>
@@ -758,10 +767,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:58.036" level="INFO">Fills the text 'Netbay@123' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:20:58.036" endtime="20260504 18:20:58.049"/>
+<msg timestamp="20260505 10:00:32.340" level="INFO">Fills the text 'Netbay@123' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:32.340" endtime="20260505 10:00:32.352"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:58.007" endtime="20260504 18:20:58.049"/>
+<status status="PASS" starttime="20260505 10:00:32.309" endtime="20260505 10:00:32.352"/>
 </kw>
 <kw name="Click LoginTMO Button" library="TMO_Login">
 <kw name="Click" library="Browser">
@@ -769,26 +778,26 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:20:58.050" level="INFO">Clicks the element 'xpath=//*[@title="Login"]'.</msg>
-<status status="PASS" starttime="20260504 18:20:58.050" endtime="20260504 18:20:58.078"/>
+<msg timestamp="20260505 10:00:32.353" level="INFO">Clicks the element 'xpath=//*[@title="Login"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:32.353" endtime="20260505 10:00:32.385"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>3 seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260504 18:21:01.078" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20260504 18:20:58.078" endtime="20260504 18:21:01.078"/>
+<msg timestamp="20260505 10:00:35.386" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20260505 10:00:32.385" endtime="20260505 10:00:35.386"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:58.049" endtime="20260504 18:21:01.078"/>
+<status status="PASS" starttime="20260505 10:00:32.352" endtime="20260505 10:00:35.386"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>css=button.swal2-confirm</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:01.078" level="INFO">Clicks the element 'css=button.swal2-confirm'.</msg>
-<status status="PASS" starttime="20260504 18:21:01.078" endtime="20260504 18:21:01.098"/>
+<msg timestamp="20260505 10:00:35.386" level="INFO">Clicks the element 'css=button.swal2-confirm'.</msg>
+<status status="PASS" starttime="20260505 10:00:35.386" endtime="20260505 10:00:35.403"/>
 </kw>
-<status status="PASS" starttime="20260504 18:20:56.809" endtime="20260504 18:21:01.098"/>
+<status status="PASS" starttime="20260505 10:00:29.820" endtime="20260505 10:00:35.403"/>
 </kw>
 <kw name="Open QUEUEMANAGMENT Menu" library="TMO_QueueManagment">
 <kw name="Click" library="Browser">
@@ -796,10 +805,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:01.099" level="INFO">Clicks the element 'xpath=//*[@id="sidebar-menu-25"]'.</msg>
-<status status="PASS" starttime="20260504 18:21:01.098" endtime="20260504 18:21:02.245"/>
+<msg timestamp="20260505 10:00:35.403" level="INFO">Clicks the element 'xpath=//*[@id="sidebar-menu-25"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:35.403" endtime="20260505 10:00:36.922"/>
 </kw>
-<status status="PASS" starttime="20260504 18:21:01.098" endtime="20260504 18:21:02.245"/>
+<status status="PASS" starttime="20260505 10:00:35.403" endtime="20260505 10:00:36.923"/>
 </kw>
 <kw name="Open IMPORT Page" library="TMO_QueueManagment">
 <kw name="Click" library="Browser">
@@ -807,33 +816,33 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:02.246" level="INFO">Clicks the element 'xpath=//*[@id="sidebar-sub-menu-33"]'.</msg>
-<status status="PASS" starttime="20260504 18:21:02.246" endtime="20260504 18:21:02.265"/>
+<msg timestamp="20260505 10:00:36.923" level="INFO">Clicks the element 'xpath=//*[@id="sidebar-sub-menu-33"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:36.923" endtime="20260505 10:00:36.938"/>
 </kw>
-<status status="PASS" starttime="20260504 18:21:02.245" endtime="20260504 18:21:02.265"/>
+<status status="PASS" starttime="20260505 10:00:36.923" endtime="20260505 10:00:36.939"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>1</arg>
 <arg>seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260504 18:21:03.267" level="INFO">Slept 1 second</msg>
-<msg timestamp="20260504 18:21:03.267" level="INFO">seconds</msg>
-<status status="PASS" starttime="20260504 18:21:02.265" endtime="20260504 18:21:03.267"/>
+<msg timestamp="20260505 10:00:37.939" level="INFO">Slept 1 second</msg>
+<msg timestamp="20260505 10:00:37.939" level="INFO">seconds</msg>
+<status status="PASS" starttime="20260505 10:00:36.939" endtime="20260505 10:00:37.939"/>
 </kw>
 <kw name="Tracking Booking" library="TMO_QueueManagment">
-<arg>${GLOBAL_BOOKING_ID}</arg>
-<arg>${EMPTY}</arg>
-<arg>${RAND_DATE_FULL}</arg>
-<arg>${EMPTY}</arg>
-<arg>${EMPTY}</arg>
-<arg>status_expeted=Queue</arg>
+<arg>${BOOKING_ID}</arg>
+<arg>${Declaration_No}</arg>
+<arg>${Date_To_TMO}</arg>
+<arg>${HAWD_NO}</arg>
+<arg>${Licens_id}</arg>
+<arg>${status_expeted}</arg>
 <kw name="Click" library="Browser">
 <arg>xpath=//button[@id="sidebar-toggle-btn"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:03.269" level="INFO">Clicks the element 'xpath=//button[@id="sidebar-toggle-btn"]'.</msg>
-<status status="PASS" starttime="20260504 18:21:03.268" endtime="20260504 18:21:03.286"/>
+<msg timestamp="20260505 10:00:37.940" level="INFO">Clicks the element 'xpath=//button[@id="sidebar-toggle-btn"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:37.940" endtime="20260505 10:00:37.961"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${BOOKING_ID}' != '${EMPTY}'</arg>
@@ -847,10 +856,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:03.287" level="INFO">Fills the text '202605040003' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:21:03.287" endtime="20260504 18:21:03.298"/>
+<msg timestamp="20260505 10:00:37.962" level="INFO">Fills the text '202605050025' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:37.962" endtime="20260505 10:00:37.974"/>
 </kw>
-<status status="PASS" starttime="20260504 18:21:03.286" endtime="20260504 18:21:03.298"/>
+<status status="PASS" starttime="20260505 10:00:37.962" endtime="20260505 10:00:37.974"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${Declaration_No}' != '${EMPTY}'</arg>
@@ -858,7 +867,7 @@
 <arg>xpath=//*[@id="tracking-search-search-declarationNumber"]</arg>
 <arg>${Declaration_No}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20260504 18:21:03.298" endtime="20260504 18:21:03.299"/>
+<status status="PASS" starttime="20260505 10:00:37.974" endtime="20260505 10:00:37.975"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${HAWD_NO}' != '${EMPTY}'</arg>
@@ -866,7 +875,7 @@
 <arg>xpath=//*[@id="tracking-search-search-hawb"]</arg>
 <arg>${HAWD_NO}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20260504 18:21:03.299" endtime="20260504 18:21:03.299"/>
+<status status="PASS" starttime="20260505 10:00:37.975" endtime="20260505 10:00:37.976"/>
 </kw>
 <kw name="Select Status" library="TMO_QueueManagment">
 <arg>status_value=${status_expeted}</arg>
@@ -875,8 +884,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:03.300" level="INFO">Clicks the element 'xpath=//select[@id="tracking-search-search-statusId"]'.</msg>
-<status status="PASS" starttime="20260504 18:21:03.300" endtime="20260504 18:21:03.353"/>
+<msg timestamp="20260505 10:00:37.977" level="INFO">Clicks the element 'xpath=//select[@id="tracking-search-search-statusId"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:37.976" endtime="20260505 10:00:38.015"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>xpath=//select[@id="tracking-search-search-statusId"]</arg>
@@ -885,8 +894,8 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260504 18:21:03.359" level="INFO">Waited for Element with selector xpath=//select[@id="tracking-search-search-statusId"] at state visible</msg>
-<status status="PASS" starttime="20260504 18:21:03.353" endtime="20260504 18:21:03.359"/>
+<msg timestamp="20260505 10:00:38.025" level="INFO">Waited for Element with selector xpath=//select[@id="tracking-search-search-statusId"] at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:38.016" endtime="20260505 10:00:38.025"/>
 </kw>
 <if>
 <branch type="IF" condition="'${status_value}' == '${EMPTY}' or '${status_value}' == 'All'">
@@ -897,9 +906,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Selects options from select element found by ``selector``.</doc>
-<status status="NOT RUN" starttime="20260504 18:21:03.360" endtime="20260504 18:21:03.360"/>
+<msg timestamp="20260505 10:00:38.026" level="INFO">Selects the option(s) All by attribute SelectAttribute.label from element xpath=//select[@id="tracking-search-search-statusId"].</msg>
+<status status="PASS" starttime="20260505 10:00:38.026" endtime="20260505 10:00:38.061"/>
 </kw>
-<status status="NOT RUN" starttime="20260504 18:21:03.360" endtime="20260504 18:21:03.360"/>
+<status status="PASS" starttime="20260505 10:00:38.025" endtime="20260505 10:00:38.061"/>
 </branch>
 <branch type="ELSE">
 <kw name="Select Options By" library="Browser">
@@ -909,20 +919,19 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Selects options from select element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:03.361" level="INFO">Selects the option(s) Queue by attribute SelectAttribute.label from element xpath=//select[@id="tracking-search-search-statusId"].</msg>
-<status status="PASS" starttime="20260504 18:21:03.361" endtime="20260504 18:21:03.392"/>
+<status status="NOT RUN" starttime="20260505 10:00:38.061" endtime="20260505 10:00:38.062"/>
 </kw>
-<status status="PASS" starttime="20260504 18:21:03.361" endtime="20260504 18:21:03.392"/>
+<status status="NOT RUN" starttime="20260505 10:00:38.061" endtime="20260505 10:00:38.062"/>
 </branch>
-<status status="PASS" starttime="20260504 18:21:03.360" endtime="20260504 18:21:03.392"/>
+<status status="PASS" starttime="20260505 10:00:38.025" endtime="20260505 10:00:38.062"/>
 </if>
 <kw name="Sleep" library="BuiltIn">
 <arg>3 seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260504 18:21:06.392" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20260504 18:21:03.392" endtime="20260504 18:21:06.392"/>
+<msg timestamp="20260505 10:00:41.062" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20260505 10:00:38.062" endtime="20260505 10:00:41.062"/>
 </kw>
-<status status="PASS" starttime="20260504 18:21:03.300" endtime="20260504 18:21:06.392"/>
+<status status="PASS" starttime="20260505 10:00:37.976" endtime="20260505 10:00:41.062"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>xpath=//*[@id="tracking-search-search-vehicleNumber"]</arg>
@@ -930,8 +939,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:06.393" level="INFO">Fills the text '' in the given field.</msg>
-<status status="PASS" starttime="20260504 18:21:06.392" endtime="20260504 18:21:06.407"/>
+<msg timestamp="20260505 10:00:41.062" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20260505 10:00:41.062" endtime="20260505 10:00:41.080"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Date_To_TMO}' != '${EMPTY}'">
@@ -944,24 +953,24 @@
 <arg>${date_full}</arg>
 <arg>-</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20260504 18:21:06.408" level="INFO">${year} = 2026</msg>
-<msg timestamp="20260504 18:21:06.408" level="INFO">${month_name} = June</msg>
-<msg timestamp="20260504 18:21:06.408" level="INFO">${day} = 03</msg>
-<status status="PASS" starttime="20260504 18:21:06.408" endtime="20260504 18:21:06.408"/>
+<msg timestamp="20260505 10:00:41.083" level="INFO">${year} = 2026</msg>
+<msg timestamp="20260505 10:00:41.083" level="INFO">${month_name} = May</msg>
+<msg timestamp="20260505 10:00:41.083" level="INFO">${day} = 31</msg>
+<status status="PASS" starttime="20260505 10:00:41.080" endtime="20260505 10:00:41.083"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>3 seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260504 18:21:09.410" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20260504 18:21:06.408" endtime="20260504 18:21:09.410"/>
+<msg timestamp="20260505 10:00:44.083" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20260505 10:00:41.083" endtime="20260505 10:00:44.083"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//input[@id="tracking-search-search-reserveDate"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:09.410" level="INFO">Clicks the element 'xpath=//input[@id="tracking-search-search-reserveDate"]'.</msg>
-<status status="PASS" starttime="20260504 18:21:09.410" endtime="20260504 18:21:09.451"/>
+<msg timestamp="20260505 10:00:44.083" level="INFO">Clicks the element 'xpath=//input[@id="tracking-search-search-reserveDate"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:44.083" endtime="20260505 10:00:44.125"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>.bs-datepicker-container</arg>
@@ -970,24 +979,24 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260504 18:21:09.460" level="INFO">Waited for Element with selector .bs-datepicker-container at state visible</msg>
-<status status="PASS" starttime="20260504 18:21:09.451" endtime="20260504 18:21:09.460"/>
+<msg timestamp="20260505 10:00:44.133" level="INFO">Waited for Element with selector .bs-datepicker-container at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:44.125" endtime="20260505 10:00:44.133"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=(//div[@class="bs-datepicker-head"]//button[contains(@class, "current")])[1]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:09.460" level="INFO">Clicks the element 'xpath=(//div[@class="bs-datepicker-head"]//button[contains(@class, "current")])[1]'.</msg>
-<status status="PASS" starttime="20260504 18:21:09.460" endtime="20260504 18:21:09.492"/>
+<msg timestamp="20260505 10:00:44.137" level="INFO">Clicks the element 'xpath=(//div[@class="bs-datepicker-head"]//button[contains(@class, "current")])[1]'.</msg>
+<status status="PASS" starttime="20260505 10:00:44.133" endtime="20260505 10:00:44.168"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=(//div[@class="bs-datepicker-head"]//button[contains(@class, "current")])[1]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:09.492" level="INFO">Clicks the element 'xpath=(//div[@class="bs-datepicker-head"]//button[contains(@class, "current")])[1]'.</msg>
-<status status="PASS" starttime="20260504 18:21:09.492" endtime="20260504 18:21:09.512"/>
+<msg timestamp="20260505 10:00:44.172" level="INFO">Clicks the element 'xpath=(//div[@class="bs-datepicker-head"]//button[contains(@class, "current")])[1]'.</msg>
+<status status="PASS" starttime="20260505 10:00:44.172" endtime="20260505 10:00:44.218"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>xpath=//span[normalize-space()="${year}"]</arg>
@@ -995,16 +1004,16 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260504 18:21:09.519" level="INFO">Waited for Element with selector xpath=//span[normalize-space()="2026"] at state visible</msg>
-<status status="PASS" starttime="20260504 18:21:09.512" endtime="20260504 18:21:09.519"/>
+<msg timestamp="20260505 10:00:44.223" level="INFO">Waited for Element with selector xpath=//span[normalize-space()="2026"] at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:44.218" endtime="20260505 10:00:44.223"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//span[normalize-space()="${year}"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:09.519" level="INFO">Clicks the element 'xpath=//span[normalize-space()="2026"]'.</msg>
-<status status="PASS" starttime="20260504 18:21:09.519" endtime="20260504 18:21:09.547"/>
+<msg timestamp="20260505 10:00:44.225" level="INFO">Clicks the element 'xpath=//span[normalize-space()="2026"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:44.225" endtime="20260505 10:00:44.255"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>xpath=//span[text()="${month_name}"]</arg>
@@ -1012,30 +1021,30 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260504 18:21:09.554" level="INFO">Waited for Element with selector xpath=//span[text()="June"] at state visible</msg>
-<status status="PASS" starttime="20260504 18:21:09.547" endtime="20260504 18:21:09.554"/>
+<msg timestamp="20260505 10:00:44.260" level="INFO">Waited for Element with selector xpath=//span[text()="May"] at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:44.255" endtime="20260505 10:00:44.260"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>xpath=//span[text()="${month_name}"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:09.554" level="INFO">Clicks the element 'xpath=//span[text()="June"]'.</msg>
-<status status="PASS" starttime="20260504 18:21:09.554" endtime="20260504 18:21:09.583"/>
+<msg timestamp="20260505 10:00:44.260" level="INFO">Clicks the element 'xpath=//span[text()="May"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:44.260" endtime="20260505 10:00:44.295"/>
 </kw>
 <kw name="Convert To Integer" library="BuiltIn">
 <var>${day_int}</var>
 <arg>${day}</arg>
 <doc>Converts the given item to an integer number.</doc>
-<msg timestamp="20260504 18:21:09.583" level="INFO">${day_int} = 3</msg>
-<status status="PASS" starttime="20260504 18:21:09.583" endtime="20260504 18:21:09.583"/>
+<msg timestamp="20260505 10:00:44.295" level="INFO">${day_int} = 31</msg>
+<status status="PASS" starttime="20260505 10:00:44.295" endtime="20260505 10:00:44.295"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${target_day_xpath}</var>
 <arg>xpath=//div[@class="bs-datepicker-body"]//span[text()="${day_int}" and not(contains(@class, "is-other-month"))]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20260504 18:21:09.583" level="INFO">${target_day_xpath} = xpath=//div[@class="bs-datepicker-body"]//span[text()="3" and not(contains(@class, "is-other-month"))]</msg>
-<status status="PASS" starttime="20260504 18:21:09.583" endtime="20260504 18:21:09.583"/>
+<msg timestamp="20260505 10:00:44.295" level="INFO">${target_day_xpath} = xpath=//div[@class="bs-datepicker-body"]//span[text()="31" and not(contains(@class, "is-other-month"))]</msg>
+<status status="PASS" starttime="20260505 10:00:44.295" endtime="20260505 10:00:44.295"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>${target_day_xpath}</arg>
@@ -1043,16 +1052,16 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260504 18:21:09.583" level="INFO">Waited for Element with selector xpath=//div[@class="bs-datepicker-body"]//span[text()="3" and not(contains(@class, "is-other-month"))] at state visible</msg>
-<status status="PASS" starttime="20260504 18:21:09.583" endtime="20260504 18:21:09.583"/>
+<msg timestamp="20260505 10:00:44.299" level="INFO">Waited for Element with selector xpath=//div[@class="bs-datepicker-body"]//span[text()="31" and not(contains(@class, "is-other-month"))] at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:44.295" endtime="20260505 10:00:44.299"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>${target_day_xpath}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:09.583" level="INFO">Clicks the element 'xpath=//div[@class="bs-datepicker-body"]//span[text()="3" and not(contains(@class, "is-other-month"))]'.</msg>
-<status status="PASS" starttime="20260504 18:21:09.583" endtime="20260504 18:21:09.644"/>
+<msg timestamp="20260505 10:00:44.299" level="INFO">Clicks the element 'xpath=//div[@class="bs-datepicker-body"]//span[text()="31" and not(contains(@class, "is-other-month"))]'.</msg>
+<status status="PASS" starttime="20260505 10:00:44.299" endtime="20260505 10:00:44.361"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>.bs-datepicker-container</arg>
@@ -1061,28 +1070,28 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260504 18:21:09.652" level="INFO">Waited for Element with selector .bs-datepicker-container at state hidden</msg>
-<status status="PASS" starttime="20260504 18:21:09.644" endtime="20260504 18:21:09.652"/>
+<msg timestamp="20260505 10:00:44.366" level="INFO">Waited for Element with selector .bs-datepicker-container at state hidden</msg>
+<status status="PASS" starttime="20260505 10:00:44.362" endtime="20260505 10:00:44.366"/>
 </kw>
-<status status="PASS" starttime="20260504 18:21:06.408" endtime="20260504 18:21:09.652"/>
+<status status="PASS" starttime="20260505 10:00:41.080" endtime="20260505 10:00:44.366"/>
 </kw>
-<status status="PASS" starttime="20260504 18:21:06.407" endtime="20260504 18:21:09.652"/>
+<status status="PASS" starttime="20260505 10:00:41.080" endtime="20260505 10:00:44.367"/>
 </branch>
-<status status="PASS" starttime="20260504 18:21:06.407" endtime="20260504 18:21:09.652"/>
+<status status="PASS" starttime="20260505 10:00:41.080" endtime="20260505 10:00:44.367"/>
 </if>
 <kw name="Click" library="Browser">
 <arg>xpath=//button[@id="tracking-search-btn-search"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:09.652" level="INFO">Clicks the element 'xpath=//button[@id="tracking-search-btn-search"]'.</msg>
-<status status="PASS" starttime="20260504 18:21:09.652" endtime="20260504 18:21:09.673"/>
+<msg timestamp="20260505 10:00:44.367" level="INFO">Clicks the element 'xpath=//button[@id="tracking-search-btn-search"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:44.367" endtime="20260505 10:00:44.380"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260504 18:21:11.673" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20260504 18:21:09.673" endtime="20260504 18:21:11.673"/>
+<msg timestamp="20260505 10:00:46.380" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20260505 10:00:44.380" endtime="20260505 10:00:46.380"/>
 </kw>
 <if>
 <branch type="IF" condition="'${BOOKING_ID}' != '${EMPTY}'">
@@ -1093,22 +1102,22 @@
 <kw name="Log" library="BuiltIn">
 <arg>[SKIP] Booking ID is empty, skipping count.</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20260504 18:21:11.675" endtime="20260504 18:21:11.675"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.380" endtime="20260505 10:00:46.380"/>
 </kw>
 <kw name="[Return]">
 <arg>${0}</arg>
-<status status="NOT RUN" starttime="20260504 18:21:11.678" endtime="20260504 18:21:11.678"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.380" endtime="20260505 10:00:46.380"/>
 </kw>
-<status status="NOT RUN" starttime="20260504 18:21:11.674" endtime="20260504 18:21:11.678"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.380" endtime="20260505 10:00:46.380"/>
 </branch>
-<status status="PASS" starttime="20260504 18:21:11.674" endtime="20260504 18:21:11.678"/>
+<status status="PASS" starttime="20260505 10:00:46.380" endtime="20260505 10:00:46.380"/>
 </if>
 <kw name="Set Variable" library="BuiltIn">
 <var>${locator}</var>
 <arg>xpath=//div[./span[text()="Booking No."]]//*[contains(@class, "card-sub-title") and text()="${target_booking_id}"]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20260504 18:21:11.678" level="INFO">${locator} = xpath=//div[./span[text()="Booking No."]]//*[contains(@class, "card-sub-title") and text()="202605040003"]</msg>
-<status status="PASS" starttime="20260504 18:21:11.678" endtime="20260504 18:21:11.678"/>
+<msg timestamp="20260505 10:00:46.384" level="INFO">${locator} = xpath=//div[./span[text()="Booking No."]]//*[contains(@class, "card-sub-title") and text()="202605050025"]</msg>
+<status status="PASS" starttime="20260505 10:00:46.384" endtime="20260505 10:00:46.384"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>${locator}</arg>
@@ -1117,8 +1126,8 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260504 18:21:11.686" level="INFO">Waited for Element with selector xpath=//div[./span[text()="Booking No."]]//*[contains(@class, "card-sub-title") and text()="202605040003"] at state visible</msg>
-<status status="PASS" starttime="20260504 18:21:11.678" endtime="20260504 18:21:11.686"/>
+<msg timestamp="20260505 10:00:46.388" level="INFO">Waited for Element with selector xpath=//div[./span[text()="Booking No."]]//*[contains(@class, "card-sub-title") and text()="202605050025"] at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:46.384" endtime="20260505 10:00:46.388"/>
 </kw>
 <kw name="Get Element Count" library="Browser">
 <var>${count}</var>
@@ -1127,79 +1136,79 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the count of elements found with ``selector``.</doc>
-<msg timestamp="20260504 18:21:11.692" level="INFO">${count} = 1</msg>
-<status status="PASS" starttime="20260504 18:21:11.686" endtime="20260504 18:21:11.692"/>
+<msg timestamp="20260505 10:00:46.388" level="INFO">${count} = 1</msg>
+<status status="PASS" starttime="20260505 10:00:46.388" endtime="20260505 10:00:46.388"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>\n[INFO] Found Booking ID ${target_booking_id}: ${count} record(s)</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.692"/>
+<status status="PASS" starttime="20260505 10:00:46.388" endtime="20260505 10:00:46.388"/>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <arg>${count} &gt; 0</arg>
 <arg>msg=❌ ไม่พบ Booking ID: ${target_booking_id} ในผลการค้นหา</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.692"/>
+<status status="PASS" starttime="20260505 10:00:46.388" endtime="20260505 10:00:46.388"/>
 </kw>
-<status status="PASS" starttime="20260504 18:21:11.674" endtime="20260504 18:21:11.692"/>
+<status status="PASS" starttime="20260505 10:00:46.380" endtime="20260505 10:00:46.388"/>
 </kw>
-<status status="PASS" starttime="20260504 18:21:11.673" endtime="20260504 18:21:11.692"/>
+<status status="PASS" starttime="20260505 10:00:46.380" endtime="20260505 10:00:46.388"/>
 </branch>
-<status status="PASS" starttime="20260504 18:21:11.673" endtime="20260504 18:21:11.692"/>
+<status status="PASS" starttime="20260505 10:00:46.380" endtime="20260505 10:00:46.388"/>
 </if>
 <if>
 <branch type="IF" condition="'${Declaration_No}' != '${EMPTY}'">
 <kw name="Count Search Result By Declaration No" library="TMO_QueueManagment">
 <arg>${Declaration_No}</arg>
-<status status="NOT RUN" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.692"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.388" endtime="20260505 10:00:46.388"/>
 </kw>
-<status status="NOT RUN" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.692"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.388" endtime="20260505 10:00:46.388"/>
 </branch>
-<status status="PASS" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.692"/>
+<status status="PASS" starttime="20260505 10:00:46.388" endtime="20260505 10:00:46.388"/>
 </if>
 <if>
 <branch type="IF" condition="'${HAWD_NO}' != '${EMPTY}'">
 <kw name="Count Search Result By HAWB" library="TMO_QueueManagment">
 <arg>${HAWD_NO}</arg>
-<status status="NOT RUN" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.692"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.388" endtime="20260505 10:00:46.388"/>
 </kw>
-<status status="NOT RUN" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.692"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.388" endtime="20260505 10:00:46.388"/>
 </branch>
-<status status="PASS" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.692"/>
+<status status="PASS" starttime="20260505 10:00:46.388" endtime="20260505 10:00:46.388"/>
 </if>
 <if>
 <branch type="IF" condition="'${Licens_id}' != '${EMPTY}'">
 <kw name="Count Search Result By Vehicle Plate" library="TMO_QueueManagment">
 <arg>${Licens_id}</arg>
-<status status="NOT RUN" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.692"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.396" endtime="20260505 10:00:46.396"/>
 </kw>
-<status status="NOT RUN" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.692"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.388" endtime="20260505 10:00:46.396"/>
 </branch>
-<status status="PASS" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.692"/>
+<status status="PASS" starttime="20260505 10:00:46.388" endtime="20260505 10:00:46.396"/>
 </if>
 <kw name="Verify Status in Search Result" library="TMO_QueueManagment">
-<arg>${status_expeted}</arg>
+<arg>expected_status=Queue</arg>
 <if>
 <branch type="IF" condition="'${expected_status}' == '${EMPTY}' or '${expected_status}' == 'All'">
 <kw name="Log" library="BuiltIn">
 <arg>[SKIP] Expected status is empty or All.</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20260504 18:21:11.696" endtime="20260504 18:21:11.696"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.396" endtime="20260505 10:00:46.396"/>
 </kw>
 <return>
 <value>${0}</value>
-<status status="NOT RUN" starttime="20260504 18:21:11.696" endtime="20260504 18:21:11.696"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.396" endtime="20260505 10:00:46.396"/>
 </return>
-<status status="NOT RUN" starttime="20260504 18:21:11.696" endtime="20260504 18:21:11.696"/>
+<status status="NOT RUN" starttime="20260505 10:00:46.396" endtime="20260505 10:00:46.396"/>
 </branch>
-<status status="PASS" starttime="20260504 18:21:11.696" endtime="20260504 18:21:11.696"/>
+<status status="PASS" starttime="20260505 10:00:46.396" endtime="20260505 10:00:46.396"/>
 </if>
 <kw name="Set Variable" library="BuiltIn">
 <var>${locator}</var>
 <arg>xpath=(//div[./span[text()="Status"]]//app-status-fems-badge//span[text()="${expected_status}"])[1]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20260504 18:21:11.696" level="INFO">${locator} = xpath=(//div[./span[text()="Status"]]//app-status-fems-badge//span[text()="Queue"])[1]</msg>
-<status status="PASS" starttime="20260504 18:21:11.696" endtime="20260504 18:21:11.696"/>
+<msg timestamp="20260505 10:00:46.396" level="INFO">${locator} = xpath=(//div[./span[text()="Status"]]//app-status-fems-badge//span[text()="Queue"])[1]</msg>
+<status status="PASS" starttime="20260505 10:00:46.396" endtime="20260505 10:00:46.396"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>${locator}</arg>
@@ -1208,8 +1217,8 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260504 18:21:11.699" level="INFO">Waited for Element with selector xpath=(//div[./span[text()="Status"]]//app-status-fems-badge//span[text()="Queue"])[1] at state visible</msg>
-<status status="PASS" starttime="20260504 18:21:11.696" endtime="20260504 18:21:11.699"/>
+<msg timestamp="20260505 10:00:46.396" level="INFO">Waited for Element with selector xpath=(//div[./span[text()="Status"]]//app-status-fems-badge//span[text()="Queue"])[1] at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:46.396" endtime="20260505 10:00:46.396"/>
 </kw>
 <kw name="Get Element Count" library="Browser">
 <var>${count}</var>
@@ -1218,64 +1227,144 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the count of elements found with ``selector``.</doc>
-<msg timestamp="20260504 18:21:11.705" level="INFO">${count} = 1</msg>
-<status status="PASS" starttime="20260504 18:21:11.699" endtime="20260504 18:21:11.705"/>
+<msg timestamp="20260505 10:00:46.405" level="INFO">${count} = 1</msg>
+<status status="PASS" starttime="20260505 10:00:46.396" endtime="20260505 10:00:46.405"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>\n[INFO] Verified Status '${expected_status}': Found ${count} record(s)</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20260504 18:21:11.705" endtime="20260504 18:21:11.705"/>
+<status status="PASS" starttime="20260505 10:00:46.405" endtime="20260505 10:00:46.406"/>
 </kw>
 <kw name="Should Be True" library="BuiltIn">
 <arg>${count} &gt; 0</arg>
 <arg>msg=❌ สถานะที่แสดงบนหน้าจอไม่ตรงกับที่ค้นหา (Expected: ${expected_status})</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20260504 18:21:11.706" endtime="20260504 18:21:11.706"/>
+<status status="PASS" starttime="20260505 10:00:46.406" endtime="20260505 10:00:46.406"/>
 </kw>
 <return>
 <value>${count}</value>
-<status status="PASS" starttime="20260504 18:21:11.706" endtime="20260504 18:21:11.706"/>
+<status status="PASS" starttime="20260505 10:00:46.406" endtime="20260505 10:00:46.406"/>
 </return>
-<status status="PASS" starttime="20260504 18:21:11.692" endtime="20260504 18:21:11.706"/>
+<status status="PASS" starttime="20260505 10:00:46.396" endtime="20260505 10:00:46.406"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>id=queue-management-tracking-check-0</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20260505 10:00:46.411" level="INFO">Waited for Element with selector id=queue-management-tracking-check-0 at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:46.406" endtime="20260505 10:00:46.411"/>
+</kw>
+<kw name="Check Checkbox" library="Browser">
+<arg>id=queue-management-tracking-check-0</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="PASS" starttime="20260505 10:00:46.412" endtime="20260505 10:00:46.436"/>
 </kw>
 <kw name="Click" library="Browser">
-<arg>xpath=//*[@id="card-content"]/div[1]</arg>
+<arg>xpath=//*[@id="tracking-management-btn-multiple-accept"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:11.707" level="INFO">Clicks the element 'xpath=//*[@id="card-content"]/div[1]'.</msg>
-<status status="PASS" starttime="20260504 18:21:11.706" endtime="20260504 18:21:11.727"/>
+<msg timestamp="20260505 10:00:46.436" level="INFO">Clicks the element 'xpath=//*[@id="tracking-management-btn-multiple-accept"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:46.436" endtime="20260505 10:00:46.465"/>
 </kw>
 <kw name="Click" library="Browser">
-<arg>xpath=//button[@id="tracking-management-btn-multiple-accept"]</arg>
+<arg>xpath=//div[@class="modal-content"]//button[@id="tracking-management-btn-multiple-accept"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260504 18:21:11.727" level="INFO">Clicks the element 'xpath=//button[@id="tracking-management-btn-multiple-accept"]'.</msg>
-<status status="PASS" starttime="20260504 18:21:11.727" endtime="20260504 18:21:11.765"/>
+<msg timestamp="20260505 10:00:46.465" level="INFO">Clicks the element 'xpath=//div[@class="modal-content"]//button[@id="tracking-management-btn-multiple-accept"]'.</msg>
+<status status="PASS" starttime="20260505 10:00:46.465" endtime="20260505 10:00:47.282"/>
+</kw>
+<kw name="Verify Status in Search Result" library="TMO_QueueManagment">
+<arg>expected_status=Accept</arg>
+<if>
+<branch type="IF" condition="'${expected_status}' == '${EMPTY}' or '${expected_status}' == 'All'">
+<kw name="Log" library="BuiltIn">
+<arg>[SKIP] Expected status is empty or All.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20260505 10:00:47.283" endtime="20260505 10:00:47.283"/>
+</kw>
+<return>
+<value>${0}</value>
+<status status="NOT RUN" starttime="20260505 10:00:47.283" endtime="20260505 10:00:47.283"/>
+</return>
+<status status="NOT RUN" starttime="20260505 10:00:47.283" endtime="20260505 10:00:47.284"/>
+</branch>
+<status status="PASS" starttime="20260505 10:00:47.283" endtime="20260505 10:00:47.284"/>
+</if>
+<kw name="Set Variable" library="BuiltIn">
+<var>${locator}</var>
+<arg>xpath=(//div[./span[text()="Status"]]//app-status-fems-badge//span[text()="${expected_status}"])[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20260505 10:00:47.284" level="INFO">${locator} = xpath=(//div[./span[text()="Status"]]//app-status-fems-badge//span[text()="Accept"])[1]</msg>
+<status status="PASS" starttime="20260505 10:00:47.284" endtime="20260505 10:00:47.284"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>${locator}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20260505 10:00:47.590" level="INFO">Waited for Element with selector xpath=(//div[./span[text()="Status"]]//app-status-fems-badge//span[text()="Accept"])[1] at state visible</msg>
+<status status="PASS" starttime="20260505 10:00:47.284" endtime="20260505 10:00:47.590"/>
+</kw>
+<kw name="Get Element Count" library="Browser">
+<var>${count}</var>
+<arg>${locator}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<msg timestamp="20260505 10:00:47.595" level="INFO">${count} = 1</msg>
+<status status="PASS" starttime="20260505 10:00:47.590" endtime="20260505 10:00:47.595"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\n[INFO] Verified Status '${expected_status}': Found ${count} record(s)</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260505 10:00:47.596" endtime="20260505 10:00:47.596"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<arg>msg=❌ สถานะที่แสดงบนหน้าจอไม่ตรงกับที่ค้นหา (Expected: ${expected_status})</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20260505 10:00:47.596" endtime="20260505 10:00:47.596"/>
+</kw>
+<return>
+<value>${count}</value>
+<status status="PASS" starttime="20260505 10:00:47.596" endtime="20260505 10:00:47.597"/>
+</return>
+<status status="PASS" starttime="20260505 10:00:47.282" endtime="20260505 10:00:47.597"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5 seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260504 18:21:16.765" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20260504 18:21:11.765" endtime="20260504 18:21:16.765"/>
+<msg timestamp="20260505 10:00:52.597" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20260505 10:00:47.597" endtime="20260505 10:00:52.597"/>
 </kw>
-<status status="PASS" starttime="20260504 18:21:03.267" endtime="20260504 18:21:16.765"/>
+<status status="PASS" starttime="20260505 10:00:37.939" endtime="20260505 10:00:52.597"/>
+</kw>
+<status status="PASS" starttime="20260505 10:00:29.819" endtime="20260505 10:00:52.597"/>
 </kw>
 <kw name="Close Web Application" library="config" type="TEARDOWN">
 <kw name="Close Browser" library="Browser">
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<msg timestamp="20260504 18:21:16.974" level="INFO">Closed browser</msg>
-<status status="PASS" starttime="20260504 18:21:16.765" endtime="20260504 18:21:16.974"/>
+<msg timestamp="20260505 10:00:52.870" level="INFO">Closed browser</msg>
+<status status="PASS" starttime="20260505 10:00:52.598" endtime="20260505 10:00:52.870"/>
 </kw>
-<status status="PASS" starttime="20260504 18:21:16.765" endtime="20260504 18:21:16.974"/>
+<status status="PASS" starttime="20260505 10:00:52.597" endtime="20260505 10:00:52.870"/>
 </kw>
 <doc>ทดสอบกรณี accept</doc>
-<status status="PASS" starttime="20260504 18:20:39.925" endtime="20260504 18:21:16.984"/>
+<status status="PASS" starttime="20260505 10:00:13.432" endtime="20260505 10:00:52.870"/>
 </test>
-<status status="PASS" starttime="20260504 18:20:39.593" endtime="20260504 18:21:16.984"/>
+<status status="PASS" starttime="20260505 10:00:13.148" endtime="20260505 10:00:52.877"/>
 </suite>
 <statistics>
 <total>
