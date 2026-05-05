@@ -37,16 +37,13 @@ Queue Booking
     
     
 
-    # 1. คลิกที่ช่องเพื่อให้ Focus
     Click    id=queue-booking-tracking-search-reserveDate
     
-    # 2. กด Control + A เพื่อคลุมดำทั้งหมด และกด Backspace เพื่อลบ
-    # (ใช้ได้ทั้ง Windows/Linux ถ้าเป็น Mac ให้เปลี่ยน Control เป็น Meta)
+
     Press Keys    id=queue-booking-tracking-search-reserveDate    Control+A    Backspace
     
-    # 3. พิมพ์ค่าใหม่ลงไป
     Fill Text     id=queue-booking-tracking-search-reserveDate        ${RAND_DATE_NUM}
-    #Press Keys    id=queue-booking-tracking-search-reserveDate    Enter
+
     Select Options By       xpath=//select[@id="queue-booking-tracking-search-statusId"]  text   ${status}
     Sleep   3 seconds
     Click  xpath=//*[@id="queue-booking-tracking-btn-search"]  
@@ -62,10 +59,8 @@ Queue Booking
 Search Auto By Booking ID
     [Arguments]    ${target_booking_id}
     
-    # รอให้เลข Booking ตัวที่เราระบุ ปรากฏขึ้นบนหน้าจอ
     Wait For Elements State    xpath=//span[contains(@class, "reference-number") and text()="${target_booking_id}"]    visible    timeout=7s
     
-    # นับจำนวนว่าเจอ ID นี้กี่อัน
     ${count}=    Get Element Count    xpath=//span[contains(@class, "reference-number") and text()="${target_booking_id}"]
     
     Log To Console    \n[INFO] Found Booking ID ${target_booking_id}: ${count} record(s)
@@ -80,19 +75,15 @@ Verify Date in Search Result
     
     IF    '${expected_date}' == '${EMPTY}'    [Return]    ${0}
 
-    # 1. แปลงวันที่ให้ตรงกับหน้าจอ (09/06/2026)
     ${ui_date}=    Convert Date    ${expected_date}    
     ...    date_format=%Y-%m-%d    
     ...    result_format=%d/%m/%Y
 
-    # 2. ปรับ XPath เพื่อแก้ปัญหา Strict Mode (เลือกเฉพาะอันที่อยู่ในการ์ดเรา)
     IF    '${target_booking_id}' != '${EMPTY}'
-        # XPath นี้จะหา Card ที่มีเลข Booking ของเราก่อน แล้วค่อยมุดไปหาคำว่า Date To TMO ข้างในนั้น
         ${locator}=    Set Variable    xpath=//div[contains(@class, 'card-body') and .//span[text()="${target_booking_id}"]]//div[contains(@class, 'card-content') and ./span[text()='Date To TMO'] and contains(., "${ui_date}")]
 
     END
 
-    # 3. รอและตรวจสอบ
     Wait For Elements State    ${locator}    visible    timeout=10s
     ${count}=    Get Element Count    ${locator}
     

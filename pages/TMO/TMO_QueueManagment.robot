@@ -50,7 +50,7 @@ QueueAcceptFailed
     Click    xpath=//*[@id="tracking-management-btn-multiple-accept"]
 
     Verify Eligibility Error Appears 
-    # รอให้เห็นผลลัพธ์ด้วยตา (ลดเวลาลงจาก 20s เป็น 5s เพื่อความรวดเร็ว)
+
     Sleep    5 seconds  
 
 
