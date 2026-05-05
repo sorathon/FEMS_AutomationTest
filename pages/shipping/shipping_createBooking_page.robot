@@ -108,7 +108,15 @@ Fill Product list
     Click      xpath=//*[@id="queue-booking-detail-search-declarationNumber"]
     Fill Text      xpath=//input[@id="queue-booking-detail-hawb"]      ${HAWB}}
     Click    xpath=//*[@id="queue-booking-detail-add-declarationNumber"] 
-    Click    xpath=//*[@id="queue-booking-tracking-btn-search"]   
+    Click    xpath=//*[@id="queue-booking-tracking-btn-search"]  
+
+Fill Multi Product list
+    [Arguments]    ${declaration_number}   ${HAWB}
+    Fill Text        xpath=//*[@id="queue-booking-detail-declarationNumber"]    ${declaration_number}
+    Click      xpath=//*[@id="queue-booking-detail-search-declarationNumber"]
+    Fill Text      xpath=//input[@id="queue-booking-detail-hawb"]      ${HAWB}}
+    Click    xpath=//*[@id="queue-booking-detail-add-declarationNumber"] 
+ 
 
 Submit Booking
     click    xpath=//*[@id="queue-booking-tracking-btn-submit"]  
@@ -187,6 +195,53 @@ Verify Booking Success
     END
     Submit Booking
     check booking success
+
+Verify Booking Success (Double)
+    [Arguments]   
+    ...    ${date_to_tmo}  
+    ...    ${driver_license}   
+    ...    ${vehicle_province}  
+    ...    ${driver_cartype}     
+    ...    ${driver_id}  
+    ...    ${bookingType}   
+    ...    ${bokingOrigin}   
+    ...    ${bookingDestination}    
+    ...    ${reserveHour}    
+    ...    ${reserveMinute}    
+    ...    ${goodsType}  
+    ...    ${declaration_number}   
+    ...    ${HAWB} 
+    Open Queue Booking Menu
+    Open Create Booking Page
+    Fill Date to TMO    ${date_to_tmo}
+    IF   '${driver_id}' != '${EMPTY}'
+        Select Driver By id       ${driver_id}
+    END
+    IF  '${driver_license}' != '${EMPTY}' and '${vehicle_province}' != '${EMPTY}' and '${driver_cartype}' != '${EMPTY}'
+        Fill Vehicle infomation    ${driver_license}    ${vehicle_province}      ${driver_cartype}
+    END
+    IF  '${bookingType}' != '${EMPTY}' and '${bokingOrigin}' != '${EMPTY}' and '${bookingDestination}' != '${EMPTY}' and '${reserveHour}' != '${EMPTY}' and '${reserveMinute}' != '${EMPTY}' and '${goodsType}' != '${EMPTY}'
+        Fill infomation request Booking     
+        ...    ${bookingType}   
+        ...    ${bokingOrigin}   
+        ...    ${bookingDestination}    
+        ...    ${reserveHour}    
+        ...    ${reserveMinute}    
+        ...    ${goodsType} 
+    END
+    IF     '${declaration_number}' != '${EMPTY}' and '${HAWB}' != '${EMPTY}'
+        Fill Multi Product list    ${declaration_number}        ${HAWB} 
+        Sleep   1   seconds
+        Fill Multi Product list    ${RAND_DEC2_NO}              ${RAND_HAWB2}    
+        Sleep    1   seconds            
+        Click    xpath=//*[@id="queue-booking-tracking-btn-search"] 
+
+    END
+    Submit Booking
+    check booking success
+
+
+
 
 Verify Booking Failed
     [Arguments]   

@@ -10,7 +10,11 @@ Prepare All Random Variables
 
     ${dec_no}           ${hawb_no}=    Generate Random DecNo And HAWB
 
+    ${dec2_no}           ${hawb2_no}=    Generate Random DecNo2 And HAWB2
+
     ${driver_id_fmt}=    Get Random Driver ID
+
+
 
 
     # --- เก็บตัวแปรไว้ใช้ ---
@@ -21,6 +25,10 @@ Prepare All Random Variables
     Set Global Variable    ${RAND_LICENSE}      ${license}
     Set Global Variable    ${RAND_DEC_NO}       ${dec_no}
     Set Global Variable    ${RAND_HAWB}         ${hawb_no}
+
+    Set Global Variable    ${RAND_DEC2_NO}       ${dec2_no}
+    Set Global Variable    ${RAND_HAWB2}         ${hawb2_no}
+
     Set Global Variable    ${RAND_DRIVER_ID}    ${driver_id_fmt}
 
 Get Random License Plate
@@ -45,6 +53,11 @@ Generate Random DecNo And HAWB
     ${dec_no}=         Generate Random String    14    [NUMBERS]
     ${hawb_no}=        Generate Random String    10    [UPPER][NUMBERS]
     [Return]    ${dec_no}    ${hawb_no}
+
+Generate Random DecNo2 And HAWB2
+    ${dec2_no}=         Generate Random String    14    [NUMBERS]
+    ${hawb2_no}=        Generate Random String    10    [UPPER][NUMBERS]
+    [Return]    ${dec2_no}    ${hawb2_no}
 
 Get Random Driver ID
     ${driver_id}=      Generate Random String    13    [NUMBERS]

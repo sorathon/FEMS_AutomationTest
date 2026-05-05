@@ -18,6 +18,75 @@ QueueAcceptSuccess
     Tracking Booking    ${BOOKING_ID}    ${Declaration_No}    ${Date_To_TMO}    
     ...    ${HAWD_NO}       ${Licens_id}        ${status_expeted}
 
+QueueMultiAccept  
+        [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}    ${Date_To_TMO}=${EMPTY}    
+    ...    ${HAWD_NO}=${EMPTY}       ${Licens_id}=${EMPTY}        ${status_expeted}=${EMPTY}
+
+    Login As TMO User
+    Open QUEUEMANAGMENT Menu
+    Open IMPORT Page
+    Sleep     1     seconds    
+    # เข้าสู่หน้า Tracking
+    Click    xpath=//button[@id="sidebar-toggle-btn"]
+    
+    Run Keyword If    '${BOOKING_ID}' != '${EMPTY}'         Fill Text    xpath=//*[@id="tracking-search-search-bookingReferenceNumber"]    ${BOOKING_ID}
+    Run Keyword If    '${Declaration_No}' != '${EMPTY}'    Fill Text    xpath=//*[@id="tracking-search-search-declarationNumber"]       ${Declaration_No}
+    Run Keyword If    '${HAWD_NO}' != '${EMPTY}'    Fill Text    xpath=//*[@id="tracking-search-search-hawb"]    ${HAWD_NO}
+    
+
+    Select Status           status_value=${status_expeted}
+
+    Fill Text   xpath=//*[@id="tracking-search-search-vehicleNumber"]    ${Licens_id}
+
+
+    IF    '${Date_To_TMO}' != '${EMPTY}'
+        Fill Date to TMO Tracking    ${Date_To_TMO}
+    END
+
+    Click    xpath=//button[@id="tracking-search-btn-search"]
+    # แนะนำให้เพิ่มการรอ Loading Spinner หายไปตรงนี้ (ถ้าหน้าเว็บมี)
+    Sleep    2s    # ให้เวลาระบบ Render ผลลัพธ์ใหม่
+
+    # --- STEP 3: ตรวจสอบผลการค้นหา (Smart Verification) ---
+    # 1. ตรวจสอบ Booking ID (ถ้ามีการระบุ)
+    IF    '${BOOKING_ID}' != '${EMPTY}'
+        Count Search Result By Booking ID    ${BOOKING_ID}
+    END
+
+    # 2. ตรวจสอบ Declaration No (ถ้ามีการระบุ)
+    IF    '${Declaration_No}' != '${EMPTY}'
+        Count Search Result By Declaration No    ${Declaration_No}
+    END
+    
+    # 3. ตรวจสอบ Date to TMO (ถ้ามีการระบุ) 
+    # พิเศษ: ถ้ามี Booking ID ด้วย เราจะเช็คว่า "ID นี้ มีวันที่ตรงไหม" ในใบเดียวกัน
+
+    IF   '${HAWD_NO}' != '${EMPTY}'
+        Count Search Result By HAWB    ${HAWD_NO}        
+    END
+    IF     '${Licens_id}' != '${EMPTY}'
+        Count Search Result By Vehicle Plate   ${Licens_id}
+    END
+    Verify Status in Search Result    expected_status=Queue
+
+    # --- ส่วนการคลิกเลือกรายการ (Action) ---
+
+    # 1. รอให้ Checkbox ปรากฏและทำการเลือก (Check)
+    # ใช้ ID เจาะจงที่ตัวแรก (Index 0)
+    Wait For Elements State    id=queue-management-tracking-selected-all    visible    timeout=10s
+    Check Checkbox             id=queue-management-tracking-selected-all
+
+    Click    xpath=//*[@id="tracking-management-btn-multiple-accept"]
+    # 2. ตรวจสอบว่าปุ่ม Accept พร้อมให้กดหรือยัง (หลังติ๊กแล้วปุ่มควรจะกดได้)
+    Click    xpath=//div[@class="modal-content"]//button[@id="tracking-management-btn-multiple-accept"]
+
+    Verify Status in Search Result    expected_status=Accept
+    
+    
+   
+    # รอให้เห็นผลลัพธ์ด้วยตา (ลดเวลาลงจาก 20s เป็น 5s เพื่อความรวดเร็ว)
+    Sleep    5 seconds   
+
 QueueAcceptFailed
     [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}    ${Date_To_TMO}=${EMPTY}    
     ...    ${HAWD_NO}=${EMPTY}       ${Licens_id}=${EMPTY}        ${status_expeted}=${EMPTY}
@@ -121,6 +190,8 @@ Tracking Booking
     # 2. ตรวจสอบว่าปุ่ม Accept พร้อมให้กดหรือยัง (หลังติ๊กแล้วปุ่มควรจะกดได้)
     Click    xpath=//div[@class="modal-content"]//button[@id="tracking-management-btn-multiple-accept"]
 
+    Sleep   5  seconds
+
     Verify Status in Search Result    expected_status=Accept
     
     
@@ -167,12 +238,6 @@ Fill Date to TMO Tracking
 
 
 
-
-
-
-
-
-
 Select Status
     [Arguments]    ${status_value}
     
@@ -201,13 +266,13 @@ Count Search Result By Booking ID
     
     # 1. ปรับ XPath ให้หาได้ทั้ง <a> และ <span> ที่อยู่ภายใต้หัวข้อ Booking No.
     # ใช้ * เพื่อหา Element อะไรก็ได้ที่มี class เกี่ยวกับ card-sub-title
-    ${locator}=    Set Variable    xpath=//div[./span[text()="Booking No."]]//*[contains(@class, "card-sub-title") and text()="${target_booking_id}"]
+    ${base_xapth}=     Set Variable    xpath=//div[./span[text()="Booking No."]]//*[contains(@class, "card-sub-title") and text()="${target_booking_id}"]   
     
     # 2. รอให้ข้อมูลปรากฏ
-    Wait For Elements State    ${locator}    visible    timeout=10s
+    Wait For Elements State    ${base_xapth}[1]    visible    timeout=10s
     
     # 3. นับจำนวนที่พบ
-    ${count}=    Get Element Count    ${locator}
+    ${count}=    Get Element Count    ${base_xapth}
     
     Log To Console    \n[INFO] Found Booking ID ${target_booking_id}: ${count} record(s)
     
@@ -321,24 +386,32 @@ Count Search Result By Vehicle Plate
 
 
 Verify Status in Search Result
-    [Arguments]    ${expected_status}
+    [Arguments]    ${expected_status}    ${target_booking_id}=${EMPTY}
     
-    # 1. เช็คความว่างเปล่า
     IF    '${expected_status}' == '${EMPTY}' or '${expected_status}' == 'All'
-        Log    [SKIP] Expected status is empty or All.
         RETURN    ${0}
     END
-    ${locator}=    Set Variable    xpath=(//div[./span[text()="Status"]]//app-status-fems-badge//span[text()="${expected_status}"])[1]
-    
 
-    Wait For Elements State    ${locator}    visible    timeout=10s
-    ${count}=    Get Element Count    ${locator}
+    # ปรับ XPath ให้ยืดหยุ่นขึ้น:
+    # 1. หา div ที่มีคำว่า Status
+    # 2. มุดลงไปหา span ตัวที่มีข้อความตรงกับสถานะที่เราต้องการ (ใช้ normalize-space เพื่อล้างช่องว่าง)
+    ${base_xpath}=    Set Variable    //div[contains(@class, 'card-content') and ./span[contains(text(), 'Status')]]//span[normalize-space(.)='${expected_status}']
+
+    # ถ้ามีการระบุ Booking ID ให้เจาะจงไปที่การ์ดใบนั้นก่อน
+    IF    '${target_booking_id}' != '${EMPTY}'
+        ${base_xpath}=    Set Variable    //div[contains(@class, 'card-body') and .//span[text()='${target_booking_id}']]${base_xpath}
+    END
+
+    # --- ส่วนที่เหลือเหมือนเดิม ---
+    Wait For Elements State    xpath=(${base_xpath})[1]    visible    timeout=10s
+    ${count}=    Get Element Count    xpath=${base_xpath}
     
     Log To Console    \n[INFO] Verified Status '${expected_status}': Found ${count} record(s)
-    
-    # 4. ตรวจสอบผลลัพธ์
-    Should Be True    ${count} > 0    msg=❌ สถานะที่แสดงบนหน้าจอไม่ตรงกับที่ค้นหา (Expected: ${expected_status})
+    Should Be True    ${count} > 0    msg=❌ ไม่พบสถานะ ${expected_status} ในผลการค้นหา
     RETURN    ${count}
+
+
+
 
 Verify Eligibility Error Appears 
     [Documentation]    ยืนยันว่าต้องพบข้อความ Error เมื่อเลือกรายการที่ผิดเงื่อนไข

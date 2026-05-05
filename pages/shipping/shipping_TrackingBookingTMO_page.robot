@@ -47,8 +47,8 @@ Tracking BookingTMO
     END
 
     Click    xpath=//button[@id="tracking-search-btn-search"]
-    # แนะนำให้เพิ่มการรอ Loading Spinner หายไปตรงนี้ (ถ้าหน้าเว็บมี)
-    Sleep    2s    # ให้เวลาระบบ Render ผลลัพธ์ใหม่
+
+    Sleep    2s 
 
    
     

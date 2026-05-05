@@ -16,6 +16,22 @@ ${MENU_QUEUE_BOOKING}    xpath=//*[@id="sidebar-menu-17"]
 ${MENU_CREATE_BOOKING}    xpath=//*[@id="queue-booking-tracking-btn-create"]
 
 *** Keywords ***
+LoginSuccess
+    [Arguments]        ${username}     ${password}
+    Input Login Credentials    ${username}     ${password}     
+    
+    Click Login Button
+    
+    Verify Login Success
+
+LoginFail
+    [Arguments]        ${username}     ${password}
+    Input Login Credentials    ${username}     ${password}     
+    
+    Click Login Button
+    
+    Verify Login Failed
+
 Input Login Credentials
     [Arguments]    ${username}    ${password}
     Fill Text    ${TXT_USERNAME}    ${username}

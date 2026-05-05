@@ -18,6 +18,9 @@ TC_05: create booking success
     #     [Declaration No.]    [HAWB]   
     ...    GH587333777777      VG778777777
 
+
+
+
        
 
     
