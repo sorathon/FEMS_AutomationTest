@@ -10,8 +10,8 @@ Test Teardown    Close Web Application
 
 
 *** Test Cases ***
-TC_05: create booking success
-    [Documentation]    ทดสอบกรณีสร้าง booking สำเร็จ
+create booking success
+    [Documentation]    ทดสอบกรณีสร้าง booking ด้วย Declaration No. 2 หมายเลข
       Verify Booking Success (Double)   ${RAND_DATE_FULL}  
     ...     ${RAND_LICENSE}        กระบี่            รถยนต์ 4 ที่นั่ง       
     ...     ${RAND_DRIVER_ID}      รับสินค้าขาเข้าปกติ            TG               
