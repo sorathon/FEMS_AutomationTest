@@ -7,17 +7,7 @@ Resource   ../../resoures/utils/data_generator.robot
 
 
 *** Variables ***
-#Login Page
-${TXT_USERNAME}    xpath=//*[@id="login-username"]
-${TXT_PASSWORD}    xpath=//*[@id="login-password"]
-${BTN_LOGIN}       xpath=//*[@title="Login"]
-${MSG_TOOLTIP}    css=.invalid-tooltip
-${url_login}     https://uataotfems.netbay.co.th/fems/#/auth/shipping/login
-${url_home}      https://uataotfems.netbay.co.th/fems/#/mainmenu/announcement
 
-#Queue Booking
-${MENU_QUEUE_BOOKING}    xpath=//*[@id="sidebar-menu-17"]
-${MENU_CREATE_BOOKING}    xpath=//*[@id="queue-booking-tracking-btn-create"]
 
 
 
