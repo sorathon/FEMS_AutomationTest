@@ -50,10 +50,6 @@ Tracking BookingTMO
 
     Sleep    2s 
 
-   
-    
-    
-    
     # รอให้เห็นผลลัพธ์ด้วยตา (ลดเวลาลงจาก 20s เป็น 5s เพื่อความรวดเร็ว)
     Sleep    5 seconds  
 
@@ -109,7 +105,6 @@ Select Origin Agency
     END
     Sleep  3 seconds  # รอให้ระบบประมวลผลหลังเลือกค่า
 
-
 Select Destination Agency
     [Arguments]    ${destination_value}
     Click    xpath=//select[@id="tracking-search-search-destination"]
@@ -118,10 +113,9 @@ Select Destination Agency
     IF    '${destination_value}' == '${EMPTY}' or '${destination_value}' == 'All'
         Select Options By    xpath=//select[@id="tracking-search-search-destination"]   value    ${EMPTY}
     ELSE
-
         Select Options By    xpath=//select[@id="tracking-search-search-destination"]   value    ${destination_value}        
     END
-    Sleep  3 seconds  # รอให้ระบบประมวลผลหลังเลือกค่า
+    Sleep  3 seconds  
 
 Select Goods Type
     [Arguments]    ${goods_type_value}
@@ -131,12 +125,9 @@ Select Goods Type
     IF    '${goods_type_value}' == '${EMPTY}' or '${goods_type_value}' == 'All'
         Select Options By    xpath=//select[@id="tracking-search-search-goodsType"]   label    ${EMPTY}
     ELSE
-
         Select Options By    xpath=//select[@id="tracking-search-search-goodsType"]   label    ${goods_type_value}        
     END
     Sleep  3 seconds  # รอให้ระบบประมวลผลหลังเลือกค่า
-
-
 
 Select Status
     [Arguments]    ${status_value}
@@ -145,10 +136,8 @@ Select Status
     Wait For Elements State    xpath=//select[@id="tracking-search-search-statusId"]    visible    timeout=10s
     
     IF    '${status_value}' == '${EMPTY}' or '${status_value}' == 'All'
-      
         Select Options By    xpath=//select[@id="tracking-search-search-statusId"]    label    All
     ELSE
-       
         Select Options By    xpath=//select[@id="tracking-search-search-statusId"]    label    ${status_value}
     END
     Sleep    3 seconds

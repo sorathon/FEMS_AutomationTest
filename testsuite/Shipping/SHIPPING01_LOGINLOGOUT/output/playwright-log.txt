@@ -1,0 +1,152 @@
+{"level":30,"time":"2026-05-07T05:50:00.739Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Listening on 127.0.0.1:1329"}
+{"level":30,"time":"2026-05-07T05:50:01.090Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-05-07T05:50:01.447Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
+{"level":30,"time":"2026-05-07T05:50:01.447Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-05-07T05:50:01.447Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-05-07T05:50:01.459Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-07T05:50:01.460Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@9e7453c455c57a71c8a980d817ce9d65\"},\"name\":\"chromium\",\"id\":\"browser=0c2a78bf-4168-4a25-9803-46bd66ba2e00\",\"headless\":false}"}
+{"level":30,"time":"2026-05-07T05:50:01.486Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Setting default timeout for context context=ad4ef9be-e026-4ab5-92df-d451763ae33a to 10000"}
+{"level":30,"time":"2026-05-07T05:50:01.486Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Changed active context: context=ad4ef9be-e026-4ab5-92df-d451763ae33a"}
+{"level":30,"time":"2026-05-07T05:50:01.687Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-07T05:50:01.687Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Changed active page"}
+{"level":30,"time":"2026-05-07T05:50:05.599Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-07T05:50:05.618Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:05.619Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-username\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:05.669Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:05.677Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:05.677Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-password\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:05.691Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:05.696Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-07T05:50:05.696Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@title=\"Login\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:05.758Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-07T05:50:08.763Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2026-05-07T05:50:08.763Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is disabled, return Locator: css=.invalid-tooltip in page."}
+{"level":30,"time":"2026-05-07T05:50:08.769Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getElementCount"}
+{"level":30,"time":"2026-05-07T05:50:08.774Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getText"}
+{"level":30,"time":"2026-05-07T05:50:08.774Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with css=.invalid-tooltip in page."}
+{"level":30,"time":"2026-05-07T05:50:08.810Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Retrieved text for element css=.invalid-tooltip containing กรุณาระบุชื่อผู้ใช้งาน"}
+{"level":30,"time":"2026-05-07T05:50:08.811Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getText"}
+{"level":30,"time":"2026-05-07T05:50:08.817Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-05-07T05:50:08.834Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Removed page=be35a1a8-0d9e-452d-9612-4f4e7cfc0594 from context=ad4ef9be-e026-4ab5-92df-d451763ae33a page stack"}
+{"level":30,"time":"2026-05-07T05:50:09.162Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-05-07T05:50:09.168Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:09.168Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:09.176Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:09.176Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:09.182Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-05-07T05:50:09.526Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
+{"level":30,"time":"2026-05-07T05:50:09.526Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-05-07T05:50:09.526Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-05-07T05:50:09.543Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-07T05:50:09.543Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@8ec272a2cec677fad2b6db2c845d7e0c\"},\"name\":\"chromium\",\"id\":\"browser=55831749-b625-4109-af3f-ffd402b469ba\",\"headless\":false}"}
+{"level":30,"time":"2026-05-07T05:50:09.553Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Setting default timeout for context context=d53e2144-cce4-4961-b8ad-278d0688839e to 20000"}
+{"level":30,"time":"2026-05-07T05:50:09.553Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Changed active context: context=d53e2144-cce4-4961-b8ad-278d0688839e"}
+{"level":30,"time":"2026-05-07T05:50:09.751Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-07T05:50:09.751Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Changed active page"}
+{"level":30,"time":"2026-05-07T05:50:11.429Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-07T05:50:11.442Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:11.443Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-username\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:11.488Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:11.494Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:11.494Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-password\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:11.508Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:11.512Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-07T05:50:11.512Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@title=\"Login\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:11.638Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-07T05:50:14.649Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2026-05-07T05:50:14.649Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is disabled, return Locator: css=.invalid-tooltip in page."}
+{"level":30,"time":"2026-05-07T05:50:14.654Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getElementCount"}
+{"level":30,"time":"2026-05-07T05:50:14.659Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getText"}
+{"level":30,"time":"2026-05-07T05:50:14.659Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with css=.invalid-tooltip in page."}
+{"level":30,"time":"2026-05-07T05:50:14.700Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Retrieved text for element css=.invalid-tooltip containing กรุณาระบุรหัสผ่าน"}
+{"level":30,"time":"2026-05-07T05:50:14.700Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getText"}
+{"level":30,"time":"2026-05-07T05:50:14.714Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-05-07T05:50:14.738Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Removed page=fe820624-62dc-4d53-a945-60b95dabcf7f from context=d53e2144-cce4-4961-b8ad-278d0688839e page stack"}
+{"level":30,"time":"2026-05-07T05:50:15.298Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-05-07T05:50:15.308Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:15.308Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:15.319Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:15.319Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:15.324Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-05-07T05:50:15.629Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
+{"level":30,"time":"2026-05-07T05:50:15.630Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-05-07T05:50:15.630Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-05-07T05:50:15.696Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-07T05:50:15.696Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@e8b2b957bc085fe9aed255095e29e951\"},\"name\":\"chromium\",\"id\":\"browser=d6b84c61-affc-4054-bceb-ed8448e0d990\",\"headless\":false}"}
+{"level":30,"time":"2026-05-07T05:50:15.709Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Setting default timeout for context context=c1314404-ecc8-46a2-be46-cf5a1a0ed353 to 20000"}
+{"level":30,"time":"2026-05-07T05:50:15.710Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Changed active context: context=c1314404-ecc8-46a2-be46-cf5a1a0ed353"}
+{"level":30,"time":"2026-05-07T05:50:15.929Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-07T05:50:15.929Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Changed active page"}
+{"level":30,"time":"2026-05-07T05:50:17.435Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-07T05:50:17.447Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:17.447Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-username\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:17.491Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:17.496Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:17.496Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-password\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:17.507Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:17.512Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-07T05:50:17.512Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@title=\"Login\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:17.660Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-07T05:50:20.665Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2026-05-07T05:50:20.665Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is disabled, return Locator: css=.invalid-tooltip in page."}
+{"level":30,"time":"2026-05-07T05:50:20.668Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getElementCount"}
+{"level":30,"time":"2026-05-07T05:50:20.673Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getText"}
+{"level":30,"time":"2026-05-07T05:50:20.673Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"swal2-title\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:20.698Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Retrieved text for element xpath=//*[@id=\"swal2-title\"] containing Login Failed"}
+{"level":30,"time":"2026-05-07T05:50:20.698Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getText"}
+{"level":30,"time":"2026-05-07T05:50:20.703Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-05-07T05:50:20.717Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Removed page=7edb1817-f58d-4e69-8978-77e4ff47c3d3 from context=c1314404-ecc8-46a2-be46-cf5a1a0ed353 page stack"}
+{"level":30,"time":"2026-05-07T05:50:21.004Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-05-07T05:50:21.008Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:21.008Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:21.011Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:21.011Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:21.015Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-05-07T05:50:21.286Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
+{"level":30,"time":"2026-05-07T05:50:21.286Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-05-07T05:50:21.286Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-05-07T05:50:21.297Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-07T05:50:21.297Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@59e15cc4c1aaba7c17aca5d32071fecd\"},\"name\":\"chromium\",\"id\":\"browser=dc82fe10-31d3-4495-bc0f-7cfa93a3fdc7\",\"headless\":false}"}
+{"level":30,"time":"2026-05-07T05:50:21.311Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Setting default timeout for context context=0317d81d-cecf-4ac5-8896-e688833e7116 to 20000"}
+{"level":30,"time":"2026-05-07T05:50:21.311Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Changed active context: context=0317d81d-cecf-4ac5-8896-e688833e7116"}
+{"level":30,"time":"2026-05-07T05:50:21.505Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-07T05:50:21.505Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Changed active page"}
+{"level":30,"time":"2026-05-07T05:50:23.742Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-07T05:50:23.752Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:23.752Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-username\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:23.788Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:23.792Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:23.792Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-password\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:23.804Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-07T05:50:23.808Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-07T05:50:23.808Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@title=\"Login\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:23.906Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-07T05:50:26.913Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2026-05-07T05:50:26.913Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is disabled, return Locator: css=.invalid-tooltip in page."}
+{"level":30,"time":"2026-05-07T05:50:26.916Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getElementCount"}
+{"level":30,"time":"2026-05-07T05:50:26.923Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getText"}
+{"level":30,"time":"2026-05-07T05:50:26.923Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"swal2-title\"] in page."}
+{"level":30,"time":"2026-05-07T05:50:26.957Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Retrieved text for element xpath=//*[@id=\"swal2-title\"] containing Login Failed"}
+{"level":30,"time":"2026-05-07T05:50:26.957Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getText"}
+{"level":30,"time":"2026-05-07T05:50:26.963Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-05-07T05:50:26.975Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Removed page=4572d678-7d72-4dc7-86d1-8e5175e0c28b from context=0317d81d-cecf-4ac5-8896-e688833e7116 page stack"}
+{"level":30,"time":"2026-05-07T05:50:27.260Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-05-07T05:50:27.266Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:27.266Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:8777:13)
+    at PlaywrightServer.getActiveBrowser (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:9689:52)
+    at PlaywrightServer.setTimeout (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:9887:56)
+    at Object.onReceiveHalfClose (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:521:24)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+=============================================================
+{"level":30,"time":"2026-05-07T05:50:27.278Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:27.278Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-07T05:50:27.361Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2026-05-07T05:50:27.361Z","pid":24964,"hostname":"SORATHON-NB-INTERN","msg":"End of node method closeAllBrowsers"}
