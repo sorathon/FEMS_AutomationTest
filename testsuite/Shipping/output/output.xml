@@ -1,464 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.9 on win32)" generated="20260505 17:14:39.626" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.12.9 on win32)" generated="20260507 15:59:23.553" rpa="false" schemaversion="4">
 <suite id="s1" name="SHIPPING02 CreateBooking" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING02_CreateBooking">
 <suite id="s1-s1" name="01-BookingSuccess" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING02_CreateBooking\01-BookingSuccess.robot">
-<test id="s1-s1-t1" name="TC_05: create booking success" line="12">
-<kw name="Login As shipping User" library="config" type="SETUP">
-<kw name="Open Login Shipping Web Application" library="config">
-<kw name="New Browser" library="Browser">
-<arg>browser=chromium</arg>
-<arg>headless=False</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20260505 17:14:39.854" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\04243344-19c9-4dff-b340-01d5ec2d4df7"}</msg>
-<msg timestamp="20260505 17:14:39.874" level="INFO">Starting Browser process C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:1841</msg>
-<msg timestamp="20260505 17:14:40.584" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\04243344-19c9-4dff-b340-01d5ec2d4df7"}</msg>
-<status status="PASS" starttime="20260505 17:14:39.838" endtime="20260505 17:14:40.584"/>
-</kw>
-<kw name="New Page" library="Browser">
-<arg>${url_login}</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Open a new Page.</doc>
-<msg timestamp="20260505 17:14:42.591" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/shipping/login</msg>
-<msg timestamp="20260505 17:14:42.591" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20260505 17:14:40.586" endtime="20260505 17:14:42.591"/>
-</kw>
-<kw name="Set Browser Timeout" library="Browser">
-<arg>20 seconds</arg>
-<tag>Config</tag>
-<tag>Setter</tag>
-<doc>Sets the timeout used by most input and getter keywords.</doc>
-<status status="PASS" starttime="20260505 17:14:42.591" endtime="20260505 17:14:42.591"/>
-</kw>
-<status status="PASS" starttime="20260505 17:14:39.838" endtime="20260505 17:14:42.591"/>
-</kw>
-<kw name="Input Login Credentials" library="shipping_login_page">
-<arg>trainingship</arg>
-<arg>Netbay@123</arg>
+<test id="s1-s1-t1" name="Scenario: Create Complete Booking Success" line="15">
+<kw name="Run Keyword" library="BuiltIn" type="SETUP">
+<arg>Login To System As Shipping</arg>
+<arg>AND</arg>
+<arg>Open Create Booking Page</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="Login To System As Shipping" library="shipping_login_page">
+<arg>AND</arg>
+<arg>Open Create Booking Page</arg>
+<kw name="Fill username as shipping" library="shipping_login_page">
+<arg>${username}</arg>
 <kw name="Fill Text" library="Browser">
-<arg>${TXT_USERNAME}</arg>
+<arg>${LOGIN_USER_FIELD}</arg>
 <arg>${username}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:42.591" level="INFO">Fills the text 'trainingship' in the given field.</msg>
-<status status="PASS" starttime="20260505 17:14:42.591" endtime="20260505 17:14:42.623"/>
+<msg timestamp="20260507 15:59:24.072" level="INFO">Fills the text 'AND' in the given field.</msg>
+<msg timestamp="20260507 15:59:24.740" level="INFO">Starting Browser process C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:49178</msg>
+<msg timestamp="20260507 15:59:25.810" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg timestamp="20260507 15:59:25.810" level="INFO">See also file:///C:/Users/iTservice/Document/FEMS_AutomationTest/testsuite/Shipping/output/playwright-log.txt for additional details.</msg>
+<msg timestamp="20260507 15:59:25.810" level="FAIL">Error: Could not find active page</msg>
+<status status="FAIL" starttime="20260507 15:59:24.072" endtime="20260507 15:59:25.905"/>
 </kw>
-<kw name="Fill Text" library="Browser">
-<arg>${TXT_PASSWORD}</arg>
+<status status="FAIL" starttime="20260507 15:59:24.072" endtime="20260507 15:59:25.905"/>
+</kw>
+<kw name="Fill Password as shipping" library="shipping_login_page">
 <arg>${password}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:42.623" level="INFO">Fills the text 'Netbay@123' in the given field.</msg>
-<status status="PASS" starttime="20260505 17:14:42.623" endtime="20260505 17:14:42.623"/>
-</kw>
-<status status="PASS" starttime="20260505 17:14:42.591" endtime="20260505 17:14:42.623"/>
+<status status="NOT RUN" starttime="20260507 15:59:25.905" endtime="20260507 15:59:25.905"/>
 </kw>
 <kw name="Click Login Button" library="shipping_login_page">
-<kw name="Click" library="Browser">
-<arg>${BTN_LOGIN}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:42.623" level="INFO">Clicks the element 'xpath=//*[@title="Login"]'.</msg>
-<status status="PASS" starttime="20260505 17:14:42.623" endtime="20260505 17:14:43.468"/>
+<status status="NOT RUN" starttime="20260507 15:59:25.905" endtime="20260507 15:59:25.905"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>3 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260505 17:14:46.468" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20260505 17:14:43.468" endtime="20260505 17:14:46.468"/>
+<status status="FAIL" starttime="20260507 15:59:24.072" endtime="20260507 15:59:25.905"/>
 </kw>
-<status status="PASS" starttime="20260505 17:14:42.623" endtime="20260505 17:14:46.468"/>
-</kw>
-<status status="PASS" starttime="20260505 17:14:39.838" endtime="20260505 17:14:46.468"/>
-</kw>
-<kw name="Verify Booking Success" library="shipping_createBooking_page">
-<arg>2026-July-01</arg>
-<arg>มก232</arg>
-<arg>กระบี่</arg>
-<arg>รถยนต์ 4 ที่นั่ง</arg>
-<arg>7-7777-77777-77-7</arg>
-<arg>รับสินค้าขาเข้าปกติ</arg>
-<arg>TG</arg>
-<arg>ภายในประเทศ/ท่าอื่น</arg>
-<arg>10</arg>
-<arg>30</arg>
-<arg>ของมีค่า(TG)</arg>
-<arg>GH587333777777</arg>
-<arg>VG778777777</arg>
-<kw name="Open Queue Booking Menu" library="shipping_createBooking_page">
-<kw name="Click" library="Browser">
-<arg>${MENU_QUEUE_BOOKING}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:46.468" level="INFO">Clicks the element 'xpath=//*[@id="sidebar-menu-17"]'.</msg>
-<status status="PASS" starttime="20260505 17:14:46.468" endtime="20260505 17:14:46.499"/>
-</kw>
-<status status="PASS" starttime="20260505 17:14:46.468" endtime="20260505 17:14:46.499"/>
-</kw>
-<kw name="Open Create Booking Page" library="shipping_createBooking_page">
-<kw name="Click" library="Browser">
-<arg>${MENU_CREATE_BOOKING}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:46.500" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-btn-create"]'.</msg>
-<status status="PASS" starttime="20260505 17:14:46.499" endtime="20260505 17:14:46.603"/>
-</kw>
-<status status="PASS" starttime="20260505 17:14:46.499" endtime="20260505 17:14:46.603"/>
-</kw>
-<kw name="Fill Date to TMO" library="shipping_createBooking_page">
-<arg>${date_to_tmo}</arg>
-<kw name="Split String" library="String">
-<var>${year}</var>
-<var>${month}</var>
-<var>${day}</var>
-<arg>${date_to_tmo}</arg>
-<arg>-</arg>
-<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20260505 17:14:46.604" level="INFO">${year} = 2026</msg>
-<msg timestamp="20260505 17:14:46.604" level="INFO">${month} = July</msg>
-<msg timestamp="20260505 17:14:46.604" level="INFO">${day} = 01</msg>
-<status status="PASS" starttime="20260505 17:14:46.604" endtime="20260505 17:14:46.604"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>//*[@id="queue-booking-tracking-search-reserveDate"]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:46.604" level="INFO">Clicks the element '//*[@id="queue-booking-tracking-search-reserveDate"]'.</msg>
-<status status="PASS" starttime="20260505 17:14:46.604" endtime="20260505 17:14:47.481"/>
-</kw>
-<kw name="Wait For Elements State" library="Browser">
-<arg>.bs-datepicker-container</arg>
-<arg>visible</arg>
-<tag>PageContent</tag>
-<tag>Wait</tag>
-<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260505 17:14:47.488" level="INFO">Waited for Element with selector .bs-datepicker-container at state visible</msg>
-<status status="PASS" starttime="20260505 17:14:47.481" endtime="20260505 17:14:47.488"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>(//div[contains(@class,"bs-datepicker-head")]//button[contains(@class,"current")])[2]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:47.488" level="INFO">Clicks the element '(//div[contains(@class,"bs-datepicker-head")]//button[contains(@class,"current")])[2]'.</msg>
-<status status="PASS" starttime="20260505 17:14:47.488" endtime="20260505 17:14:47.523"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>//span[normalize-space()="${year}"]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:47.523" level="INFO">Clicks the element '//span[normalize-space()="2026"]'.</msg>
-<status status="PASS" starttime="20260505 17:14:47.523" endtime="20260505 17:14:47.544"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>//span[normalize-space()="${month}"]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:47.550" level="INFO">Clicks the element '//span[normalize-space()="July"]'.</msg>
-<status status="PASS" starttime="20260505 17:14:47.544" endtime="20260505 17:14:47.583"/>
-</kw>
-<kw name="Wait For Elements State" library="Browser">
-<arg>.bs-datepicker-body</arg>
-<arg>visible</arg>
-<tag>PageContent</tag>
-<tag>Wait</tag>
-<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20260505 17:14:47.593" level="INFO">Waited for Element with selector .bs-datepicker-body at state visible</msg>
-<status status="PASS" starttime="20260505 17:14:47.583" endtime="20260505 17:14:47.593"/>
-</kw>
-<kw name="Convert To Integer" library="BuiltIn">
-<var>${day_int}</var>
-<arg>${day}</arg>
-<doc>Converts the given item to an integer number.</doc>
-<msg timestamp="20260505 17:14:47.593" level="INFO">${day_int} = 1</msg>
-<status status="PASS" starttime="20260505 17:14:47.593" endtime="20260505 17:14:47.593"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>(//div[contains(@class,"bs-datepicker-body")]//span[normalize-space()="${day_int}"])[1]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:47.593" level="INFO">Clicks the element '(//div[contains(@class,"bs-datepicker-body")]//span[normalize-space()="1"])[1]'.</msg>
-<status status="PASS" starttime="20260505 17:14:47.593" endtime="20260505 17:14:47.662"/>
-</kw>
-<status status="PASS" starttime="20260505 17:14:46.603" endtime="20260505 17:14:47.662"/>
-</kw>
-<if>
-<branch type="IF" condition="'${driver_id}' != '${EMPTY}'">
-<kw name="Select Driver By id" library="shipping_createBooking_page">
-<arg>${driver_id}</arg>
-<kw name="Click" library="Browser">
-<arg>xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/div[2]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:47.662" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/div[2]'.</msg>
-<status status="PASS" starttime="20260505 17:14:47.662" endtime="20260505 17:14:47.693"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/ngx-select-choices/ul/li[1]/a</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:47.693" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-view-driver"]/ngx-select/div/ngx-select-choices/ul/li[1]/a'.</msg>
-<status status="PASS" starttime="20260505 17:14:47.693" endtime="20260505 17:14:47.729"/>
-</kw>
-<kw name="Fill Text" library="Browser">
-<arg>xpath=//*[@id="queue-booking-tracking-search-driverTaxId"]</arg>
-<arg>${driver_id}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:47.730" level="INFO">Fills the text '7-7777-77777-77-7' in the given field.</msg>
-<status status="PASS" starttime="20260505 17:14:47.729" endtime="20260505 17:14:47.739"/>
-</kw>
-<status status="PASS" starttime="20260505 17:14:47.662" endtime="20260505 17:14:47.739"/>
-</kw>
-<status status="PASS" starttime="20260505 17:14:47.662" endtime="20260505 17:14:47.739"/>
-</branch>
-<status status="PASS" starttime="20260505 17:14:47.662" endtime="20260505 17:14:47.739"/>
-</if>
-<if>
-<branch type="IF" condition="'${driver_license}' != '${EMPTY}' and '${vehicle_province}' != '${EMPTY}' and '${driver_cartype}' != '${EMPTY}'">
-<kw name="Fill Vehicle infomation" library="shipping_createBooking_page">
-<arg>${driver_license}</arg>
-<arg>${vehicle_province}</arg>
-<arg>${driver_cartype}</arg>
-<kw name="Click" library="Browser">
-<arg>id=queue-booking-view-vehicle &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:47.745" level="INFO">Clicks the element 'id=queue-booking-view-vehicle &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true'.</msg>
-<status status="PASS" starttime="20260505 17:14:47.745" endtime="20260505 17:14:47.775"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>xpath=//*[@id="queue-booking-view-vehicle"]//ngx-select-choices//li[1]/a</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:47.775" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-view-vehicle"]//ngx-select-choices//li[1]/a'.</msg>
-<status status="PASS" starttime="20260505 17:14:47.775" endtime="20260505 17:14:47.822"/>
-</kw>
-<kw name="Fill Text" library="Browser">
-<arg>xpath=//input[@placeholder="ป้ายทะเบียน"] &gt;&gt; visible=true</arg>
-<arg>${driver_license}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:47.822" level="INFO">Fills the text 'มก232' in the given field.</msg>
-<status status="PASS" starttime="20260505 17:14:47.822" endtime="20260505 17:14:47.849"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>id=sidebar-toggle-btn</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:47.849" level="INFO">Clicks the element 'id=sidebar-toggle-btn'.</msg>
-<status status="PASS" starttime="20260505 17:14:47.849" endtime="20260505 17:14:47.886"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260505 17:14:49.886" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20260505 17:14:47.886" endtime="20260505 17:14:49.886"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>id=queue-booking-tracking-search-vehicleProvince &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:49.886" level="INFO">Clicks the element 'id=queue-booking-tracking-search-vehicleProvince &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true'.</msg>
-<status status="PASS" starttime="20260505 17:14:49.886" endtime="20260505 17:14:49.920"/>
-</kw>
-<kw name="Fill Text" library="Browser">
-<arg>id=queue-booking-tracking-search-vehicleProvince &gt;&gt; css=.ngx-select__search</arg>
-<arg>${vehicle_province}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:49.920" level="INFO">Fills the text 'กระบี่' in the given field.</msg>
-<status status="PASS" starttime="20260505 17:14:49.920" endtime="20260505 17:14:49.924"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>xpath=//*[@id="queue-booking-tracking-search-vehicleProvince"]//ngx-select-choices//a[contains(normalize-space(.), '${vehicle_province}')]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:49.930" level="INFO">Clicks the element 'xpath=//*[@id="queue-booking-tracking-search-vehicleProvince"]//ngx-select-choices//a[contains(normalize-space(.), 'กระบี่')]'.</msg>
-<status status="PASS" starttime="20260505 17:14:49.930" endtime="20260505 17:14:49.964"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>id=vehicle-management-vehicle-type-id &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:49.965" level="INFO">Clicks the element 'id=vehicle-management-vehicle-type-id &gt;&gt; css=.ngx-select__toggle &gt;&gt; visible=true'.</msg>
-<status status="PASS" starttime="20260505 17:14:49.964" endtime="20260505 17:14:49.996"/>
-</kw>
-<kw name="Fill Text" library="Browser">
-<arg>xpath=//*[@id="vehicle-management-vehicle-type-id"]/ngx-select/div/input</arg>
-<arg>${driver_cartype}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:49.996" level="INFO">Fills the text 'รถยนต์ 4 ที่นั่ง' in the given field.</msg>
-<status status="PASS" starttime="20260505 17:14:49.996" endtime="20260505 17:14:49.999"/>
-</kw>
-<kw name="Click" library="Browser">
-<arg>xpath=//*[@id="vehicle-management-vehicle-type-id"]//ngx-select-choices//a[contains(normalize-space(.), '${driver_cartype}')]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:49.999" level="INFO">Clicks the element 'xpath=//*[@id="vehicle-management-vehicle-type-id"]//ngx-select-choices//a[contains(normalize-space(.), 'รถยนต์ 4 ที่นั่ง')]'.</msg>
-<status status="PASS" starttime="20260505 17:14:49.999" endtime="20260505 17:14:50.036"/>
-</kw>
-<status status="PASS" starttime="20260505 17:14:47.745" endtime="20260505 17:14:50.036"/>
-</kw>
-<status status="PASS" starttime="20260505 17:14:47.739" endtime="20260505 17:14:50.036"/>
-</branch>
-<status status="PASS" starttime="20260505 17:14:47.739" endtime="20260505 17:14:50.036"/>
-</if>
-<if>
-<branch type="IF" condition="'${bookingType}' != '${EMPTY}' and '${bokingOrigin}' != '${EMPTY}' and '${bookingDestination}' != '${EMPTY}' and '${reserveHour}' != '${EMPTY}' and '${reserveMinute}' != '${EMPTY}' and '${goodsType}' != '${EMPTY}'">
-<kw name="Fill infomation request Booking" library="shipping_createBooking_page">
-<arg>${bookingType}</arg>
-<arg>${bokingOrigin}</arg>
-<arg>${bookingDestination}</arg>
-<arg>${reserveHour}</arg>
-<arg>${reserveMinute}</arg>
-<arg>${goodsType}</arg>
-<kw name="Select Options By" library="Browser">
-<arg>xpath=//select[@id='queue-booking-detail-bookingTypeId']</arg>
-<arg>text</arg>
-<arg>${bookingType}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Selects options from select element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:50.039" level="INFO">Selects the option(s) รับสินค้าขาเข้าปกติ by attribute SelectAttribute.label from element xpath=//select[@id='queue-booking-detail-bookingTypeId'].</msg>
-<status status="PASS" starttime="20260505 17:14:50.039" endtime="20260505 17:14:50.062"/>
-</kw>
-<kw name="Select Options By" library="Browser">
-<arg>xpath=//select[@id="queue-booking-detail-origin"]</arg>
-<arg>text</arg>
-<arg>${bokingOrigin}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Selects options from select element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:50.063" level="INFO">Selects the option(s) TG by attribute SelectAttribute.label from element xpath=//select[@id="queue-booking-detail-origin"].</msg>
-<status status="PASS" starttime="20260505 17:14:50.063" endtime="20260505 17:14:50.076"/>
-</kw>
-<kw name="Select Options By" library="Browser">
-<arg>xpath=//select[@id="queue-booking-detail-destination"]</arg>
-<arg>text</arg>
-<arg>${bookingDestination}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Selects options from select element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:50.076" level="INFO">Selects the option(s) ภายในประเทศ/ท่าอื่น by attribute SelectAttribute.label from element xpath=//select[@id="queue-booking-detail-destination"].</msg>
-<status status="PASS" starttime="20260505 17:14:50.076" endtime="20260505 17:14:50.086"/>
-</kw>
-<kw name="Fill Text" library="Browser">
-<arg>css=input[placeholder="HH"]</arg>
-<arg>${reserveHour}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:50.086" level="INFO">Fills the text '10' in the given field.</msg>
-<status status="PASS" starttime="20260505 17:14:50.086" endtime="20260505 17:14:50.096"/>
-</kw>
-<kw name="Fill Text" library="Browser">
-<arg>css=input[placeholder="MM"]</arg>
-<arg>${reserveMinute}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:50.097" level="INFO">Fills the text '30' in the given field.</msg>
-<status status="PASS" starttime="20260505 17:14:50.096" endtime="20260505 17:14:50.111"/>
-</kw>
-<kw name="Press Keys" library="Browser">
-<arg>css=input[placeholder="MM"]</arg>
-<arg>Tab</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Types the given key combination into element found by ``selector``.</doc>
-<msg timestamp="20260505 17:14:50.140" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
-Error: Tried to take screenshot, but no page was open.</msg>
-<msg timestamp="20260505 17:14:50.140" level="INFO">See also file:///C:/Users/iTservice/Document/FEMS_AutomationTest/testsuite/Shipping/output/playwright-log.txt for additional details.</msg>
-<msg timestamp="20260505 17:14:50.141" level="FAIL">Error: locator.press: Target page, context or browser has been closed
-Call log:
-  - waiting for locator('input[placeholder="MM"]')
-    - locator resolved to &lt;input type="text" maxlength="2" placeholder="MM" aria-label="minutes" class="form-control text-center bs-timepicker-field"/&gt;
-  - elementHandle.press("Tab")
-</msg>
-<status status="FAIL" starttime="20260505 17:14:50.111" endtime="20260505 17:14:50.144"/>
-</kw>
-<kw name="Select Options By" library="Browser">
-<arg>xpath=//select[@id="queue-booking-detail-goodsType"]</arg>
-<arg>text</arg>
-<arg>${goodsType}</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Selects options from select element found by ``selector``.</doc>
-<status status="NOT RUN" starttime="20260505 17:14:50.144" endtime="20260505 17:14:50.144"/>
-</kw>
-<status status="FAIL" starttime="20260505 17:14:50.038" endtime="20260505 17:14:50.145"/>
-</kw>
-<status status="FAIL" starttime="20260505 17:14:50.036" endtime="20260505 17:14:50.145"/>
-</branch>
-<status status="FAIL" starttime="20260505 17:14:50.036" endtime="20260505 17:14:50.145"/>
-</if>
-<if>
-<branch type="IF" condition="'${declaration_number}' != '${EMPTY}' and '${HAWB}' != '${EMPTY}'">
-<kw name="Fill Product list" library="shipping_createBooking_page">
-<arg>${declaration_number}</arg>
-<arg>${HAWB}</arg>
-<status status="NOT RUN" starttime="20260505 17:14:50.146" endtime="20260505 17:14:50.146"/>
-</kw>
-<status status="NOT RUN" starttime="20260505 17:14:50.146" endtime="20260505 17:14:50.146"/>
-</branch>
-<status status="NOT RUN" starttime="20260505 17:14:50.145" endtime="20260505 17:14:50.146"/>
-</if>
-<kw name="Submit Booking" library="shipping_createBooking_page">
-<status status="NOT RUN" starttime="20260505 17:14:50.146" endtime="20260505 17:14:50.146"/>
-</kw>
-<kw name="check booking success" library="shipping_createBooking_page">
-<status status="NOT RUN" starttime="20260505 17:14:50.146" endtime="20260505 17:14:50.146"/>
-</kw>
-<status status="FAIL" starttime="20260505 17:14:46.468" endtime="20260505 17:14:50.147"/>
+<status status="FAIL" starttime="20260507 15:59:24.072" endtime="20260507 15:59:25.905"/>
 </kw>
 <kw name="Close Web Application" library="config" type="TEARDOWN">
 <kw name="Close Browser" library="Browser">
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<msg timestamp="20260505 17:14:50.427" level="INFO">Closed browser</msg>
-<status status="PASS" starttime="20260505 17:14:50.148" endtime="20260505 17:14:50.427"/>
+<msg timestamp="20260507 15:59:25.909" level="INFO">No browser open, doing nothing</msg>
+<status status="PASS" starttime="20260507 15:59:25.907" endtime="20260507 15:59:25.909"/>
 </kw>
-<status status="PASS" starttime="20260505 17:14:50.147" endtime="20260505 17:14:50.427"/>
+<status status="PASS" starttime="20260507 15:59:25.907" endtime="20260507 15:59:25.909"/>
 </kw>
-<doc>ทดสอบกรณีสร้าง booking สำเร็จ</doc>
-<status status="FAIL" starttime="20260505 17:14:39.838" endtime="20260505 17:14:50.427">Error: locator.press: Target page, context or browser has been closed
-Call log:
-  - waiting for locator('input[placeholder="MM"]')
-    - locator resolved to &lt;input type="text" maxlength="2" placeholder="MM" aria-label="minutes" class="form-control text-center bs-timepicker-field"/&gt;
-  - elementHandle.press("Tab")
-</status>
+<status status="FAIL" starttime="20260507 15:59:24.072" endtime="20260507 15:59:25.909">Setup failed:
+Error: Could not find active page</status>
 </test>
-<status status="FAIL" starttime="20260505 17:14:39.658" endtime="20260505 17:14:50.441"/>
+<status status="FAIL" starttime="20260507 15:59:23.587" endtime="20260507 15:59:25.920"/>
 </suite>
 <suite id="s1-s2" name="01 1Double" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING02_CreateBooking\01_1Double.robot">
-<test id="s1-s2-t1" name="TC_05: create booking success" line="13">
+<test id="s1-s2-t1" name="create booking success" line="13">
 <kw name="Run Keywords" library="BuiltIn" type="SETUP">
 <arg>Login As shipping User</arg>
 <arg>AND</arg>
@@ -472,63 +70,56 @@ Call log:
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20260505 17:14:50.498" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\220de244-22ad-49f4-a53a-979ed7eb5e46"}</msg>
-<msg timestamp="20260505 17:14:50.714" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\220de244-22ad-49f4-a53a-979ed7eb5e46"}</msg>
-<status status="PASS" starttime="20260505 17:14:50.498" endtime="20260505 17:14:50.714"/>
+<msg timestamp="20260507 15:59:25.978" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\bb70d6a8-928b-4e3c-a4f6-85a55f658e38"}</msg>
+<msg timestamp="20260507 15:59:26.491" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\bb70d6a8-928b-4e3c-a4f6-85a55f658e38"}</msg>
+<status status="PASS" starttime="20260507 15:59:25.972" endtime="20260507 15:59:26.491"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${url_login}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20260505 17:14:52.294" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
-Error: Tried to take screenshot, but no page was open.</msg>
-<msg timestamp="20260505 17:14:52.294" level="INFO">See also file:///C:/Users/iTservice/Document/FEMS_AutomationTest/testsuite/Shipping/output/playwright-log.txt for additional details.</msg>
-<msg timestamp="20260505 17:14:52.294" level="FAIL">Error: page.goto: Target page, context or browser has been closed
-Call log:
-  - navigating to "https://uataotfems.netbay.co.th/fems/#/auth/shipping/login", waiting until "load"
-</msg>
-<status status="FAIL" starttime="20260505 17:14:50.714" endtime="20260505 17:14:52.295"/>
+<msg timestamp="20260507 15:59:28.727" level="INFO">Successfully initialized new page object and opened url: https://uataotfems.netbay.co.th/fems/#/auth/shipping/login</msg>
+<msg timestamp="20260507 15:59:28.727" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20260507 15:59:26.491" endtime="20260507 15:59:28.727"/>
 </kw>
 <kw name="Set Browser Timeout" library="Browser">
 <arg>20 seconds</arg>
 <tag>Config</tag>
 <tag>Setter</tag>
 <doc>Sets the timeout used by most input and getter keywords.</doc>
-<status status="NOT RUN" starttime="20260505 17:14:52.295" endtime="20260505 17:14:52.295"/>
+<status status="PASS" starttime="20260507 15:59:28.727" endtime="20260507 15:59:28.727"/>
 </kw>
-<status status="FAIL" starttime="20260505 17:14:50.498" endtime="20260505 17:14:52.296"/>
+<status status="PASS" starttime="20260507 15:59:25.972" endtime="20260507 15:59:28.727"/>
 </kw>
-<kw name="Input Login Credentials" library="shipping_login_page">
+<kw name="Login As shipping User" library="config">
 <arg>trainingship</arg>
 <arg>Netbay@123</arg>
-<status status="NOT RUN" starttime="20260505 17:14:52.296" endtime="20260505 17:14:52.296"/>
+<msg timestamp="20260507 15:59:28.727" level="FAIL">Keyword 'config.Login As shipping User' expected 0 arguments, got 2.</msg>
+<status status="FAIL" starttime="20260507 15:59:28.727" endtime="20260507 15:59:28.727"/>
 </kw>
 <kw name="Click Login Button" library="shipping_login_page">
-<status status="NOT RUN" starttime="20260505 17:14:52.296" endtime="20260505 17:14:52.296"/>
+<status status="NOT RUN" starttime="20260507 15:59:28.727" endtime="20260507 15:59:28.727"/>
 </kw>
-<status status="FAIL" starttime="20260505 17:14:50.498" endtime="20260505 17:14:52.296"/>
+<status status="FAIL" starttime="20260507 15:59:25.972" endtime="20260507 15:59:28.727"/>
 </kw>
-<status status="FAIL" starttime="20260505 17:14:50.498" endtime="20260505 17:14:52.296"/>
+<status status="FAIL" starttime="20260507 15:59:25.972" endtime="20260507 15:59:28.727"/>
 </kw>
 <kw name="Close Web Application" library="config" type="TEARDOWN">
 <kw name="Close Browser" library="Browser">
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<msg timestamp="20260505 17:14:52.490" level="INFO">Closed browser</msg>
-<status status="PASS" starttime="20260505 17:14:52.296" endtime="20260505 17:14:52.490"/>
+<msg timestamp="20260507 15:59:29.620" level="INFO">Closed browser</msg>
+<status status="PASS" starttime="20260507 15:59:28.727" endtime="20260507 15:59:29.620"/>
 </kw>
-<status status="PASS" starttime="20260505 17:14:52.296" endtime="20260505 17:14:52.490"/>
+<status status="PASS" starttime="20260507 15:59:28.727" endtime="20260507 15:59:29.620"/>
 </kw>
-<doc>ทดสอบกรณีสร้าง booking สำเร็จ</doc>
-<status status="FAIL" starttime="20260505 17:14:50.494" endtime="20260505 17:14:52.490">Setup failed:
-Error: page.goto: Target page, context or browser has been closed
-Call log:
-  - navigating to "https://uataotfems.netbay.co.th/fems/#/auth/shipping/login", waiting until "load"
-</status>
+<doc>ทดสอบกรณีสร้าง booking ด้วย Declaration No. 2 หมายเลข</doc>
+<status status="FAIL" starttime="20260507 15:59:25.971" endtime="20260507 15:59:29.620">Setup failed:
+Keyword 'config.Login As shipping User' expected 0 arguments, got 2.</status>
 </test>
-<status status="FAIL" starttime="20260505 17:14:50.441" endtime="20260505 17:14:52.506"/>
+<status status="FAIL" starttime="20260507 15:59:25.931" endtime="20260507 15:59:29.620"/>
 </suite>
 <suite id="s1-s3" name="02-BookingFail" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING02_CreateBooking\02-BookingFail.robot">
 <test id="s1-s3-t1" name="TC_06: create booking fail when driver is unavailable" line="10">
@@ -540,61 +131,55 @@ Call log:
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20260505 17:14:52.525" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\7bb74413-e4b0-4fa6-8693-812b8e0bb7d0"}</msg>
-<msg timestamp="20260505 17:14:52.748" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\7bb74413-e4b0-4fa6-8693-812b8e0bb7d0"}</msg>
-<status status="PASS" starttime="20260505 17:14:52.525" endtime="20260505 17:14:52.748"/>
+<msg timestamp="20260507 15:59:29.648" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\cebcd974-97d1-4f8a-a362-35f1f59226c4"}</msg>
+<msg timestamp="20260507 15:59:29.864" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\cebcd974-97d1-4f8a-a362-35f1f59226c4"}</msg>
+<status status="PASS" starttime="20260507 15:59:29.648" endtime="20260507 15:59:29.864"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${url_login}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20260505 17:14:54.356" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+<msg timestamp="20260507 15:59:31.814" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
 Error: Tried to take screenshot, but no page was open.</msg>
-<msg timestamp="20260505 17:14:54.364" level="INFO">See also file:///C:/Users/iTservice/Document/FEMS_AutomationTest/testsuite/Shipping/output/playwright-log.txt for additional details.</msg>
-<msg timestamp="20260505 17:14:54.364" level="FAIL">Error: page.goto: Target page, context or browser has been closed
-Call log:
-  - navigating to "https://uataotfems.netbay.co.th/fems/#/auth/shipping/login", waiting until "load"
-</msg>
-<status status="FAIL" starttime="20260505 17:14:52.749" endtime="20260505 17:14:54.364"/>
+<msg timestamp="20260507 15:59:31.814" level="INFO">See also file:///C:/Users/iTservice/Document/FEMS_AutomationTest/testsuite/Shipping/output/playwright-log.txt for additional details.</msg>
+<msg timestamp="20260507 15:59:31.814" level="FAIL">Execution terminated by signal</msg>
+<status status="FAIL" starttime="20260507 15:59:29.865" endtime="20260507 15:59:31.869"/>
 </kw>
 <kw name="Set Browser Timeout" library="Browser">
 <arg>20 seconds</arg>
 <tag>Config</tag>
 <tag>Setter</tag>
 <doc>Sets the timeout used by most input and getter keywords.</doc>
-<status status="NOT RUN" starttime="20260505 17:14:54.364" endtime="20260505 17:14:54.364"/>
+<status status="NOT RUN" starttime="20260507 15:59:31.869" endtime="20260507 15:59:31.869"/>
 </kw>
-<status status="FAIL" starttime="20260505 17:14:52.525" endtime="20260505 17:14:54.364"/>
+<status status="FAIL" starttime="20260507 15:59:29.648" endtime="20260507 15:59:31.869"/>
 </kw>
-<kw name="Input Login Credentials" library="shipping_login_page">
+<kw name="Login As shipping User" library="config">
 <arg>trainingship</arg>
 <arg>Netbay@123</arg>
-<status status="NOT RUN" starttime="20260505 17:14:54.364" endtime="20260505 17:14:54.364"/>
+<status status="NOT RUN" starttime="20260507 15:59:31.869" endtime="20260507 15:59:31.869"/>
 </kw>
 <kw name="Click Login Button" library="shipping_login_page">
-<status status="NOT RUN" starttime="20260505 17:14:54.366" endtime="20260505 17:14:54.366"/>
+<status status="NOT RUN" starttime="20260507 15:59:31.869" endtime="20260507 15:59:31.869"/>
 </kw>
-<status status="FAIL" starttime="20260505 17:14:52.525" endtime="20260505 17:14:54.366"/>
+<status status="FAIL" starttime="20260507 15:59:29.648" endtime="20260507 15:59:31.869"/>
 </kw>
 <kw name="Close Web Application" library="config" type="TEARDOWN">
 <kw name="Close Browser" library="Browser">
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<msg timestamp="20260505 17:14:54.565" level="INFO">Closed browser</msg>
-<status status="PASS" starttime="20260505 17:14:54.366" endtime="20260505 17:14:54.565"/>
+<msg timestamp="20260507 15:59:31.869" level="INFO">Closed browser</msg>
+<status status="PASS" starttime="20260507 15:59:31.869" endtime="20260507 15:59:31.869"/>
 </kw>
-<status status="PASS" starttime="20260505 17:14:54.366" endtime="20260505 17:14:54.565"/>
+<status status="PASS" starttime="20260507 15:59:31.869" endtime="20260507 15:59:31.869"/>
 </kw>
 <doc>ทดสอบกรณีสร้าง booking ไม่สำเร็จ</doc>
-<status status="FAIL" starttime="20260505 17:14:52.522" endtime="20260505 17:14:54.565">Setup failed:
-Error: page.goto: Target page, context or browser has been closed
-Call log:
-  - navigating to "https://uataotfems.netbay.co.th/fems/#/auth/shipping/login", waiting until "load"
-</status>
+<status status="FAIL" starttime="20260507 15:59:29.648" endtime="20260507 15:59:31.869">Setup failed:
+Execution terminated by signal</status>
 </test>
-<status status="FAIL" starttime="20260505 17:14:52.512" endtime="20260505 17:14:54.565"/>
+<status status="FAIL" starttime="20260507 15:59:29.636" endtime="20260507 15:59:31.885"/>
 </suite>
 <suite id="s1-s4" name="03-DraftBooking" source="C:\Users\iTservice\Document\FEMS_AutomationTest\testsuite\Shipping\SHIPPING02_CreateBooking\03-DraftBooking.robot">
 <test id="s1-s4-t1" name="TC_07: create draft booking" line="11">
@@ -603,73 +188,25 @@ Call log:
 <arg>AND</arg>
 <arg>Prepare All Random Variables</arg>
 <doc>Executes all the given keywords in a sequence.</doc>
-<kw name="Login As shipping User" library="config">
-<kw name="Open Login Shipping Web Application" library="config">
-<kw name="New Browser" library="Browser">
-<arg>browser=chromium</arg>
-<arg>headless=False</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20260505 17:14:54.587" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\42549fa4-8d42-4ad7-938a-fc4cfa314245"}</msg>
-<msg timestamp="20260505 17:14:54.761" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\Document\\FEMS_AutomationTest\\testsuite\\Shipping\\output\\browser\\traces\\temp\\42549fa4-8d42-4ad7-938a-fc4cfa314245"}</msg>
-<status status="PASS" starttime="20260505 17:14:54.586" endtime="20260505 17:14:54.761"/>
-</kw>
-<kw name="New Page" library="Browser">
-<arg>${url_login}</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Open a new Page.</doc>
-<msg timestamp="20260505 17:14:55.877" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
-Error: Tried to take screenshot, but no page was open.</msg>
-<msg timestamp="20260505 17:14:55.877" level="INFO">See also file:///C:/Users/iTservice/Document/FEMS_AutomationTest/testsuite/Shipping/output/playwright-log.txt for additional details.</msg>
-<msg timestamp="20260505 17:14:55.877" level="FAIL">Error: page.goto: Target page, context or browser has been closed
-Call log:
-  - navigating to "https://uataotfems.netbay.co.th/fems/#/auth/shipping/login", waiting until "load"
-</msg>
-<status status="FAIL" starttime="20260505 17:14:54.761" endtime="20260505 17:14:55.878"/>
-</kw>
-<kw name="Set Browser Timeout" library="Browser">
-<arg>20 seconds</arg>
-<tag>Config</tag>
-<tag>Setter</tag>
-<doc>Sets the timeout used by most input and getter keywords.</doc>
-<status status="NOT RUN" starttime="20260505 17:14:55.878" endtime="20260505 17:14:55.879"/>
-</kw>
-<status status="FAIL" starttime="20260505 17:14:54.586" endtime="20260505 17:14:55.879"/>
-</kw>
-<kw name="Input Login Credentials" library="shipping_login_page">
-<arg>trainingship</arg>
-<arg>Netbay@123</arg>
-<status status="NOT RUN" starttime="20260505 17:14:55.879" endtime="20260505 17:14:55.879"/>
-</kw>
-<kw name="Click Login Button" library="shipping_login_page">
-<status status="NOT RUN" starttime="20260505 17:14:55.879" endtime="20260505 17:14:55.879"/>
-</kw>
-<status status="FAIL" starttime="20260505 17:14:54.586" endtime="20260505 17:14:55.879"/>
-</kw>
-<status status="FAIL" starttime="20260505 17:14:54.585" endtime="20260505 17:14:55.879"/>
+<status status="FAIL" starttime="20260507 15:59:31.914" endtime="20260507 15:59:31.914"/>
 </kw>
 <kw name="Close Web Application" library="config" type="TEARDOWN">
 <kw name="Close Browser" library="Browser">
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<msg timestamp="20260505 17:14:56.093" level="INFO">Closed browser</msg>
-<status status="PASS" starttime="20260505 17:14:55.880" endtime="20260505 17:14:56.093"/>
+<msg timestamp="20260507 15:59:31.917" level="INFO">No browser open, doing nothing</msg>
+<status status="PASS" starttime="20260507 15:59:31.915" endtime="20260507 15:59:31.917"/>
 </kw>
-<status status="PASS" starttime="20260505 17:14:55.880" endtime="20260505 17:14:56.093"/>
+<status status="PASS" starttime="20260507 15:59:31.915" endtime="20260507 15:59:31.917"/>
 </kw>
 <doc>ทดสอบกรณีสร้าง Draft</doc>
-<status status="FAIL" starttime="20260505 17:14:54.583" endtime="20260505 17:14:56.093">Setup failed:
-Error: page.goto: Target page, context or browser has been closed
-Call log:
-  - navigating to "https://uataotfems.netbay.co.th/fems/#/auth/shipping/login", waiting until "load"
-</status>
+<status status="FAIL" starttime="20260507 15:59:31.910" endtime="20260507 15:59:31.917">Setup failed:
+Execution terminated by signal</status>
 </test>
-<status status="FAIL" starttime="20260505 17:14:54.565" endtime="20260505 17:14:56.109"/>
+<status status="FAIL" starttime="20260507 15:59:31.893" endtime="20260507 15:59:31.924"/>
 </suite>
-<status status="FAIL" starttime="20260505 17:14:39.626" endtime="20260505 17:14:56.109"/>
+<status status="FAIL" starttime="20260507 15:59:23.553" endtime="20260507 15:59:31.931"/>
 </suite>
 <statistics>
 <total>

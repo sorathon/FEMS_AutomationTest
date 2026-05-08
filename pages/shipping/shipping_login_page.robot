@@ -19,7 +19,6 @@ ${MENU_QUEUE_BOOKING}    xpath=//*[@id="sidebar-menu-17"]
 ${MENU_CREATE_BOOKING}    xpath=//*[@id="queue-booking-tracking-btn-create"]
 
 *** Keywords ***
-
 Login Failure Template
     [Arguments]    ${user}    ${pass}    ${msg}
     [Documentation]    Keyword สำหรับตรวจสอบกรณี Login ไม่สำเร็จทุกรูปแบบ

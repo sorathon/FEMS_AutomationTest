@@ -21,9 +21,8 @@ Queue Booking
     ...     ภายในประเทศ/ท่าอื่น     10    30            ของมีค่า(TG)    
     ...      ${RAND_DEC_NO}    ${RAND_HAWB}   
     
-
     Fill Text    xpath=//input[@id="queue-booking-tracking-search-referenceNumber"]            ${GLOBAL_BOOKING_ID}
-    Fill Text    xpath=//input[@id="queue-booking-tracking-search-submitDate"]    ${Booking Date}
+    Fill Text    xpath=//input[@id="queue-booking-tracking-search-submitDate"]        ${Booking Date}
     
     
 
@@ -71,7 +70,6 @@ Verify Date in Search Result
 
     IF    '${target_booking_id}' != '${EMPTY}'
         ${locator}=    Set Variable    xpath=//div[contains(@class, 'card-body') and .//span[text()="${target_booking_id}"]]//div[contains(@class, 'card-content') and ./span[text()='Date To TMO'] and contains(., "${ui_date}")]
-
     END
 
     Wait For Elements State    ${locator}    visible    timeout=10s

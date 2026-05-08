@@ -17,21 +17,16 @@ Open Login TMO Web Application
     New Page       ${url_loginTMO}  
     Set Browser Timeout    20 seconds 
 
-
-
-Login As shipping User
+Login To System As Shipping User
     Open Login Shipping Web Application
-    Input Login Credentials     trainingship          Netbay@123
-    Click Login Button
+    Login To System As Shipping    username=trainingship        password=Netbay@123
+
 
 Login As TMO User
     Open Login TMO Web Application
     Input LoginTMO Credentials         username=trainingtg      password=Netbay@123
     Click LoginTMO Button
     #Click    css=button.swal2-confirm
-
-
-    
 
 Close Web Application
     Close Browser

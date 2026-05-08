@@ -1,6 +1,7 @@
 *** Settings ***
 Library    String
 Library    DateTime
+Library    Collections
 
 *** Keywords ***
 Prepare All Random Variables
@@ -13,6 +14,8 @@ Prepare All Random Variables
     ${dec2_no}           ${hawb2_no}=    Generate Random DecNo2 And HAWB2
 
     ${driver_id_fmt}=    Get Random Driver ID
+
+    ${final_list}=    Generate Random Product List
 
 
 
@@ -30,6 +33,8 @@ Prepare All Random Variables
     Set Global Variable    ${RAND_HAWB2}         ${hawb2_no}
 
     Set Global Variable    ${RAND_DRIVER_ID}    ${driver_id_fmt}
+
+    Set Global Variable    ${RAND_PRODUCT_LIST}    ${final_list}
 
 Get Random License Plate
     ${rand_char}=      Generate Random String    2    กขคพยรล
@@ -64,3 +69,23 @@ Get Random Driver ID
     # แปลง Format เลขบัตรประชาชนให้มีขีด (1-XXXX-XXXXX-XX-X)
     ${driver_id_fmt}=  Set Variable    1-${driver_id[1:5]}-${driver_id[5:10]}-${driver_id[10:12]}-${driver_id[12]}
     [Return]    ${driver_id_fmt}
+
+Generate Random Product List
+    [Arguments]    ${min_items}=1    ${max_items}=3
+    ${final_list}=    Create List
+    # สุ่มว่ารอบนี้จะมีสินค้ากี่ใบขน (เช่น 1-3 ใบ)
+    ${count}=    Evaluate    random.randint(${min_items}, ${max_items})    modules=random
+    
+    FOR    ${index}    IN RANGE    ${count}
+        # สุ่มเลขใบขนและ HAWB (สามารถปรับรูปแบบได้ตามต้องการ)
+        ${rand_dec}=     Generate Random String    10    [NUMBERS]
+        ${rand_hawb}=    Generate Random String    8     [UPPER][NUMBERS]
+        
+        # สร้าง Dictionary สินค้า 1 ชิ้น
+        ${item}=    Create Dictionary    dec_no=DEC${rand_dec}    hawb=HWB${rand_hawb}
+        
+        # ใส่ลงใน List หลัก
+        Append To List    ${final_list}    ${item}
+    END
+    
+    RETURN    ${final_list}

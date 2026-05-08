@@ -9,7 +9,7 @@ Test Teardown    Close Web Application
 
 *** Test Cases ***
 TC_01: Login Success with Valid Credentials
-    [Documentation]    ทดสอบกรณีกรอกรหัสผ่านและ Username ถูกต้อง ระบบต้องเข้าสู่ระบบสำเร็จ
+    [Documentation]    ทดสอบระบบ Logout โดยต้องกลับสู่หน้า login ใหม่อีกครั้ง 
     Check Logout
     Vertify Logout success
   
