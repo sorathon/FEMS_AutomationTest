@@ -11,15 +11,21 @@ Test Teardown    Close Web Application
 
 *** Test Cases ***
 # --- ส่วนที่ 1: การเตรียมข้อมูล (Data Preparation) ---
-TC-12 : Create New Draft Booking For Tracking AND Search Tracking By Booking ID with Date to TMO and default 
-    [Documentation]   สร้าง booking ใหม่จากนั้น tracking ด้วย Bookingid DATE_To_TMO เเล้วก็ค่าที่ตั้งมาอยู่เเล้ว
+TC-12: Create Draft Booking and Verify Search Consistency
+    [Documentation]    ทดสอบการสร้าง Booking ใหม่ และตรวจสอบว่าระบบแสดงข้อมูลถูกต้องในหน้า Tracking
+
     Create New Booking
-    ...    SUCCESS             ${RAND_DATE_FULL}            ${RAND_DRIVER_ID}       ${RAND_LICENSE}                   กระบี่
-    ...    รถยนต์ 4 ที่นั่ง              รับสินค้าขาเข้าปกติ
+    ...    SUCCESS                    ${RAND_DATE_FULL}            ${RAND_DRIVER_ID}       ${RAND_LICENSE}                   กระบี่
+    ...    รถยนต์ 4 ที่นั่ง               รับสินค้าขาเข้าปกติ
     ...    TG                        ภายในประเทศ/ท่าอื่น                 10  30
     ...    ของมีค่า(TG)                ${SINGLE_PRODUCT_LIST}    
 
-    Tracking Booking    ${GLOBAL_BOOKING_ID}       Date_To_TMO=${RAND_DATE_FULL}
+    
+
+    Tracking Booking    
+    ...     BOOKING_ID=${GLOBAL_BOOKING_ID}          
+    ...     HAWD_NO=${ACTUAL_HAWB}    
+    ...     Date_To_TMO=${RAND_DATE_FULL}
 
         
 

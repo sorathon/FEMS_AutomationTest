@@ -69,6 +69,7 @@ Tracking Booking
         Vertify and Count Search Result By Vehicle Plate    ${Licens_id}
     END
     # รอให้เห็นผลลัพธ์ด้วยตา (ลดเวลาลงจาก 20s เป็น 5s เพื่อความรวดเร็ว)
+    ${ACTUAL_HAWB}=    Set Global Variable     ${SINGLE_PRODUCT_LIST[0]['hawb']}
     Sleep    5 seconds  
 
 
@@ -230,7 +231,7 @@ Vertify and Count Search Result By HAWB
     # 2. สร้าง XPath ที่เจาะจง
     # หา div ที่มีคลาส card-content และมีหัวข้อ (span) เป็น HAWB 
     # จากนั้นตรวจสอบว่าใน div นั้นมีข้อความ HAWB ที่เราต้องการหรือไม่
-    ${locator}=    Set Variable    xpath=//div[contains(@class, "card-content") and ./span[text()="HAWB"] and contains(., "${target_hawb}}")]
+    ${locator}=    Set Variable    xpath=//div[contains(@class, "card-content") and ./span[text()="HAWB"] and contains(., "${target_hawb}")]
 
     # 3. รอให้ข้อมูลปรากฏบน UI
     Wait For Elements State    ${locator}    visible    timeout=10s
