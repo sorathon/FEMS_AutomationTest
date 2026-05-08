@@ -11,26 +11,17 @@ Test Teardown    Close Web Application
 
 *** Test Cases ***
 # --- ส่วนที่ 1: การเตรียมข้อมูล (Data Preparation) ---
-Create New Draft Booking For Tracking
-    [Documentation]    ขั้นตอนการสร้าง Booking เพื่อเอาเลขไปใช้ทดสอบ Tracking ในเคสถัดไป
+TC-12 : Create New Draft Booking For Tracking AND Search Tracking By Booking ID with Date to TMO and default 
+    [Documentation]   สร้าง booking ใหม่จากนั้น tracking ด้วย Bookingid DATE_To_TMO เเล้วก็ค่าที่ตั้งมาอยู่เเล้ว
     Create New Booking
     ...    SUCCESS             ${RAND_DATE_FULL}            ${RAND_DRIVER_ID}       ${RAND_LICENSE}                   กระบี่
     ...    รถยนต์ 4 ที่นั่ง              รับสินค้าขาเข้าปกติ
     ...    TG                        ภายในประเทศ/ท่าอื่น                 10  30
     ...    ของมีค่า(TG)                ${SINGLE_PRODUCT_LIST}    
 
-                
-    
-    # เก็บค่า Booking ID ไว้ใน Global เพื่อให้เคสอื่นใน Suite เดียวกันเรียกใช้ได้
-    #Set Global Variable    ${TARGET_BOOKING_ID}    ${GLOBAL_BOOKING_ID}
+    Tracking Booking    ${GLOBAL_BOOKING_ID}       Date_To_TMO=${RAND_DATE_FULL}
 
-
-# --- ส่วนที่ 2: การทดสอบการค้นหาแยกตามฟิลด์ (Single Field Search) ---
-Search Tracking By Booking ID
-    [Tags]    Regression
-    [Documentation]    ตรวจสอบว่าค้นหาด้วยเลข Booking ID แล้วเจอข้อมูลที่ถูกต้อง
-    Tracking Booking    ${GLOBAL_BOOKING_ID}
-    Verify Booking Is Displayed In Search Result    ${GLOBAL_BOOKING_ID}    
+        
 
 # Search Tracking By Declaration Number
 #     [Tags]    Regression

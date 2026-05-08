@@ -151,11 +151,12 @@ Create New Booking
         END
     END
         Click        ${BTN_PRODUCT_SELECTINFO}
-        sleep  10s
+       
 
     # ตัดสินใจตาม Mode
     IF    '${mode}' == 'SUCCESS'
         Click    ${BTN_BOOKING_SUBMIT}
+        Sleep     3     s
         Click    ${BTN_BOOKING_SAVE}
         Sleep     3     s
         Click    ${BTN_BOOKING_SAVE}
