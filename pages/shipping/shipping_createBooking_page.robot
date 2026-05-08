@@ -56,6 +56,7 @@ ${LBL_ERROR_ALERT}             text="กรุณาระบุข้อมู�
 # 1. ATOMIC KEYWORDS (การกระทำย่อยๆ)
 # ==========================================
 
+
 Open Create Booking Page
     Click    ${MNU_SIDEBAR_QUEUE_BOOKING}
     Click    ${BTN_CREATE_NEW_BOOKING}
@@ -84,6 +85,8 @@ Fill Vehicle Info
     Click        ${DRP_VEHICLE_TYPE} >> css=.ngx-select__toggle >> visible=true   
     Fill Text    ${DRP_VEHICLE_TYPE} >> css=.ngx-select__search    ${car_type}
     Click        ${DRP_VEHICLE_TYPE} >> xpath=//a[contains(normalize-space(.), '${car_type}')]        
+
+
 Fill Booking Details
     [Arguments]    ${type}    ${origin}    ${dest}    ${hr}    ${min}    ${goods}
     Select Options By    ${DRP_BOOKING_TYPE}    text    ${type}
@@ -100,26 +103,56 @@ Fill Product Info
     Click        ${BTN_PRODUCT_SEARCH}
     Fill Text    ${TXT_PRODUCT_HAWB}    ${hawb}
     Click        ${BTN_PRODUCT_ADD}
-    Click        ${BTN_PRODUCT_SELECTINFO}
+
+
+Fill Date to TMO
+    [Arguments]    ${date_to_tmo}
+
+    # แยกค่า
+    ${year}    ${month}    ${day}    Split String    ${date_to_tmo}    -
+
+    Click    //*[@id="queue-booking-tracking-search-reserveDate"]
+    Wait For Elements State    .bs-datepicker-container    visible
+
+    
+    Click    (//div[contains(@class,"bs-datepicker-head")]//button[contains(@class,"current")])[2]
+
+ 
+    Click    //span[normalize-space()="${year}"]
+
+
+    Click    //span[normalize-space()="${month}"]
+
+    Wait For Elements State    .bs-datepicker-body    visible
+    ${day_int}    Convert To Integer    ${day}
+    Click    (//div[contains(@class,"bs-datepicker-body")]//span[normalize-space()="${day_int}"])[1]
+
+    
 # ==========================================
 # 2. MASTER TEMPLATE (หัวใจสำคัญของ QA)
 # ==========================================
 
-Booking Operation Template
-    [Arguments]    ${mode}    ${date}    ${driver_id}    ${license}    ${province}    ${car_type}    ${type}    ${origin}    ${dest}    ${hr}    ${min}    ${goods}    ${dec_no}    ${hawb}    ${product_list}= ${EMPTY}
+Create New Booking
+    [Arguments]    ${mode}    ${date}    ${driver_id} 
+    ...       ${license}    ${province}    ${car_type}  
+    ...      ${type}    ${origin}    ${dest}    ${hr}    ${min}  
+    ...      ${goods}  
+    ...      ${product_list}= ${EMPTY}    #${dec_no}    #${hawb}    
     
-    Open Create Booking Page
-    
+    Fill Date to TMO    date_to_tmo=${date}
     # กรอกข้อมูล (ตรวจสอบค่าว่างให้ในตัว)
     IF  '${driver_id}' != '${EMPTY}'    Fill Driver Info     ${driver_id}
     IF  '${license}' != '${EMPTY}'      Fill Vehicle Info    ${license}    ${province}    ${car_type}
     IF  '${type}' != '${EMPTY}'         Fill Booking Details  ${type}  ${origin}  ${dest}  ${hr}  ${min}  ${goods}
-        IF    $product_list != ${EMPTY}
-        FOR    ${item}    IN    @{product_list}
+    IF    $product_list 
+         FOR    ${item}    IN    @{product_list}
             # ${item} จะเป็น Dictionary ที่มี key ชื่อ dec_no และ hawb
             Fill Product Info    ${item}[dec_no]    ${item}[hawb]
         END
     END
+        Click        ${BTN_PRODUCT_SELECTINFO}
+        sleep  10s
+
     # ตัดสินใจตาม Mode
     IF    '${mode}' == 'SUCCESS'
         Click    ${BTN_BOOKING_SUBMIT}

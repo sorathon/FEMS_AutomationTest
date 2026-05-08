@@ -1,203 +1,193 @@
-{"level":30,"time":"2026-05-05T04:48:37.369Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Listening on 127.0.0.1:28172"}
-{"level":30,"time":"2026-05-05T04:48:37.876Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newBrowser"}
-{"level":30,"time":"2026-05-05T04:48:38.062Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
-{"level":30,"time":"2026-05-05T04:48:38.063Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Adding 0 contexts to browser"}
-{"level":30,"time":"2026-05-05T04:48:38.063Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newBrowser"}
-{"level":30,"time":"2026-05-05T04:48:38.067Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newPage"}
-{"level":30,"time":"2026-05-05T04:48:38.068Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@d57f03419e210a470262f1a9cc101073\"},\"name\":\"chromium\",\"id\":\"browser=a75a07b7-1ca8-4427-9360-6c22eeecf91a\",\"headless\":false}"}
-{"level":30,"time":"2026-05-05T04:48:38.083Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Setting default timeout for context context=5f9c5fd9-7a82-41f2-9e52-da649dce9d1e to 10000"}
-{"level":30,"time":"2026-05-05T04:48:38.083Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Changed active context: context=5f9c5fd9-7a82-41f2-9e52-da649dce9d1e"}
-{"level":30,"time":"2026-05-05T04:48:38.223Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Video path: undefined"}
-{"level":30,"time":"2026-05-05T04:48:38.223Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Changed active page"}
-{"level":30,"time":"2026-05-05T04:48:39.547Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newPage"}
-{"level":30,"time":"2026-05-05T04:48:39.554Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:39.554Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-username\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:39.586Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:39.589Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:39.589Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-password\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:39.598Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:39.602Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:39.602Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@title=\"Login\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:39.681Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:42.698Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:42.698Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"sidebar-menu-17\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:42.723Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:42.725Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:42.725Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-create\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:43.001Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:43.005Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:43.005Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with //*[@id=\"queue-booking-tracking-search-reserveDate\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:44.086Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.091Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:48:44.091Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with .bs-datepicker-container in page."}
-{"level":30,"time":"2026-05-05T04:48:44.102Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:48:44.104Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.104Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with (//div[contains(@class,\"bs-datepicker-head\")]//button[contains(@class,\"current\")])[2] in page."}
-{"level":30,"time":"2026-05-05T04:48:44.133Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.135Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.135Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with //span[normalize-space()=\"2026\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:44.163Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.165Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.165Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with //span[normalize-space()=\"June\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:44.195Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.197Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:48:44.197Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with .bs-datepicker-body in page."}
-{"level":30,"time":"2026-05-05T04:48:44.200Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:48:44.203Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.203Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with (//div[contains(@class,\"bs-datepicker-body\")]//span[normalize-space()=\"14\"])[1] in page."}
-{"level":30,"time":"2026-05-05T04:48:44.263Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.267Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.267Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-view-driver\"]/ngx-select/div/div[2] in page."}
-{"level":30,"time":"2026-05-05T04:48:44.302Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.304Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.304Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-view-driver\"]/ngx-select/div/ngx-select-choices/ul/li[1]/a in page."}
-{"level":30,"time":"2026-05-05T04:48:44.337Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.341Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:44.341Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-search-driverTaxId\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:44.352Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:44.357Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.357Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-view-vehicle >> css=.ngx-select__toggle >> visible=true in page."}
-{"level":30,"time":"2026-05-05T04:48:44.388Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.391Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.391Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-view-vehicle\"]//ngx-select-choices//li[1]/a in page."}
-{"level":30,"time":"2026-05-05T04:48:44.441Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.444Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:44.444Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//input[@placeholder=\"ป้ายทะเบียน\"] >> visible=true in page."}
-{"level":30,"time":"2026-05-05T04:48:44.458Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:44.482Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:44.482Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=sidebar-toggle-btn in page."}
-{"level":30,"time":"2026-05-05T04:48:44.528Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.530Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.530Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-tracking-search-vehicleProvince >> css=.ngx-select__toggle >> visible=true in page."}
-{"level":30,"time":"2026-05-05T04:48:46.563Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.565Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.566Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-tracking-search-vehicleProvince >> css=.ngx-select__search in page."}
-{"level":30,"time":"2026-05-05T04:48:46.571Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.574Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.574Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-search-vehicleProvince\"]//ngx-select-choices//a[contains(normalize-space(.), 'กระบี่')] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.603Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.605Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.605Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=vehicle-management-vehicle-type-id >> css=.ngx-select__toggle >> visible=true in page."}
-{"level":30,"time":"2026-05-05T04:48:46.642Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.645Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.645Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"vehicle-management-vehicle-type-id\"]/ngx-select/div/input in page."}
-{"level":30,"time":"2026-05-05T04:48:46.649Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.652Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.652Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"vehicle-management-vehicle-type-id\"]//ngx-select-choices//a[contains(normalize-space(.), 'รถยนต์ 4 ที่นั่ง')] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.681Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.687Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method selectOption"}
-{"level":30,"time":"2026-05-05T04:48:46.687Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//select[@id='queue-booking-detail-bookingTypeId'] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.713Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Option entries: 4"}
-{"level":30,"time":"2026-05-05T04:48:46.713Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Selected entries: 1"}
-{"level":30,"time":"2026-05-05T04:48:46.713Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method selectOption"}
-{"level":30,"time":"2026-05-05T04:48:46.716Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method selectOption"}
-{"level":30,"time":"2026-05-05T04:48:46.716Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//select[@id=\"queue-booking-detail-origin\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.729Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Option entries: 3"}
-{"level":30,"time":"2026-05-05T04:48:46.729Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Selected entries: 1"}
-{"level":30,"time":"2026-05-05T04:48:46.729Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method selectOption"}
-{"level":30,"time":"2026-05-05T04:48:46.731Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method selectOption"}
-{"level":30,"time":"2026-05-05T04:48:46.731Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//select[@id=\"queue-booking-detail-destination\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.740Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Option entries: 3"}
-{"level":30,"time":"2026-05-05T04:48:46.740Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Selected entries: 1"}
-{"level":30,"time":"2026-05-05T04:48:46.740Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method selectOption"}
-{"level":30,"time":"2026-05-05T04:48:46.743Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.743Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with css=input[placeholder=\"HH\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.752Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.756Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.756Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with css=input[placeholder=\"MM\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.774Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.778Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method press"}
-{"level":30,"time":"2026-05-05T04:48:46.779Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with css=input[placeholder=\"MM\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.803Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method press"}
-{"level":30,"time":"2026-05-05T04:48:46.806Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method selectOption"}
-{"level":30,"time":"2026-05-05T04:48:46.806Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//select[@id=\"queue-booking-detail-goodsType\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.818Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Option entries: 7"}
-{"level":30,"time":"2026-05-05T04:48:46.818Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Selected entries: 1"}
-{"level":30,"time":"2026-05-05T04:48:46.818Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method selectOption"}
-{"level":30,"time":"2026-05-05T04:48:46.822Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.822Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-detail-declarationNumber\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.837Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.840Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.840Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-detail-search-declarationNumber\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.874Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.877Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.877Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//input[@id=\"queue-booking-detail-hawb\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:46.972Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:46.975Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:46.975Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-detail-add-declarationNumber\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:47.008Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:47.010Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:47.011Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-search\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:47.046Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:47.049Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:47.049Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-submit\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:47.082Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:47.085Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:47.085Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-save\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:47.500Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:52.504Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:52.504Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-save\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:52.529Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:52.533Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:48:52.533Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//div[contains(@class, 'text-dark') and contains(., '20')] in page."}
-{"level":30,"time":"2026-05-05T04:48:52.537Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:48:52.540Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getText"}
-{"level":30,"time":"2026-05-05T04:48:52.540Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//div[contains(@class, 'text-dark') and contains(., '20')] in page."}
-{"level":30,"time":"2026-05-05T04:48:52.550Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Retrieved text for element xpath=//div[contains(@class, 'text-dark') and contains(., '20')] containing 202605050044"}
-{"level":30,"time":"2026-05-05T04:48:52.550Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getText"}
-{"level":30,"time":"2026-05-05T04:48:52.553Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getText"}
-{"level":30,"time":"2026-05-05T04:48:52.553Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//div[contains(@class, 'text-dark') and contains(., 'Queue')] in page."}
-{"level":30,"time":"2026-05-05T04:48:52.562Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Retrieved text for element xpath=//div[contains(@class, 'text-dark') and contains(., 'Queue')] containing Queue"}
-{"level":30,"time":"2026-05-05T04:48:52.562Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getText"}
-{"level":30,"time":"2026-05-05T04:48:52.564Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:52.565Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-back\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:52.905Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:52.908Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:52.908Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//input[@id=\"queue-booking-tracking-search-referenceNumber\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:52.913Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:52.915Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:52.915Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//input[@id=\"queue-booking-tracking-search-submitDate\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:52.923Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:52.925Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:52.925Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-tracking-search-reserveDate in page."}
-{"level":30,"time":"2026-05-05T04:48:52.960Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:52.963Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method press"}
-{"level":30,"time":"2026-05-05T04:48:52.963Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-tracking-search-reserveDate in page."}
-{"level":30,"time":"2026-05-05T04:48:52.977Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method press"}
-{"level":30,"time":"2026-05-05T04:48:52.979Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:52.979Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-tracking-search-reserveDate in page."}
-{"level":30,"time":"2026-05-05T04:48:52.988Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
-{"level":30,"time":"2026-05-05T04:48:52.990Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method selectOption"}
-{"level":30,"time":"2026-05-05T04:48:52.990Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//select[@id=\"queue-booking-tracking-search-statusId\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:53.000Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Option entries: 6"}
-{"level":30,"time":"2026-05-05T04:48:53.000Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Selected entries: 1"}
-{"level":30,"time":"2026-05-05T04:48:53.000Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method selectOption"}
-{"level":30,"time":"2026-05-05T04:48:56.003Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
-{"level":30,"time":"2026-05-05T04:48:56.003Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-search\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:56.027Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
-{"level":30,"time":"2026-05-05T04:48:56.035Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:48:56.035Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//div[contains(@class, 'card-body') and .//span[text()=\"202605050044\"]]//div[contains(@class, 'card-content') and ./span[text()='Date To TMO'] and contains(., \"14/06/2026\")] in page."}
-{"level":30,"time":"2026-05-05T04:48:56.128Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:48:56.130Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getElementCount"}
-{"level":30,"time":"2026-05-05T04:48:56.130Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is disabled, return Locator: xpath=//div[contains(@class, 'card-body') and .//span[text()=\"202605050044\"]]//div[contains(@class, 'card-content') and ./span[text()='Date To TMO'] and contains(., \"14/06/2026\")] in page."}
-{"level":30,"time":"2026-05-05T04:48:56.131Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getElementCount"}
-{"level":30,"time":"2026-05-05T04:48:56.135Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:48:56.135Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//span[contains(@class, \"reference-number\") and text()=\"202605050044\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:56.137Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:48:56.139Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getElementCount"}
-{"level":30,"time":"2026-05-05T04:48:56.139Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is disabled, return Locator: xpath=//span[contains(@class, \"reference-number\") and text()=\"202605050044\"] in page."}
-{"level":30,"time":"2026-05-05T04:48:56.140Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getElementCount"}
-{"level":30,"time":"2026-05-05T04:49:01.143Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:49:01.144Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//span[contains(@class, \"reference-number\") and text()=\"202605050044\"] in page."}
-{"level":30,"time":"2026-05-05T04:49:01.146Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method waitForElementState"}
-{"level":30,"time":"2026-05-05T04:49:01.148Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getElementCount"}
-{"level":30,"time":"2026-05-05T04:49:01.148Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is disabled, return Locator: xpath=//span[contains(@class, \"reference-number\") and text()=\"202605050044\"] in page."}
-{"level":30,"time":"2026-05-05T04:49:01.149Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getElementCount"}
-{"level":30,"time":"2026-05-05T04:49:01.153Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method closeBrowser"}
-{"level":30,"time":"2026-05-05T04:49:01.162Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Removed page=70a33ea6-1c31-4ab0-8972-48fb0a334d5d from context=5f9c5fd9-7a82-41f2-9e52-da649dce9d1e page stack"}
-{"level":30,"time":"2026-05-05T04:49:01.355Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method closeBrowser"}
-{"level":30,"time":"2026-05-05T04:49:01.357Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-05T04:49:01.357Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-08T03:24:20.167Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Listening on 127.0.0.1:45597"}
+{"level":30,"time":"2026-05-08T03:24:20.194Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-05-08T03:24:20.427Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Adding browser to stack: chromium, version: 147.0.7727.15"}
+{"level":30,"time":"2026-05-08T03:24:20.427Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-05-08T03:24:20.427Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-05-08T03:24:20.434Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-08T03:24:20.435Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"currentBrowser: {\"_contextStack\":[],\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@4a88f86bc2941c21369089ae7a59d8ad\"},\"name\":\"chromium\",\"id\":\"browser=9d25d58a-f50a-47bb-810a-69874e9cb894\",\"headless\":false}"}
+{"level":30,"time":"2026-05-08T03:24:20.453Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Setting default timeout for context context=5c04c34e-a1c2-4b77-9869-00235cb9db4d to 10000"}
+{"level":30,"time":"2026-05-08T03:24:20.453Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Changed active context: context=5c04c34e-a1c2-4b77-9869-00235cb9db4d"}
+{"level":30,"time":"2026-05-08T03:24:20.662Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-08T03:24:20.662Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Changed active page"}
+{"level":30,"time":"2026-05-08T03:24:22.530Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method newPage"}
+{"level":30,"time":"2026-05-08T03:24:22.538Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:22.538Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-username\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:22.572Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:22.575Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:22.575Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"login-password\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:22.585Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:22.588Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:22.588Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@title=\"Login\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:22.664Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:25.711Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:25.711Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"sidebar-menu-17\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:25.739Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:25.742Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:25.742Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-create\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:25.896Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:25.901Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:25.901Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with //*[@id=\"queue-booking-tracking-search-reserveDate\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:26.978Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:26.981Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-05-08T03:24:26.981Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with .bs-datepicker-container in page."}
+{"level":30,"time":"2026-05-08T03:24:26.987Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-05-08T03:24:26.991Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:26.991Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with (//div[contains(@class,\"bs-datepicker-head\")]//button[contains(@class,\"current\")])[2] in page."}
+{"level":30,"time":"2026-05-08T03:24:27.025Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.028Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.028Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with //span[normalize-space()=\"2026\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:27.060Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.062Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.062Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with //span[normalize-space()=\"May\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:27.097Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.100Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-05-08T03:24:27.100Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with .bs-datepicker-body in page."}
+{"level":30,"time":"2026-05-08T03:24:27.103Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-05-08T03:24:27.107Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.107Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with (//div[contains(@class,\"bs-datepicker-body\")]//span[normalize-space()=\"23\"])[1] in page."}
+{"level":30,"time":"2026-05-08T03:24:27.174Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.179Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.179Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-view-driver\"]/ngx-select/div/div[2] in page."}
+{"level":30,"time":"2026-05-08T03:24:27.222Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.226Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.226Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-view-driver\"]/ngx-select/div/ngx-select-choices/ul/li[1]/a in page."}
+{"level":30,"time":"2026-05-08T03:24:27.263Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.266Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:27.266Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-search-driverTaxId\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:27.279Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:27.284Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.284Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-view-vehicle >> css=.ngx-select__toggle >> visible=true in page."}
+{"level":30,"time":"2026-05-08T03:24:27.320Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.323Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.323Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-view-vehicle\"]//ngx-select-choices//li[1]/a in page."}
+{"level":30,"time":"2026-05-08T03:24:27.368Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.379Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:27.379Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//input[@placeholder=\"ป้ายทะเบียน\"] >> visible=true in page."}
+{"level":30,"time":"2026-05-08T03:24:27.410Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:27.414Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:27.415Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=sidebar-toggle-btn in page."}
+{"level":30,"time":"2026-05-08T03:24:27.452Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.455Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.455Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-tracking-search-vehicleProvince >> css=.ngx-select__toggle >> visible=true in page."}
+{"level":30,"time":"2026-05-08T03:24:28.501Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.505Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.505Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-tracking-search-vehicleProvince >> css=.ngx-select__search in page."}
+{"level":30,"time":"2026-05-08T03:24:28.512Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.515Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.515Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-tracking-search-vehicleProvince >> xpath=//a[contains(normalize-space(.), 'กระบี่')] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.552Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.554Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.554Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=vehicle-management-vehicle-type-id >> css=.ngx-select__toggle >> visible=true in page."}
+{"level":30,"time":"2026-05-08T03:24:28.594Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.596Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.596Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=vehicle-management-vehicle-type-id >> css=.ngx-select__search in page."}
+{"level":30,"time":"2026-05-08T03:24:28.603Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.606Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.606Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=vehicle-management-vehicle-type-id >> xpath=//a[contains(normalize-space(.), 'รถยนต์ 4 ที่นั่ง')] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.637Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.641Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method selectOption"}
+{"level":30,"time":"2026-05-08T03:24:28.642Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//select[@id='queue-booking-detail-bookingTypeId'] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.666Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Option entries: 4"}
+{"level":30,"time":"2026-05-08T03:24:28.666Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Selected entries: 1"}
+{"level":30,"time":"2026-05-08T03:24:28.666Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method selectOption"}
+{"level":30,"time":"2026-05-08T03:24:28.669Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method selectOption"}
+{"level":30,"time":"2026-05-08T03:24:28.669Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//select[@id=\"queue-booking-detail-origin\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.683Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Option entries: 3"}
+{"level":30,"time":"2026-05-08T03:24:28.683Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Selected entries: 1"}
+{"level":30,"time":"2026-05-08T03:24:28.683Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method selectOption"}
+{"level":30,"time":"2026-05-08T03:24:28.685Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method selectOption"}
+{"level":30,"time":"2026-05-08T03:24:28.685Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//select[@id=\"queue-booking-detail-destination\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.697Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Option entries: 3"}
+{"level":30,"time":"2026-05-08T03:24:28.697Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Selected entries: 1"}
+{"level":30,"time":"2026-05-08T03:24:28.697Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method selectOption"}
+{"level":30,"time":"2026-05-08T03:24:28.699Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.699Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with css=input[placeholder=\"HH\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.711Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.714Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.714Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with css=input[placeholder=\"MM\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.731Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.735Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method press"}
+{"level":30,"time":"2026-05-08T03:24:28.736Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with css=input[placeholder=\"MM\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.754Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method press"}
+{"level":30,"time":"2026-05-08T03:24:28.758Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method selectOption"}
+{"level":30,"time":"2026-05-08T03:24:28.758Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//select[@id=\"queue-booking-detail-goodsType\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.770Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Option entries: 7"}
+{"level":30,"time":"2026-05-08T03:24:28.770Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Selected entries: 1"}
+{"level":30,"time":"2026-05-08T03:24:28.770Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method selectOption"}
+{"level":30,"time":"2026-05-08T03:24:28.774Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.774Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-detail-declarationNumber\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.787Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.790Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.790Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-detail-search-declarationNumber\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.823Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.825Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.826Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//input[@id=\"queue-booking-detail-hawb\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.922Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:28.926Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.926Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-detail-add-declarationNumber\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:28.967Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.971Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:28.971Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-search\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:29.012Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:39.016Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:39.016Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-submit\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:39.048Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:39.051Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:39.051Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-save\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:39.464Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:42.468Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:42.468Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-save\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:42.503Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:42.507Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-05-08T03:24:42.507Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//div[contains(@class, 'text-dark') and contains(., '20')] in page."}
+{"level":30,"time":"2026-05-08T03:24:42.704Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-05-08T03:24:42.707Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getText"}
+{"level":30,"time":"2026-05-08T03:24:42.707Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//div[contains(@class, 'text-dark') and contains(., '20')] in page."}
+{"level":30,"time":"2026-05-08T03:24:42.723Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Retrieved text for element xpath=//div[contains(@class, 'text-dark') and contains(., '20')] containing 202605080010"}
+{"level":30,"time":"2026-05-08T03:24:42.723Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getText"}
+{"level":30,"time":"2026-05-08T03:24:42.729Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:42.729Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-back\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:42.870Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:42.882Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:42.882Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"sidebar-menu-17\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:42.932Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:42.936Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:42.936Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//input[@id=\"queue-booking-tracking-search-referenceNumber\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:42.947Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:42.952Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:42.953Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-tracking-search-reserveDate in page."}
+{"level":30,"time":"2026-05-08T03:24:43.331Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:43.334Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method press"}
+{"level":30,"time":"2026-05-08T03:24:43.335Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-tracking-search-reserveDate in page."}
+{"level":30,"time":"2026-05-08T03:24:43.370Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method press"}
+{"level":30,"time":"2026-05-08T03:24:43.372Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:43.372Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with id=queue-booking-tracking-search-reserveDate in page."}
+{"level":30,"time":"2026-05-08T03:24:43.386Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method fillText"}
+{"level":30,"time":"2026-05-08T03:24:43.391Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method selectOption"}
+{"level":30,"time":"2026-05-08T03:24:43.391Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//select[@id=\"queue-booking-tracking-search-statusId\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:43.413Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Option entries: 6"}
+{"level":30,"time":"2026-05-08T03:24:43.413Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Selected entries: 1"}
+{"level":30,"time":"2026-05-08T03:24:43.413Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method selectOption"}
+{"level":30,"time":"2026-05-08T03:24:43.417Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method click"}
+{"level":30,"time":"2026-05-08T03:24:43.417Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//*[@id=\"queue-booking-tracking-btn-search\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:43.461Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method click"}
+{"level":30,"time":"2026-05-08T03:24:53.465Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-05-08T03:24:53.465Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//span[contains(@class, \"reference-number\") and text()=\"202605080010\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:53.467Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-05-08T03:24:53.470Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2026-05-08T03:24:53.471Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is disabled, return Locator: xpath=//span[contains(@class, \"reference-number\") and text()=\"202605080010\"] in page."}
+{"level":30,"time":"2026-05-08T03:24:53.472Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getElementCount"}
+{"level":30,"time":"2026-05-08T03:24:53.478Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-05-08T03:24:53.478Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is enabled, find Locator with xpath=//div[contains(@class, 'card-body') and .//span[text()=\"202605080010\"]]//div[contains(@class, 'card-content') and ./span[text()='Date To TMO'] and contains(., \"23/05/2026\")] in page."}
+{"level":30,"time":"2026-05-08T03:24:53.481Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-05-08T03:24:53.484Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getElementCount"}
+{"level":30,"time":"2026-05-08T03:24:53.484Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Strict mode is disabled, return Locator: xpath=//div[contains(@class, 'card-body') and .//span[text()=\"202605080010\"]]//div[contains(@class, 'card-content') and ./span[text()='Date To TMO'] and contains(., \"23/05/2026\")] in page."}
+{"level":30,"time":"2026-05-08T03:24:53.486Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getElementCount"}
+{"level":30,"time":"2026-05-08T03:24:53.491Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-05-08T03:24:53.501Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Removed page=16c95739-ba14-4984-a3be-113006c1e534 from context=5c04c34e-a1c2-4b77-9869-00235cb9db4d page stack"}
+{"level":30,"time":"2026-05-08T03:24:53.767Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-05-08T03:24:53.771Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-08T03:24:53.771Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
 ================= Original suppressed error =================
 Error: Browser has been closed.
     at PlaywrightState.getActiveBrowser (C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js:8777:13)
@@ -211,7 +201,7 @@ Error: Browser has been closed.
     at endReadableNT (node:internal/streams/readable:1729:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
 =============================================================
-{"level":30,"time":"2026-05-05T04:49:01.361Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-05T04:49:01.362Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-05T04:49:01.402Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method closeAllBrowsers"}
-{"level":30,"time":"2026-05-05T04:49:01.402Z","pid":26716,"hostname":"SORATHON-NB-INTERN","msg":"End of node method closeAllBrowsers"}
+{"level":30,"time":"2026-05-08T03:24:53.778Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-08T03:24:53.778Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-08T03:24:53.834Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2026-05-08T03:24:53.834Z","pid":29136,"hostname":"SORATHON-NB-INTERN","msg":"End of node method closeAllBrowsers"}

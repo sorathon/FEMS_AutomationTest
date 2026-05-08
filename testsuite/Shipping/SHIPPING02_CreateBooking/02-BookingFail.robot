@@ -2,16 +2,16 @@
 Resource    ../../../resoures/config.robot
 Resource    ../../../pages/shipping/shipping_createBooking_page.robot
 
-Test Setup       Login As shipping User
+Test Setup   Run Keywords   Login To System As Shipping User   
+...          AND            Prepare All Random Variables    
+...          AND            Open Create Booking Page
 Test Teardown    Close Web Application
-Test Template    Verify Booking Failed
 
 *** Test Cases ***
-TC_06: create booking fail when driver is unavailable
-    [Documentation]    ทดสอบกรณีสร้าง booking ไม่สำเร็จ
-    2026-July-01    มก232    กระบี่    รถยนต์ 4 ที่นั่ง    7-7777-77777-77-7   
-    ...    ${EMPTY}           TG             ภายในประเทศ/ท่าอื่น    10    30            ของมีค่า(TG)    
-    ...    GH587333777777      VG778777777
+TC_09: Create Booking Validation - Mandatory Field Missing
+    [Template]    Create New Booking
+    Fail           2026-July-10         7-7777-77777-77-7           ${EMPTY}        กระบี่       รถยนต์ 4 ที่นั่ง      รับสินค้าขาเข้าปกติ        TG      ภายในประเทศ/ท่าอื่น    10  30   ของมีค่า(TG)      #GH587333777799     HAWB001
+    ...    ${MANY_PRODUCT_LIST}
 
 
 

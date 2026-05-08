@@ -1,81 +1,77 @@
 *** Settings ***
 Library    Browser
 Library    String
-Resource   ../../pages/shipping/shipping_login_page.robot
-Resource   ../../pages/shipping/shipping_createBooking_page.robot
-Resource   ../../resoures/utils/data_generator.robot
+Library    DateTime
 
+Resource    ../../pages/shipping/shipping_createBooking_page.robot
 
 *** Variables ***
-
-
-
+# --- Locators ---
+${TXT_SEARCH_REF_NO}        xpath=//input[@id="queue-booking-tracking-search-referenceNumber"]
+${TXT_SEARCH_SUBMIT_DATE}   xpath=//input[@id="queue-booking-tracking-search-submitDate"]
+${TXT_SEARCH_RESERVE_DATE}  id=queue-booking-tracking-search-reserveDate
+${DDL_SEARCH_STATUS}        xpath=//select[@id="queue-booking-tracking-search-statusId"]
+${BTN_SEARCH_QUEUE}         xpath=//*[@id="queue-booking-tracking-btn-search"]
 
 *** Keywords ***
-Queue Booking
-    [Arguments]     ${Booking Date}       ${status}       
-    
-    Verify Booking Success   ${RAND_DATE_FULL}  
-    ...     ${RAND_LICENSE}        กระบี่            รถยนต์ 4 ที่นั่ง       
-    ...     ${RAND_DRIVER_ID}      รับสินค้าขาเข้าปกติ            TG               
-    ...     ภายในประเทศ/ท่าอื่น     10    30            ของมีค่า(TG)    
-    ...      ${RAND_DEC_NO}    ${RAND_HAWB}   
-    
-    Fill Text    xpath=//input[@id="queue-booking-tracking-search-referenceNumber"]            ${GLOBAL_BOOKING_ID}
-    Fill Text    xpath=//input[@id="queue-booking-tracking-search-submitDate"]        ${Booking Date}
-    
-    
+# ---------------------------------------------------------
+# ACTIONS (พฤติกรรมการกด/กรอกของ User)
+# ---------------------------------------------------------
+Open Queue Booking Page
+    Click    ${MNU_SIDEBAR_QUEUE_BOOKING}
 
-    Click    id=queue-booking-tracking-search-reserveDate
+Search Booking In Queue Booking
+    [Documentation]    ค้นหาคิวบุ๊คกิ้งโดยใช้ Booking ID, วันที่ และสถานะ
+    [Arguments]    ${booking_id}    ${submit_date}=${EMPTY}    ${reserve_date}=${EMPTY}    ${status}=${EMPTY}
     
-
-    Press Keys    id=queue-booking-tracking-search-reserveDate    Control+A    Backspace
+    # กรอก Reference Number
+    Fill Text    ${TXT_SEARCH_REF_NO}    ${booking_id}
     
-    Fill Text     id=queue-booking-tracking-search-reserveDate        ${RAND_DATE_NUM}
-
-    Select Options By       xpath=//select[@id="queue-booking-tracking-search-statusId"]  text   ${status}
-    Sleep   3 seconds
-    Click  xpath=//*[@id="queue-booking-tracking-btn-search"]  
+    # กรอก Submit Date (ถ้ามี)
+    IF    $submit_date
+        Fill Text    ${TXT_SEARCH_SUBMIT_DATE}    ${submit_date}
+    END
     
-    Verify Date in Search Result         ${RAND_DATE_NUM}        ${GLOBAL_BOOKING_ID}
-    Search Auto By Booking ID             ${GLOBAL_BOOKING_ID}
-
-    Sleep     5  seconds
-
-
+    # เคลียร์ค่าและกรอก Reserve Date (ถ้ามี)
+    IF    $reserve_date
+        Click         ${TXT_SEARCH_RESERVE_DATE}
+        Press Keys    ${TXT_SEARCH_RESERVE_DATE}    Control+A    Backspace
+        Fill Text     ${TXT_SEARCH_RESERVE_DATE}    ${reserve_date}
+    END
     
+    # เลือก Status (ถ้ามี)
+    IF    $status
+        Select Options By    ${DDL_SEARCH_STATUS}    text    ${status}
+    END
+    
+    Click    ${BTN_SEARCH_QUEUE}
+    # แทนที่ Sleep ด้วยการรอให้โหลดเสร็จ (ถ้ามี Loading Spinner ให้ Wait For Element State hidden แทน)
 
-Search Auto By Booking ID
+# ---------------------------------------------------------
+# VERIFICATIONS (การตรวจสอบผลลัพธ์)
+# ---------------------------------------------------------
+
+Verify Booking Is Displayed In Search Result
+    [Documentation]    ตรวจสอบว่าพบ Reference Number นี้ในตารางผลลัพธ์
     [Arguments]    ${target_booking_id}
     
-    Wait For Elements State    xpath=//span[contains(@class, "reference-number") and text()="${target_booking_id}"]    visible    timeout=7s
-    
-    ${count}=    Get Element Count    xpath=//span[contains(@class, "reference-number") and text()="${target_booking_id}"]
-    
-    Log To Console    \n[INFO] Found Booking ID ${target_booking_id}: ${count} record(s)
-    [Return]    ${count}
-
-
-    
-    
-
-Verify Date in Search Result
-    [Arguments]    ${expected_date}    ${target_booking_id}
-    
-    IF    '${expected_date}' == '${EMPTY}'    [Return]    ${0}
-
-    ${ui_date}=    Convert Date    ${expected_date}    
-    ...    date_format=%Y-%m-%d    
-    ...    result_format=%d/%m/%Y
-
-    IF    '${target_booking_id}' != '${EMPTY}'
-        ${locator}=    Set Variable    xpath=//div[contains(@class, 'card-body') and .//span[text()="${target_booking_id}"]]//div[contains(@class, 'card-content') and ./span[text()='Date To TMO'] and contains(., "${ui_date}")]
-    END
-
+    ${locator}=    Set Variable    xpath=//span[contains(@class, "reference-number") and text()="${target_booking_id}"]
     Wait For Elements State    ${locator}    visible    timeout=10s
-    ${count}=    Get Element Count    ${locator}
-    
-    Log To Console    \n[INFO] Verified Date To TMO: ${ui_date} for Booking: ${target_booking_id} | Found: ${count}
-    
-    [Return]    ${count}
+    ${count}=      Get Element Count       ${locator}
+    Log To Console    \n[INFO] Found Booking ID ${target_booking_id}: ${count} record(s)
+    RETURN    ${count}
 
+
+Verify Date To TMO In Search Result
+    [Documentation]    ตรวจสอบว่าวันที่ TMO แสดงผลถูกต้องตรงกับ Booking ID นั้นๆ
+    [Arguments]    ${target_booking_id}    ${expected_date_num}
+    
+    # แปลง Format วันที่ให้ตรงกับหน้า UI (สมมติว่ารับมาเป็น 2026-05-10 ต้องแปลงเป็น 10/05/2026)
+    ${ui_date}=    Convert Date    ${expected_date_num}    date_format=%Y-%m-%d    result_format=%d/%m/%Y
+    
+    ${locator}=    Set Variable    xpath=//div[contains(@class, 'card-body') and .//span[text()="${target_booking_id}"]]//div[contains(@class, 'card-content') and ./span[text()='Date To TMO'] and contains(., "${ui_date}")]
+    
+    Wait For Elements State    ${locator}    visible    timeout=10s
+    ${count}=      Get Element Count       ${locator}
+    Log To Console    \n[INFO] Verified Date To TMO: ${ui_date} for Booking: ${target_booking_id} | Found: ${count}
+    RETURN    ${count}
