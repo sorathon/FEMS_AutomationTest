@@ -23,10 +23,12 @@ TC-12: Create Draft Booking and Verify Search Consistency
     
 
     Tracking Booking    
-    ...     BOOKING_ID=${GLOBAL_BOOKING_ID}          
+    ...     BOOKING_ID=${GLOBAL_BOOKING_ID}   
+    ...     Declaration_No=${ACTUAL_DEC}  
+    ...     Date_To_TMO=${RAND_DATE_FULL}     
     ...     HAWD_NO=${ACTUAL_HAWB}    
-    ...     Date_To_TMO=${RAND_DATE_FULL}
-
+   
+   
         
 
 # Search Tracking By Declaration Number

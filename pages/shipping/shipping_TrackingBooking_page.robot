@@ -70,6 +70,7 @@ Tracking Booking
     END
     # รอให้เห็นผลลัพธ์ด้วยตา (ลดเวลาลงจาก 20s เป็น 5s เพื่อความรวดเร็ว)
     ${ACTUAL_HAWB}=    Set Global Variable     ${SINGLE_PRODUCT_LIST[0]['hawb']}
+    ${ACTUAL_DEC}=    Set Global Variable     ${SINGLE_PRODUCT_LIST[0]['dec_no']}
     Sleep    5 seconds  
 
 
