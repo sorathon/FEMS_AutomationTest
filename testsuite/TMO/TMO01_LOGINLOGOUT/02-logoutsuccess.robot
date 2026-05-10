@@ -8,7 +8,7 @@ Test Teardown    Close Web Application
 
 
 *** Test Cases ***
-TC_01: Login Success with Valid Credentials
+TC_02: Logout Success with Valid Credentials
     [Documentation]    ทดสอบกรณี logout ออกสู่ระบบสำเร็จ
     TMO_Logout
     Vertify Logout success

@@ -14,7 +14,7 @@ ${url_homeTMO}      https://uataotfems.netbay.co.th/fems/#/mainmenu/announcement
 
 #Queue Booking
 ${MENU_QUEUEMANAGMENT}    xpath=//*[@id="sidebar-menu-25"]
-${MENU_INPORT}    xpath=//*[@id="sidebar-sub-menu-33"]
+${MENU_IMPORT}            xpath=//*[@id="sidebar-sub-menu-33"]
 
 *** Keywords ***
 TMOLoginsuccess
@@ -47,6 +47,7 @@ Verify LoginTMO Failed
     [Arguments]    ${expected_text}=Login Failed
     Get Url  contains  ${url_loginTMO}
     Get Text    xpath=//*[@id="swal2-title"]    contains    ${expected_text}
+    
 Verify LoginTMO Empty
     [Arguments]   ${username}    ${password}    ${expected_tooltip}
     Input LoginTMO Credentials    ${username}         ${password}

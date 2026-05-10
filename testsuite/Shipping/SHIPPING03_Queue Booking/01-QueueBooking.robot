@@ -17,7 +17,7 @@ Test Teardown    Close Web Application
 *** Test Cases *** 
 TC_11: Create Booking and Verify user can search and find existing booking in Queue Tracking     
    [Documentation]   สร้าง boking ใหม่จากนั้นหาคิวด้วยค่าที่ได้ใส่เเละได้จาก booking
-   Create New Booking
+   Create New Booking And Check Booking status
     ...     SUCCESS        ${RAND_DATE_FULL}         7-7777-77777-77-7           กข1234        กระบี่       รถยนต์ 4 ที่นั่ง      รับสินค้าขาเข้าปกติ      
     ...      TG      ภายในประเทศ/ท่าอื่น    10  30   ของมีค่า(TG)   
     ...    ${SINGLE_PRODUCT_LIST}

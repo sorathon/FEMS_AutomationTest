@@ -8,7 +8,7 @@ Test Teardown    Close Web Application
 
 
 *** Test Cases ***
-TC_06: Login Success with Valid Credentials
+TC_06: Logout Success with Valid Credentials
     [Documentation]    ทดสอบระบบ Logout โดยต้องกลับสู่หน้า login ใหม่อีกครั้ง 
     Check Logout
     Vertify Logout success

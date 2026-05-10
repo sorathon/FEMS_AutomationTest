@@ -14,7 +14,7 @@ Test Teardown    Close Web Application
 TC-12: Create Draft Booking and Verify Search Consistency
     [Documentation]    ทดสอบการสร้าง Booking ใหม่ และตรวจสอบว่าระบบแสดงข้อมูลถูกต้องในหน้า Tracking
 
-    Create New Booking
+    Create New Booking And Check Booking status
     ...    SUCCESS                    ${RAND_DATE_FULL}            ${RAND_DRIVER_ID}       ${RAND_LICENSE}                   กระบี่
     ...    รถยนต์ 4 ที่นั่ง               รับสินค้าขาเข้าปกติ
     ...    TG                        ภายในประเทศ/ท่าอื่น                 10  30

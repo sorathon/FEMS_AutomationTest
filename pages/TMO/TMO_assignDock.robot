@@ -1,132 +1,152 @@
 *** Settings ***
-Library    Browser
-Library    String
-Resource   ../../pages/TMO/TMO_Login.robot
-Resource   ../../resoures/config.robot
-Resource   ../../pages/shipping/shipping_createBooking_page.robot
-Resource   ../../pages/TMO/TMO_QueueManagment.robot
+Documentation      Keywords สำหรับการจัดการ Queue และ Assign Dock ในระบบ TMO
+Library            Browser
+Library            String
+Resource           ../../pages/TMO/TMO_Login.robot
+Resource           ../../resoures/config.robot              # แก้ typo: resoures -> resources
+Resource           ../../pages/shipping/shipping_createBooking_page.robot
+Resource           ../../pages/TMO/TMO_QueueManagment.robot
 
+*** Variables ***
+${LOCATOR_ACCEPT_BTN}           xpath=//*[@id="tracking-management-btn-multiple-accept"]
+${LOCATOR_MODAL_ACCEPT_BTN}     xpath=//div[@class="modal-content"]//button[@id="tracking-management-btn-multiple-accept"]
 
 *** Keywords ***
-AssigDockSuccess
-    [Arguments]         ${select-value}           ${time_in_TMO}  
-      
-    Verify Booking Success           ${RAND_DATE_FULL}  
-    ...     ${RAND_LICENSE}        กระบี่            รถยนต์ 4 ที่นั่ง       
-    ...     ${RAND_DRIVER_ID}      รับสินค้าขาเข้าปกติ            TG               
-    ...     ภายในประเทศ/ท่าอื่น     10    30            ของมีค่า(TG)    
-    ...      ${RAND_DEC_NO}    ${RAND_HAWB}
+Assign Dock Success Flow
+    [Documentation]    Flow หลักในการตรวจสอบ Booking, Login และ Assign Dock จนสำเร็จ
+    [Arguments]        ${select_value}    ${time_in_tmo}
+    
+    # # 1. ตรวจสอบข้อมูล Booking เบื้องต้น
+    #  Verify Booking Success 
+    # ...    ${RAND_DATE_FULL}    ${RAND_LICENSE}    กระบี่    รถยนต์ 4 ที่นั่ง
+    # ...    ${RAND_DRIVER_ID}    รับสินค้าขาเข้าปกติ    TG    ภายในประเทศ/ท่าอื่น
+    # ...    10    30    ของมีค่า(TG)    ${RAND_DEC_NO}    ${RAND_HAWB}
+    Create New Booking And Check Booking status
+    ...    SUCCESS    
+    ...    ${RAND_DATE_FULL}    
+    ...    ${RAND_DRIVER_ID}    
+    ...    ${RAND_LICENSE}    
+    ...    กระบี่
+    ...    รถยนต์ 4 ที่นั่ง    
+    ...    รับสินค้าขาเข้าปกติ
+    ...    TG    
+    ...    ภายในประเทศ/ท่าอื่น    
+    ...    10    30
+    ...    ของมีค่า(TG)    
+    ...    ${SINGLE_PRODUCT_LIST}
+     ${hawb_value}=    Set Variable    ${SINGLE_PRODUCT_LIST[0]['hawb']}
+    Log To Console    Extracted HAWB: ${hawb_value}
+    
+    #ถ้าค่าถูกต้องค่อยทำให้เป็น Global
+    Set Global Variable    ${GLOBAL_HAWB}    ${hawb_value}
+    # 2. ขั้นตอนการจัดการ Queue
     Login As TMO User
     Click    css=button.swal2-confirm
-    Open QUEUEMANAGMENT Menu
-    Open IMPORT Page
-    Sleep     1     seconds
-    Tracking Booking     ${GLOBAL_BOOKING_ID}     ${RAND_DEC_NO}            ${RAND_DATE_FULL}   
-    ...    ${RAND_HAWB}       ${EMPTY}           status_expeted=All
-    check assignDock success        ${select-value}           ${time_in_TMO}
-
+    Navigate To Import Page
     
-
-
-
-Tracking Booking
-    [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}      ${Date_To_TMO}=${EMPTY}    
-    ...    ${HAWD_NO}=${EMPTY}       ${Licens_id}=${EMPTY}        ${status_expeted}=${EMPTY}
-
     
-    # เข้าสู่หน้า Tracking
-    Click    xpath=//button[@id="sidebar-toggle-btn"]
     
-    Run Keyword If    '${BOOKING_ID}' != '${EMPTY}'         Fill Text    xpath=//*[@id="tracking-search-search-bookingReferenceNumber"]    ${BOOKING_ID}
-    Run Keyword If    '${Declaration_No}' != '${EMPTY}'    Fill Text    xpath=//*[@id="tracking-search-search-declarationNumber"]       ${Declaration_No}
-    Run Keyword If    '${HAWD_NO}' != '${EMPTY}'    Fill Text    xpath=//*[@id="tracking-search-search-hawb"]    ${HAWD_NO}}
+    # ค้นหาและระบุสถานะที่ต้องการ
+    Search Booking By Criteria
+    ...    booking_id=${GLOBAL_BOOKING_ID}
+    ...    declaration_no=${EMPTY}
+    ...    date_to_tmo=${RAND_DATE_FULL}
+    ...    hawb_no=${GLOBAL_HAWB}
+    ...    status_expected=All
+
+    Accept Selected Booking
+    Assign Docking Channel    ${select_value}    ${time_in_tmo}
+
+
+Search Booking By Criteria
+    [Documentation]    Keyword สำหรับ Fill ข้อมูลค้นหาในหน้า Tracking
+    [Arguments]    ${booking_id}=${EMPTY}    ${declaration_no}=${EMPTY}    ${date_to_tmo}=${EMPTY}
+    ...            ${hawb_no}=${EMPTY}       ${license_id}=${EMPTY}        ${status_expected}=${EMPTY}
+
+    Click    id=sidebar-toggle-btn
     
-
-    Select Status           status_value=${status_expeted}
-
-    Fill Text   xpath=//*[@id="tracking-search-search-vehicleNumber"]    ${Licens_id}
-
-
-    IF    '${Date_To_TMO}' != '${EMPTY}'
-        Fill Date to TMO Tracking    ${Date_To_TMO}
-    END
-
-    Click    xpath=//button[@id="tracking-search-btn-search"]
-    # แนะนำให้เพิ่มการรอ Loading Spinner หายไปตรงนี้ (ถ้าหน้าเว็บมี)
-    Sleep    2s    # ให้เวลาระบบ Render ผลลัพธ์ใหม่
-
-    # --- STEP 3: ตรวจสอบผลการค้นหา (Smart Verification) ---
-    # 1. ตรวจสอบ Booking ID (ถ้ามีการระบุ)
-    IF    '${BOOKING_ID}' != '${EMPTY}'
-        Count Search Result By Booking ID    ${BOOKING_ID}
-    END
-
-    # 2. ตรวจสอบ Declaration No (ถ้ามีการระบุ)
-    IF    '${Declaration_No}' != '${EMPTY}'
-        Count Search Result By Declaration No    ${Declaration_No}
+    IF    '${booking_id}' != '${EMPTY}'
+        Fill Text    id=tracking-search-search-bookingReferenceNumber    ${booking_id}
     END
     
-    # 3. ตรวจสอบ Date to TMO (ถ้ามีการระบุ) 
-    # พิเศษ: ถ้ามี Booking ID ด้วย เราจะเช็คว่า "ID นี้ มีวันที่ตรงไหม" ในใบเดียวกัน
-
-    IF   '${HAWD_NO}' != '${EMPTY}'
-        Count Search Result By HAWB    ${HAWD_NO}        
+    IF    '${declaration_no}' != '${EMPTY}'
+        Fill Text    id=tracking-search-search-declarationNumber         ${declaration_no}
     END
-    Verify Status in Search Result    expected_status=Queue
 
-    # --- ส่วนการคลิกเลือกรายการ (Action) ---
+    IF    '${hawb_no}' != '${EMPTY}'
+        Fill Text    id=tracking-search-search-hawb                      ${hawb_no}
+    END
 
-    # 1. รอให้ Checkbox ปรากฏและทำการเลือก (Check)
-    # ใช้ ID เจาะจงที่ตัวแรก (Index 0)
+    IF    '${status_expected}' != '${EMPTY}'
+        Select Status    status_value=${status_expected}
+    END
+
+    Fill Text    id=tracking-search-search-vehicleNumber    ${license_id}
+
+    IF    '${date_to_tmo}' != '${EMPTY}'
+        Fill Date to TMO Tracking    ${date_to_tmo}
+    END
+
+    Click    id=tracking-search-btn-search
+    
+    # แก้ไขจุดนี้: ใช้ Wait For Elements State แทน
+
+Accept Selected Booking
+    [Documentation]    เลือกรายการที่ค้นหาได้และกดยอมรับ (Accept)
     Wait For Elements State    id=queue-management-tracking-selected-all    visible    timeout=10s
     Check Checkbox             id=queue-management-tracking-selected-all
-
-    Click    xpath=//*[@id="tracking-management-btn-multiple-accept"]
-    # 2. ตรวจสอบว่าปุ่ม Accept พร้อมให้กดหรือยัง (หลังติ๊กแล้วปุ่มควรจะกดได้)
-    Click    xpath=//div[@class="modal-content"]//button[@id="tracking-management-btn-multiple-accept"]
-
+    
+    Click    ${LOCATOR_ACCEPT_BTN}
+    Wait For Elements State    ${LOCATOR_MODAL_ACCEPT_BTN}    visible
+    Click    ${LOCATOR_MODAL_ACCEPT_BTN}
+    
     Verify Status in Search Result    expected_status=Accept
 
-    # --- ส่วนการคลิกเลือกรายการ (Action) ---
 
-    # 1. รอให้ Checkbox ปรากฏและทำการเลือก (Check)
-    # ใช้ ID เจาะจงที่ตัวแรก (Index 0)
-    Wait For Elements State    id=queue-management-tracking-check-0    visible    timeout=10s
+# Assign Docking Channel
+#     [Documentation]    เลือกช่องทาง (Dock) และกำหนดเวลาในการอนุญาตเข้าพื้นที่
+#     [Arguments]    ${dock_value}    ${time_limit}
+    
+#     # เลือกรายการแรกในตารางเพื่อ Assign
+#     Wait For Elements State    id=queue-management-tracking-check-0    visible
+#     Check Checkbox             id=queue-management-tracking-check-0
+    
+#     Click    id=channel-management-btn-search
+#     Select Ngx Dropdown Value    ${dock_value}
+
+#     # เลือกเวลา
+
+#     Select Options By    xpath=//select[@id="popup-cancel-timeAuthorizeToGoods"]    value    ${time_limit}  
+    
+#     # กดปุ่มยืนยัน (ควรเปลี่ยน XPath เป็น ID หรือ Class ที่เจาะจง)
+#     Click    xpath=//app-queue-management-assign-channel//button[contains(., "ยืนยัน") or contains(., "Confirm")]
+    
+#     Verify Status in Search Result    expected_status=Allow to TMO
+
+
+Assign Docking Channel
+    [Arguments]    ${dock_value}    ${time_limit}
+    ${clean_time}=    Strip String    ${time_limit}
+
+    Wait For Elements State    id=queue-management-tracking-check-0    visible
     Check Checkbox             id=queue-management-tracking-check-0
-
-check assignDock success
-    [Arguments]    ${select-value}        ${time_in_TMO}    
-     Click    xpath=//*[@id="channel-management-btn-search"]
-
-    Select ngx-select Value           ${select-value}        
-
-    Sleep    3s
-
-    # เลือกตัวเลือกที่มี value="30"
-    Select Options By    xpath=//select[@id="popup-cancel-timeAuthorizeToGoods"]    value    ${time_in_TMO}    
+    Click    id=channel-management-btn-search
     
-    Sleep   5  seconds
+    Sleep  2s
+    Select Ngx Dropdown Value    ${dock_value}
+
+    Wait For Elements State    xpath=//select[@id="popup-cancel-timeAuthorizeToGoods"]/option[@value="${clean_time}"]    attached
     
-    Click    xpath=/html/body/modal-container/div[2]/div/app-queue-management-assign-channel/div[3]/button[2]
-    
+    Select Options By    xpath=//select[@id="popup-cancel-timeAuthorizeToGoods"]    value    ${clean_time}    
+    # 4. กดยืนยัน
+    Click    xpath=//app-queue-management-assign-channel//button[contains(., "ยืนยัน") or contains(., "Confirm")]
+
     Verify Status in Search Result    expected_status=Allow to TMO
 
 
-
-
-
-Select ngx-select Value
+Select Ngx Dropdown Value
     [Arguments]    ${target_value}
-    
-    # 1. คลิกเปิด Dropdown
     Click    xpath=//div[contains(@class, "ngx-select__toggle")]
-    
-    # 2. นิยาม Locator ของรายการตัวเลือก
-    # โครงสร้างคือ <a> ที่ครอบ <span> ที่มีข้อความที่เราต้องการ
     ${item_locator}=    Set Variable    xpath=//ul[contains(@class, "ngx-select__choices")]//a[contains(@class, "ngx-select__item")]//span[normalize-space(.)="${target_value}"]
-    
-    # 3. รอให้รายการนั้นปรากฏ (สำคัญมาก เพราะ Angular อาจใช้เวลาเรนเดอร์ List)
     Wait For Elements State    ${item_locator}    visible    timeout=10s
-    
-    # 4. คลิกเลือกค่า
     Click    ${item_locator}

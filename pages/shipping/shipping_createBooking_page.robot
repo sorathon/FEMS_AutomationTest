@@ -131,8 +131,7 @@ Fill Date to TMO
 # ==========================================
 # 2. MASTER TEMPLATE (หัวใจสำคัญของ QA)
 # ==========================================
-
-Create New Booking
+Create New Booking And Check Booking status
     [Arguments]    ${mode}    ${date}    ${driver_id} 
     ...       ${license}    ${province}    ${car_type}  
     ...      ${type}    ${origin}    ${dest}    ${hr}    ${min}  
@@ -175,6 +174,9 @@ Create New Booking
         Click    ${BTN_BOOKING_SUBMIT}
         Wait For Elements State    ${LBL_ERROR_ALERT}    visible
     END
+
+   
+
 
 
 # *** Settings ***

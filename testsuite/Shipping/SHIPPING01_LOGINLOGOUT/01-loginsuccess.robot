@@ -9,7 +9,7 @@ Test Template    LoginSuccess
 
 
 *** Test Cases ***    username              password
-TC_01: Login Success with Valid Credentials
+TC_01: Login Success with Valid Credentials vertify by url change
     [Documentation]    ทดสอบกรณีกรอกรหัสผ่านและ Username ถูกต้อง ระบบต้องเข้าสู่ระบบสำเร็จ   
                       trainingship          Netbay@123
     
