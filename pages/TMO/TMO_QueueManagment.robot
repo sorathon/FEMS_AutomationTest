@@ -28,9 +28,7 @@ ${BTN_MULTIPLE_ACCEPT}     id=tracking-management-btn-multiple-accept
 ${BTN_MODAL_CONFIRM}       xpath=//div[@class="modal-content"]//button[@id="tracking-management-btn-multiple-accept"]
 
 *** Keywords ***
-# =================================================================================
-#  GROUP 1: HIGH-LEVEL FLOWS (เรียกใช้ใน Test Case)
-# =================================================================================
+
 QueueAcceptSuccess
     [Arguments]    ${booking_id}=${EMPTY}    ${dec_no}=${EMPTY}    ${date}=${EMPTY}    ${hawb}=${EMPTY}    ${plate}=${EMPTY}    ${status}=${EMPTY}
     Login As TMO User
@@ -61,9 +59,6 @@ QueueAcceptFailed
     Click                      ${BTN_MULTIPLE_ACCEPT}
     Verify Eligibility Error Appears
 
-# =================================================================================
-#  GROUP 2: ACTION KEYWORDS (ระดับปฏิบัติการ)
-# =================================================================================
 
 Navigate To Import Page
     Click    ${MENU_QUEUE_MGT}
@@ -99,9 +94,7 @@ Perform Accept Action
     Click                      ${BTN_MODAL_CONFIRM}
     Sleep    5s
 
-# =================================================================================
-#  GROUP 3: UTILITY & VERIFICATION (งานสนับสนุนและการนับ)
-# =================================================================================
+
 
 Select Status
     [Arguments]    ${status_value}
