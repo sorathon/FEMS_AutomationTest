@@ -149,7 +149,6 @@ Select Goods Type
     IF    '${goods_type_value}' == '${EMPTY}' or '${goods_type_value}' == 'All'
         Select Options By    xpath=//select[@id="tracking-search-search-goodsType"]   label    ${EMPTY}
     ELSE
-
         Select Options By    xpath=//select[@id="tracking-search-search-goodsType"]   label    ${goods_type_value}        
     END
     Sleep  3 seconds  # รอให้ระบบประมวลผลหลังเลือกค่า
