@@ -47,9 +47,7 @@ Search Booking In Queue Booking
     Click    ${BTN_SEARCH_QUEUE}
     # แทนที่ Sleep ด้วยการรอให้โหลดเสร็จ (ถ้ามี Loading Spinner ให้ Wait For Element State hidden แทน)
 
-# ---------------------------------------------------------
-# VERIFICATIONS (การตรวจสอบผลลัพธ์)
-# ---------------------------------------------------------
+
 
 Verify Booking Is Displayed In Search Result
     [Documentation]    ตรวจสอบว่าพบ Reference Number นี้ในตารางผลลัพธ์
