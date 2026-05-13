@@ -21,7 +21,6 @@ ${MENU_CREATE_BOOKING}    xpath=//*[@id="queue-booking-tracking-btn-create"]
 *** Keywords ***
 Check Logout
      Click    xpath=//*[@id="sidebar-panel"]/ul[2]/li[3]/a
-
      Click    css=button.swal2-confirm 
 
 Vertify Logout success

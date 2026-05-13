@@ -38,7 +38,7 @@ Prepare All Random Variables
 
     Set Global Variable    ${MANY_PRODUCT_LIST}    ${final_list}
 
-     Set Global Variable    ${SINGLE_PRODUCT_LIST}    ${single_list}
+    Set Global Variable    ${SINGLE_PRODUCT_LIST}    ${single_list}
 
 Get Random License Plate
     ${rand_char}=      Generate Random String    2    กขคพยรล

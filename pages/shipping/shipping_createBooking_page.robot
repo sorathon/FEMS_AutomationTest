@@ -51,9 +51,6 @@ ${LBL_SUCCESS_BOOKING_ID}      xpath=//div[contains(@class, 'text-dark') and con
 ${LBL_ERROR_ALERT}             text="กรุณาระบุข้อมูลคิวให้ครบทุกคิวก่อนทำการบันทึก"
 
 *** Keywords ***
-
-
-
 Open Create Booking Page
     Click    ${MNU_SIDEBAR_QUEUE_BOOKING}
     Click    ${BTN_CREATE_NEW_BOOKING}

@@ -14,6 +14,7 @@ ${Fill_Licensid}    xpath=//*[@id="tracking-search-search-vehicleNumber"]
 
 
 *** Keywords ***
+#function ใหญ่สุด
 Tracking Booking
     [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}    ${Date_To_TMO}=${EMPTY}    ${HAWD_NO}=${EMPTY}       ${Licens_id}=${EMPTY}        ${Status_Tracking}=${EMPTY}
     
@@ -43,8 +44,41 @@ Tracking Booking
     # แนะนำให้เพิ่มการรอ Loading Spinner หายไปตรงนี้ (ถ้าหน้าเว็บมี)
     Sleep    2s    # ให้เวลาระบบ Render ผลลัพธ์ใหม่
 
+
+    Vertify And Count Search Result    ${BOOKING_ID}    ${Declaration_No}    ${Date_To_TMO}    ${HAWD_NO}       ${Licens_id}        ${Status_Tracking}
+
     # --- STEP 3: ตรวจสอบผลการค้นหา (Smart Verification) ---
     # 1. ตรวจสอบ Booking ID (ถ้ามีการระบุ)
+    # IF    '${BOOKING_ID}' != '${EMPTY}'
+    #     Count Search Result By Booking ID    ${BOOKING_ID}
+    # END
+    # # 2. ตรวจสอบ Declaration No (ถ้ามีการระบุ)
+    # IF    '${Declaration_No}' != '${EMPTY}'
+    #     Vertify and Count Search Result By Declaration No    ${Declaration_No}
+    # END
+    
+    # # 3. ตรวจสอบ Date to TMO (ถ้ามีการระบุ) 
+    # # พิเศษ: ถ้ามี Booking ID ด้วย เราจะเช็คว่า "ID นี้ มีวันที่ตรงไหม" ในใบเดียวกัน
+    # IF    '${Date_To_TMO}' != '${EMPTY}'
+    #     # แปลงวันที่สำหรับการ Verify (เช่น 2026-05-03 -> 03/05/26)
+    #     # หมายเหตุ: ควรใช้ ${RAND_DATE_NUM} ที่เป็น format YYYY-MM-DD เพื่อความแม่นยำของ Convert Date
+    #     ${date_for_verify}=    Convert Date    ${RAND_DATE_NUM}    result_format=%d/%m/%y
+    #     Verify Date in Search Result    ${date_for_verify}    ${BOOKING_ID}
+    # END
+    # IF   '${HAWD_NO}' != '${EMPTY}'
+    #     Vertify and Count Search Result By HAWB     ${HAWD_NO}        
+    # END
+    # IF     '${Licens_id}' != '${EMPTY}'
+    #     Vertify and Count Search Result By Vehicle Plate    ${Licens_id}
+    # END
+    # รอให้เห็นผลลัพธ์ด้วยตา (ลดเวลาลงจาก 20s เป็น 5s เพื่อความรวดเร็ว)
+    ${ACTUAL_HAWB}=    Set Global Variable     ${SINGLE_PRODUCT_LIST[0]['hawb']}
+    ${ACTUAL_DEC}=    Set Global Variable      ${SINGLE_PRODUCT_LIST[0]['dec_no']}
+    Sleep    5 seconds  
+
+
+Vertify And Count Search Result
+    [Arguments]    ${BOOKING_ID}=${EMPTY}    ${Declaration_No}=${EMPTY}    ${Date_To_TMO}=${EMPTY}    ${HAWD_NO}=${EMPTY}       ${Licens_id}=${EMPTY}        ${Status_Tracking}=${EMPTY}
     IF    '${BOOKING_ID}' != '${EMPTY}'
         Count Search Result By Booking ID    ${BOOKING_ID}
     END
@@ -53,7 +87,6 @@ Tracking Booking
     IF    '${Declaration_No}' != '${EMPTY}'
         Vertify and Count Search Result By Declaration No    ${Declaration_No}
     END
-    
     # 3. ตรวจสอบ Date to TMO (ถ้ามีการระบุ) 
     # พิเศษ: ถ้ามี Booking ID ด้วย เราจะเช็คว่า "ID นี้ มีวันที่ตรงไหม" ในใบเดียวกัน
     IF    '${Date_To_TMO}' != '${EMPTY}'
@@ -68,12 +101,6 @@ Tracking Booking
     IF     '${Licens_id}' != '${EMPTY}'
         Vertify and Count Search Result By Vehicle Plate    ${Licens_id}
     END
-    # รอให้เห็นผลลัพธ์ด้วยตา (ลดเวลาลงจาก 20s เป็น 5s เพื่อความรวดเร็ว)
-    ${ACTUAL_HAWB}=    Set Global Variable     ${SINGLE_PRODUCT_LIST[0]['hawb']}
-    ${ACTUAL_DEC}=    Set Global Variable     ${SINGLE_PRODUCT_LIST[0]['dec_no']}
-    Sleep    5 seconds  
-
-
 
 
 Fill Date to TMO Tracking
@@ -136,10 +163,10 @@ Select Destination Agency
     IF    '${destination_value}' == '${EMPTY}' or '${destination_value}' == 'All'
         Select Options By    xpath=//select[@id="tracking-search-search-destination"]   value    ${EMPTY}
     ELSE
-
         Select Options By    xpath=//select[@id="tracking-search-search-destination"]   value    ${destination_value}        
     END
     Sleep  3 seconds  # รอให้ระบบประมวลผลหลังเลือกค่า
+
 
 Select Goods Type
     [Arguments]    ${goods_type_value}
@@ -269,6 +296,8 @@ Verify Date in Search Result
     Log To Console    \n[INFO] Verified Date ${expected_date} for Booking ${target_booking_id}: Found ${count} record(s)
     Should Be True    ${count} > 0    msg=❌ ข้อมูลวันที่ไม่ถูกต้อง หรือไม่พบข้อมูลที่ตรงตามเงื่อนไข
     [Return]    ${count}
+
+
 
 
 Vertify and Count Search Result By Vehicle Plate

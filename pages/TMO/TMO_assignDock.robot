@@ -3,7 +3,7 @@ Documentation      Keywords สำหรับการจัดการ Queue 
 Library            Browser
 Library            String
 Resource           ../../pages/TMO/TMO_Login.robot
-Resource           ../../resoures/config.robot              # แก้ typo: resoures -> resources
+Resource           ../../resoures/config.robot              
 Resource           ../../pages/shipping/shipping_createBooking_page.robot
 Resource           ../../pages/TMO/TMO_QueueManagment.robot
 
